@@ -1,10 +1,10 @@
-"""WanderRAG Week 3 — LangGraph agentic RAG pipeline.
+"""WanderRAG Week 3 — LangGraph agentic RAG pipeline (Week 5: citation-keyed self_check).
 
 Graph shape (StateGraph)::
 
-    START -> rewrite -> retrieve -> self_check --(sufficient | retries>=2)--> generate -> END
-                ^                        |
-                +----(insufficient & retries<2, with feedback)----+
+    START -> rewrite -> retrieve -> generate -> self_check --(passed | retries>=2)--> finalize -> END
+                ^                                    |
+                +----(0 citations resolved & retries<2, with feedback)----+
 
 Nodes
 -----
@@ -12,10 +12,29 @@ Nodes
                   pass) or refine them using the self-check feedback (retry pass).
 * ``retrieve``    embed each sub-query (``openai/text-embedding-3-large`` via
                   OpenRouter), query Qdrant top-k, optionally filtered by country.
-* ``self_check``  LLM judges whether the retrieved chunks can answer the original
-                  query; emits a ``missing`` feedback string used by the next rewrite.
 * ``generate``    answer the original query with inline ``[n]`` citations mapped to
-                  real chunk metadata; low-confidence disclaimer if retries exhausted.
+                  real chunk metadata. This is where citations are *resolved*.
+* ``self_check``  the sufficiency gate. Runs AFTER generate because "resolved
+                  citations" only exist once the answer has been written (see below).
+* ``finalize``    terminal node; stamps ``low_confidence`` and prepends the
+                  LOW-confidence disclaimer when the gate failed.
+
+Why self_check runs after generate (Week 5)
+-------------------------------------------
+A *resolved citation* is defined in ``generate_node``: the inline ``[n]`` markers the
+model actually emitted, bounds-checked against the retrieved chunks. It is therefore a
+**post-generation fact** — at the old pre-generate position, ``self_check`` could not
+read it and instead used an LLM judge, which systematically flagged correct, well-cited
+"what should I visit in X" answers as insufficient because it wanted a ranked list of
+named attractions the corpus doesn't phrase that way (Week 4 investigation: 6/9 flagged,
+5 of those with real citations). The gate now keys on citation resolution:
+
+* ``citations_resolved >= 1``  -> PASS, unconditionally (not intent-aware, not judge-aware).
+* ``citations_resolved == 0``  -> FAIL, unconditionally (the Canada / nonsense case).
+
+The LLM judge is retained ONLY to author the ``missing`` feedback string that the next
+``rewrite`` consumes on a retry; it no longer votes on pass/fail, and it is skipped
+entirely once retries are exhausted (nothing would consume its output).
 
 Every OpenRouter call (chat *and* embedding) is logged with real token counts and
 OpenRouter's reported USD cost to ``logs/week3_cost_log.json`` — no estimates.
@@ -52,6 +71,41 @@ TOP_K = 5
 MAX_RETRIES = 2  # self_check may bounce back to rewrite at most twice
 
 COST_LOG = settings.LOGS_DIR / "week3_cost_log.json"
+
+# --------------------------------------------------------------------------- #
+# ANTI-SPRAY CLAUSE  (Week 5 — deliberate, load-bearing. Do not delete.)
+#
+# WHAT IT PREVENTS: citation spray on content-poor retrieval.
+#
+# Without an explicit licence to decline, a model told to "answer the question AND cite
+# every claim" will, when the retrieved chunks contain no answer, satisfy the citation
+# instruction by attaching EVERY available marker to a hedged non-answer. Measured on the
+# Week 4 prompt (Week 5 audit, 5 samples each, logs/week5.md):
+#
+#     Japan  -> cited ALL 8 chunks [1]..[8] in 1/5 samples; audited 0/8 substantively
+#               supported, while the answer text itself said the sources contain no
+#               recommendations for places to visit in Japan.
+#     Canada -> cited ALL 7 chunks in 1/5 samples.
+#
+# Those sprayed citations are structurally valid (every [n] maps to a real retrieved
+# chunk) but substantively empty — which is exactly what would fool the citation-keyed
+# self_check gate into passing an ungrounded answer. With this clause, Japan and Canada
+# return 0 citations in 5/5 samples and say plainly that the corpus cannot answer, while
+# content-rich countries (Italy 5-6, Norway 2-4 citations) are unaffected.
+#
+# SCOPE — this clause stops *reference* spray and NOTHING ELSE. It does not verify that a
+# cited chunk actually supports the claim it is attached to. Attribution is deliberately
+# NOT gated this week, so Thailand still passes on 1 citation that the audit found
+# unsupported (0/1) — that is surfaced as a THIN pass, not suppressed.
+#
+# Do NOT extend this clause into an attribution instruction (e.g. "don't cite sources that
+# don't support the claim"). Tried on 2026-07-12: it works, but it silently flipped
+# Thailand from a thin pass to a 0-citation fail — i.e. it is an attribution gate wearing
+# a prompt's clothing, and that is a bigger decision than a prompt tweak should make.
+# --------------------------------------------------------------------------- #
+NO_ANSWER_CLAUSE = (
+    "If the sources genuinely do not support an answer, say so and cite nothing."
+)
 
 # Set per run so cost-log rows can be grouped by query.
 _RUN = {"id": None}
@@ -187,6 +241,14 @@ class GraphState(TypedDict, total=False):
     self_check_feedback: str
     final_answer: str
     citations: list[dict]
+    citations_resolved: int   # count of [n] markers that mapped to a real chunk
+    low_confidence: bool      # True iff the gate failed terminally (0 citations)
+    thin_pass: bool           # True iff the gate passed on exactly 1 citation
+    #  ^ A thin pass is a REAL pass (the >=1 rule stands) but a fragile one: it clears the
+    #    gate on a single citation. Week 5 audit found Thailand passing thin on a citation
+    #    that does NOT substantively support its claim (0/1 supported). We surface that
+    #    rather than hide it. NOTE: this flag says "only one citation", NOT "the citation is
+    #    wrong" -- attribution is deliberately NOT gated this week.
     trace: Annotated[list[dict], operator.add]  # append-only per-node log
 
 
@@ -276,63 +338,130 @@ def retrieve_node(state: GraphState) -> dict[str, Any]:
 
 
 def self_check_node(state: GraphState) -> dict[str, Any]:
+    """Sufficiency gate, keyed on CITATION RESOLUTION (not on query intent).
+
+    Runs after ``generate``, because ``citations_resolved`` is produced there and does
+    not exist any earlier. The rule is deterministic — no LLM votes on pass/fail:
+
+        citations_resolved >= 1  ->  PASS   (grounded: the answer cites real chunks)
+        citations_resolved == 0  ->  FAIL   (ungrounded: nothing resolved)
+
+    A 1-citation pass is a *thin* pass and is marked as such in the trace/state rather
+    than being hidden or upgraded.
+    """
     original = state["original_query"]
     chunks = state.get("retrieved_chunks", [])
-    if not chunks:
+    n_resolved = len(state.get("citations", []))
+    retry_count = state.get("retry_count", 0)
+
+    if n_resolved >= 1:
         return {
-            "self_check_passed": False, "self_check_feedback": "no chunks retrieved",
-            "trace": [{"node": "self_check", "passed": False, "reason": "empty retrieval"}],
+            "self_check_passed": True,
+            "self_check_feedback": "",
+            "citations_resolved": n_resolved,
+            "thin_pass": n_resolved == 1,   # passes, but on a single citation -> surfaced
+            "trace": [{
+                "node": "self_check", "passed": True,
+                "method": "citation-resolution gate (>=1 resolved)",
+                "citations_resolved": n_resolved, "thin": n_resolved == 1,
+            }],
         }
-    context = "\n\n".join(
-        f"[{i+1}] ({c['country']}/{c['source_type']}) {c['text'][:600]}"
-        for i, c in enumerate(chunks)
-    )
-    prompt = (
-        "You are judging whether retrieved context is sufficient to answer a "
-        "traveler's question. Be strict: if the context does not actually address "
-        "the question, say it is insufficient.\n"
-        f"Question: {original!r}\n\nContext:\n{context}\n\n"
-        "Respond as JSON: {\"sufficient\": true|false, \"missing\": \"<what's missing, or empty>\"}"
-    )
-    raw = _chat("self_check", FAST_MODEL,
-                [{"role": "user", "content": prompt}], max_tokens=200, json_mode=True)
-    parsed = _parse_json(raw)
-    passed = bool(parsed.get("sufficient", False))
-    missing = str(parsed.get("missing", "") or "")
+
+    # 0 citations resolved -> ungrounded, gate FAILS. The LLM judge is called only to
+    # author retry feedback for the next rewrite, and only if a retry will actually run.
+    missing = "no chunks retrieved" if not chunks else ""
+    if chunks and retry_count < MAX_RETRIES:
+        context = "\n\n".join(
+            f"[{i+1}] ({c['country']}/{c['source_type']}) {c['text'][:600]}"
+            for i, c in enumerate(chunks)
+        )
+        prompt = (
+            "A grounded-answer attempt over the context below produced ZERO usable "
+            "citations. Name what the context is missing so a better search query can "
+            "be written. Do not judge sufficiency; only describe the gap.\n"
+            f"Question: {original!r}\n\nContext:\n{context}\n\n"
+            "Respond as JSON: {\"missing\": \"<what's missing>\"}"
+        )
+        raw = _chat("self_check", FAST_MODEL,
+                    [{"role": "user", "content": prompt}], max_tokens=200, json_mode=True)
+        missing = str(_parse_json(raw).get("missing", "") or "") or "no citable evidence"
+
     return {
-        "self_check_passed": passed, "self_check_feedback": missing,
-        "trace": [{"node": "self_check", "passed": passed, "missing": missing,
-                   "method": "LLM-judge (gpt-4o-mini)"}],
+        "self_check_passed": False,
+        "self_check_feedback": missing,
+        "citations_resolved": 0,
+        "thin_pass": False,
+        "trace": [{
+            "node": "self_check", "passed": False,
+            "method": "citation-resolution gate (0 resolved)",
+            "citations_resolved": 0, "missing": missing,
+        }],
+    }
+
+
+def finalize_node(state: GraphState) -> dict[str, Any]:
+    """Terminal node: stamp low_confidence and prepend the disclaimer if the gate failed."""
+    passed = state.get("self_check_passed", False)
+    n_resolved = state.get("citations_resolved", len(state.get("citations", [])))
+    answer = state.get("final_answer", "") or ""
+    low_conf = not passed
+
+    if low_conf:
+        answer = (
+            "⚠️ Low confidence: none of the retrieved sources could be resolved into a "
+            "citation for this question, so the answer below is not grounded in the "
+            "WanderRAG corpus.\n\n" + answer
+        )
+
+    thin = passed and n_resolved == 1
+    if thin:
+        # Passes the >=1 rule, but on a single citation. Say so out loud rather than
+        # shipping it indistinguishable from a 6-citation answer.
+        answer += ("\n\n_Note: this answer rests on a single supporting source "
+                   "(thin grounding) — treat it with extra caution._")
+
+    return {
+        "final_answer": answer,
+        "low_confidence": low_conf,
+        "citations_resolved": n_resolved,
+        "thin_pass": thin,
+        "trace": [{"node": "finalize", "low_confidence": low_conf,
+                   "citations_resolved": n_resolved, "thin": thin}],
     }
 
 
 def generate_node(state: GraphState) -> dict[str, Any]:
+    """Write the grounded answer and RESOLVE CITATIONS.
+
+    This is the only place a citation becomes real: the model's inline ``[n]`` markers,
+    bounds-checked against the retrieved chunks. ``self_check`` reads the count this
+    node produces. No low-confidence disclaimer is injected here any more — that verdict
+    isn't known until the gate has seen this node's citation count (see ``finalize``).
+    """
     original = state["original_query"]
     chunks = state.get("retrieved_chunks", [])
-    passed = state.get("self_check_passed", False)
-    low_conf = (not passed)  # we only reach generate unpassed when retries are exhausted
 
     if not chunks:
-        answer = ("⚠️ Low confidence: I couldn't find any relevant information in the "
-                  "WanderRAG corpus for this query, so I can't give a grounded answer.")
-        return {"final_answer": answer, "citations": [],
-                "trace": [{"node": "generate", "low_confidence": True, "n_citations": 0,
-                           "reason": "no chunks"}]}
+        answer = ("I couldn't find any relevant information in the WanderRAG corpus for "
+                  "this query, so I can't give a grounded answer.")
+        return {"final_answer": answer, "citations": [], "citations_resolved": 0,
+                "trace": [{"node": "generate", "n_citations": 0, "reason": "no chunks"}]}
 
     numbered = "\n\n".join(
         f"[{i+1}] source_type={c['source_type']} | country={c['country']} | "
         f"url={c['source_url']}\n{c['text'][:800]}"
         for i, c in enumerate(chunks)
     )
-    disclaimer = (
-        "Begin your answer with one sentence flagging that confidence is LOW because "
-        "the retrieved sources may not fully cover the question. "
-    ) if low_conf else ""
     prompt = (
         "Answer the traveler's question using ONLY the numbered sources below. "
         "Cite sources inline as [n] immediately after each claim, using only the "
         "numbers shown. Do not invent sources or facts not present in the context. "
-        f"{disclaimer}\n\nQuestion: {original!r}\n\nSources:\n{numbered}"
+        # Deliberate anti-spray clause -- see NO_ANSWER_CLAUSE above. Removing this
+        # re-enables citation spray on content-poor retrieval (Japan/Canada cite all
+        # 7-8 chunks with 0/8 substantive support), which would defeat the
+        # citation-keyed self_check gate.
+        f"{NO_ANSWER_CLAUSE}"
+        f"\n\nQuestion: {original!r}\n\nSources:\n{numbered}"
     )
     answer = _chat("generate", GEN_MODEL,
                    [{"role": "user", "content": prompt}], max_tokens=700, temperature=0.3)
@@ -349,7 +478,8 @@ def generate_node(state: GraphState) -> dict[str, Any]:
                               "score": round(c["score"], 3)})
     return {
         "final_answer": answer, "citations": citations,
-        "trace": [{"node": "generate", "model": GEN_MODEL, "low_confidence": low_conf,
+        "citations_resolved": len(citations),
+        "trace": [{"node": "generate", "model": GEN_MODEL,
                    "n_citations": len(citations),
                    "cited_markers": [c["marker"] for c in citations]}],
     }
@@ -357,9 +487,9 @@ def generate_node(state: GraphState) -> dict[str, Any]:
 
 def _route_after_check(state: GraphState) -> str:
     if state.get("self_check_passed"):
-        return "generate"
+        return "finalize"
     if state.get("retry_count", 0) >= MAX_RETRIES:
-        return "generate"
+        return "finalize"
     return "rewrite"
 
 
@@ -367,14 +497,16 @@ def build_graph():
     g = StateGraph(GraphState)
     g.add_node("rewrite", rewrite_node)
     g.add_node("retrieve", retrieve_node)
-    g.add_node("self_check", self_check_node)
     g.add_node("generate", generate_node)
+    g.add_node("self_check", self_check_node)
+    g.add_node("finalize", finalize_node)
     g.add_edge(START, "rewrite")
     g.add_edge("rewrite", "retrieve")
-    g.add_edge("retrieve", "self_check")
+    g.add_edge("retrieve", "generate")
+    g.add_edge("generate", "self_check")
     g.add_conditional_edges("self_check", _route_after_check,
-                            {"rewrite": "rewrite", "generate": "generate"})
-    g.add_edge("generate", END)
+                            {"rewrite": "rewrite", "finalize": "finalize"})
+    g.add_edge("finalize", END)
     return g.compile()
 
 
@@ -417,11 +549,18 @@ def _print_trace(i: int, query: str, state: GraphState) -> None:
             print(f"  [retrieve] filter={step['country_filter']} "
                   f"n_chunks={step['n_chunks']} top_scores={step['top_scores']}")
             print(f"            sources={step['sources']}")
-        elif node == "self_check":
-            print(f"  [self_check] passed={step['passed']} missing={step.get('missing')!r}")
         elif node == "generate":
-            print(f"  [generate] low_confidence={step['low_confidence']} "
-                  f"citations={step['n_citations']} markers={step.get('cited_markers')}")
+            print(f"  [generate] citations={step['n_citations']} "
+                  f"markers={step.get('cited_markers')}")
+        elif node == "self_check":
+            print(f"  [self_check] passed={step['passed']} "
+                  f"citations_resolved={step.get('citations_resolved')} "
+                  f"{'(THIN) ' if step.get('thin') else ''}"
+                  f"method={step.get('method')!r} missing={step.get('missing')!r}")
+        elif node == "finalize":
+            print(f"  [finalize] low_confidence={step['low_confidence']} "
+                  f"citations_resolved={step['citations_resolved']}"
+                  f"{' (THIN)' if step.get('thin') else ''}")
     print("\n  --- FINAL ANSWER ---")
     print("  " + (state.get("final_answer", "") or "").replace("\n", "\n  "))
     print("\n  --- CITATIONS ---")
