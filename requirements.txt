@@ -9,3 +9,13 @@ tiktoken>=0.6           # token-based chunking (cl100k_base)
 qdrant-client>=1.9      # vector store client
 python-dotenv>=1.0      # load secrets from .env
 tenacity>=8.2           # retry/backoff for rate-limited embedding calls
+
+# --- Week 3: agentic RAG graph ---
+langgraph>=0.6          # StateGraph: rewrite -> retrieve -> generate -> self_check -> finalize
+#   ^ was installed in the venv but never listed here; a fresh `pip install -r` would
+#     have failed on `import langgraph`. Added in Week 5.
+
+# --- Week 5: chat UI ---
+gradio>=4.44,<5         # minimal conversational UI over the existing graph (app.py)
+huggingface_hub<1.0     # gradio 4.x imports HfFolder, removed in huggingface_hub 1.x
+#   ^ gradio 5.x needs Python >=3.10; this venv is 3.9, so we pin to the 4.x line.
