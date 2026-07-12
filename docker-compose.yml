@@ -1,0 +1,20 @@
+# Local Qdrant vector store for WanderRAG.
+#   Start:  docker compose up -d
+#   Stop:   docker compose down            (data persists in the named volume)
+#   Wipe:   docker compose down -v          (also deletes the volume)
+#
+# REST API -> http://localhost:6333   (dashboard at http://localhost:6333/dashboard)
+# gRPC API -> localhost:6334
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: wanderrag-qdrant
+    ports:
+      - "6333:6333"   # REST + dashboard
+      - "6334:6334"   # gRPC
+    volumes:
+      - qdrant_storage:/qdrant/storage   # persistent volume -> survives restarts
+    restart: unless-stopped
+
+volumes:
+  qdrant_storage:

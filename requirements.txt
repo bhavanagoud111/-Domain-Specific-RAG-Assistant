@@ -1,0 +1,11 @@
+# WanderRAG ingestion pipeline dependencies (Python 3.9+; 3.11+ recommended).
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=4.9                # fast parser backend for BeautifulSoup
+selenium>=4.18          # JS-rendered page fallback (needs Chrome + chromedriver)
+webdriver-manager>=4.0  # auto-manages the chromedriver binary for Selenium
+pdfplumber>=0.11        # PDF text extraction for tourism sources
+tiktoken>=0.6           # token-based chunking (cl100k_base)
+qdrant-client>=1.9      # vector store client
+python-dotenv>=1.0      # load secrets from .env
+tenacity>=8.2           # retry/backoff for rate-limited embedding calls
