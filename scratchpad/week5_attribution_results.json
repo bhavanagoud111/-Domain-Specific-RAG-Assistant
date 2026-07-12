@@ -1,0 +1,508 @@
+{
+  "Italy": {
+    "query": "What should I visit in Italy?",
+    "wk4_claimed_citations": 4,
+    "wk4_verdict": "flagged",
+    "n_chunks": 8,
+    "clean_graph_citations": 4,
+    "clean_counts_samples": [
+      4,
+      4,
+      4
+    ],
+    "lowconf_counts_samples": [
+      4,
+      2,
+      4
+    ],
+    "clean_supported": 4,
+    "clean_total": 4,
+    "lowconf_supported": 4,
+    "lowconf_total": 4,
+    "clean_attributions": [
+      {
+        "marker": "[1]",
+        "source_type": "tourism",
+        "claim": "**Venice**: Often considered the most beautiful city in the world, Venice is renowned for its eternal charm and unique canals [1]. **Turin**: A city rich in historic splendor, Turin boasts Baroque architecture and a unique blend of past and present [1].",
+        "supports": true,
+        "why": "The source text describes Venice as the most beautiful city in the world with unique canals and Turin as a city rich in historic splendor with Baroque architect"
+      },
+      {
+        "marker": "[4]",
+        "source_type": "tourism",
+        "claim": "**Rome**: Known as the Eternal City, Rome offers a walk through history with its vast artistic heritage and numerous iconic landmarks [4].",
+        "supports": true,
+        "why": "The source text describes Rome as the Eternal City with a vast artistic heritage and numerous iconic landmarks."
+      },
+      {
+        "marker": "[5]",
+        "source_type": "tourism",
+        "claim": "**The Dolomites**: These mountains are described as the most beautiful architectural work in the world, offering a paradise for sport enthusiasts and nature lovers [5].",
+        "supports": true,
+        "why": "The source text confirms the Dolomites are described as the most beautiful architectural work in the world and a paradise for sport enthusiasts and nature lover"
+      },
+      {
+        "marker": "[7]",
+        "source_type": "tourism",
+        "claim": "**Florence**: Located in Tuscany, Florence is famous for its Renaissance art and architecture, making it a must-visit for art lovers [7]. **Aosta Valley**: Ideal for outdoor activities, this region offers stunning alpine scenery and fairy-tale castles, perfect for exploring history and traditions [7].",
+        "supports": true,
+        "why": "The source text confirms that the Aosta Valley offers outdoor activities, stunning alpine scenery, and fairy-tale castles, supporting the claim."
+      }
+    ],
+    "lowconf_attributions": [
+      {
+        "marker": "[1]",
+        "source_type": "tourism",
+        "claim": "Venice is renowned for its poignant charm and is often considered one of the most beautiful cities in the world [1]. Turin boasts a unique blend of historic aristocratic residences and Baroque architecture [1].",
+        "supports": true,
+        "why": "The source text describes Venice as having poignant charm and being considered one of the most beautiful cities, and Turin as having historic aristocratic resid"
+      },
+      {
+        "marker": "[4]",
+        "source_type": "tourism",
+        "claim": "When visiting Italy, consider exploring the historic and artistic wonders of Rome, known as the Eternal City, which offers a vast artistic heritage and endless discoveries [4].",
+        "supports": true,
+        "why": "The source text describes Rome as the Eternal City with a vast artistic heritage and endless discoveries."
+      },
+      {
+        "marker": "[5]",
+        "source_type": "tourism",
+        "claim": "The Dolomites offer breathtaking natural beauty and are ideal for those who love sports and untouched nature [5].",
+        "supports": true,
+        "why": "The source text describes the Dolomites as a paradise for those who love sport and untouched nature, offering breathtaking views."
+      },
+      {
+        "marker": "[7]",
+        "source_type": "tourism",
+        "claim": "Additionally, the Aosta Valley provides enchanting outdoor experiences with its green valleys and fairy-tale castles [7].",
+        "supports": true,
+        "why": "The source text explicitly mentions the Aosta Valley's green valleys and fairy-tale castles as enchanting outdoor experiences."
+      }
+    ],
+    "clean_answer": "When visiting Italy, there are several destinations and experiences you should consider:\n\n1. **Rome**: Known as the Eternal City, Rome offers a walk through history with its vast artistic heritage and numerous iconic landmarks [4].\n\n2. **Venice**: Often considered the most beautiful city in the world, Venice is renowned for its eternal charm and unique canals [1].\n\n3. **Florence**: Located in Tuscany, Florence is famous for its Renaissance art and architecture, making it a must-visit for art lovers [7].\n\n4. **The Dolomites**: These mountains are described as the most beautiful architectural work in the world, offering a paradise for sport enthusiasts and nature lovers [5].\n\n5. **Aosta Valley**: Ideal for outdoor activities, this region offers stunning alpine scenery and fairy-tale castles, perfect for exploring history and traditions [7].\n\n6. **Turin**: A city rich in historic splendor, Turin boasts Baroque architecture and a unique blend of past and present [1].\n\nThese destinations provide a mix of cultural, historical, and natural experiences that showcase the diverse beauty of Italy.",
+    "lowconf_answer": "Confidence is LOW because the retrieved sources may not fully cover the question. When visiting Italy, consider exploring the historic and artistic wonders of Rome, known as the Eternal City, which offers a vast artistic heritage and endless discoveries [4]. Venice is renowned for its poignant charm and is often considered one of the most beautiful cities in the world [1]. The Dolomites offer breathtaking natural beauty and are ideal for those who love sports and untouched nature [5]. Turin boasts a unique blend of historic aristocratic residences and Baroque architecture [1]. Additionally, the Aosta Valley provides enchanting outdoor experiences with its green valleys and fairy-tale castles [7]."
+  },
+  "Thailand": {
+    "query": "What should I visit in Thailand?",
+    "wk4_claimed_citations": 1,
+    "wk4_verdict": "flagged",
+    "n_chunks": 7,
+    "clean_graph_citations": 1,
+    "clean_counts_samples": [
+      2,
+      2,
+      2
+    ],
+    "lowconf_counts_samples": [
+      1,
+      2,
+      1
+    ],
+    "clean_supported": 0,
+    "clean_total": 1,
+    "lowconf_supported": 1,
+    "lowconf_total": 1,
+    "clean_attributions": [
+      {
+        "marker": "[1]",
+        "source_type": "tourism",
+        "claim": "Notable places include Phra Nakhon Si Ayutthaya, Lop Buri, and Bangkok, which are rich in history and culture [1].",
+        "supports": false,
+        "why": "The source text lists the places but does not mention their historical or cultural significance."
+      }
+    ],
+    "lowconf_attributions": [
+      {
+        "marker": "[1]",
+        "source_type": "tourism",
+        "claim": "In Thailand, you might consider visiting the ancient historical temples and the Bang Pa-in Royal Palace in Central Thailand, which are highlighted as interesting places to explore [1].",
+        "supports": true,
+        "why": "The source text specifically mentions ancient historical temples and the Bang Pa-in Royal Palace as interesting places to visit in Central Thailand."
+      }
+    ],
+    "clean_answer": "To visit Thailand, you should consider exploring various regions with distinct attractions. In Central Thailand, you can visit historical temples, the Bang Pa-in Royal Palace, and Bang Sai Royal Folk Arts and Crafts Center. Notable places include Phra Nakhon Si Ayutthaya, Lop Buri, and Bangkok, which are rich in history and culture [1].",
+    "lowconf_answer": "Confidence is LOW because the retrieved sources may not fully cover the question. In Thailand, you might consider visiting the ancient historical temples and the Bang Pa-in Royal Palace in Central Thailand, which are highlighted as interesting places to explore [1]."
+  },
+  "UAE": {
+    "query": "What should I visit in the United Arab Emirates?",
+    "wk4_claimed_citations": 1,
+    "wk4_verdict": "flagged",
+    "n_chunks": 6,
+    "clean_graph_citations": 2,
+    "clean_counts_samples": [
+      2,
+      2,
+      2
+    ],
+    "lowconf_counts_samples": [
+      1,
+      1,
+      1
+    ],
+    "clean_supported": 2,
+    "clean_total": 2,
+    "lowconf_supported": 1,
+    "lowconf_total": 1,
+    "clean_attributions": [
+      {
+        "marker": "[1]",
+        "source_type": "tourism",
+        "claim": "Additionally, you can discover a wide range of attractions, restaurants, and entertainment experiences in Dubai [1].",
+        "supports": true,
+        "why": "The source text mentions discovering attractions, restaurants, and entertainment experiences in Dubai."
+      },
+      {
+        "marker": "[2]",
+        "source_type": "tourism",
+        "claim": "Some notable places to explore include Palm Jumeirah, Downtown Dubai, Jumeirah, Dubai Marina, Deira, Bur Dubai, and Al Seef [2].",
+        "supports": true,
+        "why": "The source text lists all the places mentioned in the claim as notable places to explore."
+      }
+    ],
+    "lowconf_attributions": [
+      {
+        "marker": "[2]",
+        "source_type": "tourism",
+        "claim": "When visiting the United Arab Emirates, particularly Dubai, you can explore a variety of attractions such as Palm Jumeirah, Downtown Dubai, Jumeirah, and Dubai Marina, which are some of the popular areas to visit [2].",
+        "supports": true,
+        "why": "The source text lists Palm Jumeirah, Downtown Dubai, Jumeirah, and Dubai Marina as popular areas to visit."
+      }
+    ],
+    "clean_answer": "You should consider visiting several popular areas and attractions in Dubai, United Arab Emirates. Some notable places to explore include Palm Jumeirah, Downtown Dubai, Jumeirah, Dubai Marina, Deira, Bur Dubai, and Al Seef [2]. Additionally, you can discover a wide range of attractions, restaurants, and entertainment experiences in Dubai [1].",
+    "lowconf_answer": "Confidence is LOW because the retrieved sources may not fully cover the question. When visiting the United Arab Emirates, particularly Dubai, you can explore a variety of attractions such as Palm Jumeirah, Downtown Dubai, Jumeirah, and Dubai Marina, which are some of the popular areas to visit [2]."
+  },
+  "Brazil": {
+    "query": "What should I visit in Brazil?",
+    "wk4_claimed_citations": 1,
+    "wk4_verdict": "flagged",
+    "n_chunks": 7,
+    "clean_graph_citations": 1,
+    "clean_counts_samples": [
+      1,
+      1,
+      1
+    ],
+    "lowconf_counts_samples": [
+      1,
+      1,
+      1
+    ],
+    "clean_supported": 1,
+    "clean_total": 1,
+    "lowconf_supported": 1,
+    "lowconf_total": 1,
+    "clean_attributions": [
+      {
+        "marker": "[1]",
+        "source_type": "tourism",
+        "claim": "Brazil also boasts stunning sun and beach getaways, a vibrant cultural tapestry, and a unique culinary journey [1].",
+        "supports": true,
+        "why": "The source text mentions sun and beach getaways, vibrant culture, and a unique culinary journey in Brazil."
+      }
+    ],
+    "lowconf_attributions": [
+      {
+        "marker": "[1]",
+        "source_type": "tourism",
+        "claim": "When visiting Brazil, consider exploring the vibrant streets of Rio de Janeiro for samba music and the lush biodiversity of the Amazon rainforest for a nature experience [1].",
+        "supports": true,
+        "why": "The source text mentions samba in Rio de Janeiro and the biodiversity of the Amazon rainforest as experiences in Brazil."
+      }
+    ],
+    "clean_answer": "When visiting Brazil, you should consider exploring the vibrant streets of Rio de Janeiro, where you can experience the infectious beats of samba. Additionally, the lush Amazon rainforest offers a unique opportunity to explore its rich biodiversity. Brazil also boasts stunning sun and beach getaways, a vibrant cultural tapestry, and a unique culinary journey [1].",
+    "lowconf_answer": "Confidence is LOW because the retrieved sources may not fully cover the question. When visiting Brazil, consider exploring the vibrant streets of Rio de Janeiro for samba music and the lush biodiversity of the Amazon rainforest for a nature experience [1]."
+  },
+  "Mexico": {
+    "query": "What should I visit in Mexico?",
+    "wk4_claimed_citations": 3,
+    "wk4_verdict": "passed",
+    "n_chunks": 7,
+    "clean_graph_citations": 3,
+    "clean_counts_samples": [
+      4,
+      3,
+      3
+    ],
+    "lowconf_counts_samples": [
+      3,
+      3,
+      3
+    ],
+    "clean_supported": 3,
+    "clean_total": 3,
+    "lowconf_supported": 3,
+    "lowconf_total": 3,
+    "clean_attributions": [
+      {
+        "marker": "[1]",
+        "source_type": "tourism",
+        "claim": "Mexico also boasts 35 UNESCO World Heritage Sites, many of which are related to pre-Columbian civilizations and early colonial cities [1].",
+        "supports": true,
+        "why": "The source text confirms Mexico has 35 UNESCO World Heritage Sites related to pre-Columbian civilizations and early colonial cities."
+      },
+      {
+        "marker": "[2]",
+        "source_type": "tourism",
+        "claim": "For natural beauty, the Copper Canyon provides a magnificent remote wilderness experience [2]. The Sea of Cortez, near La Paz, is ideal for whale watching, swimming with dolphins, and sea kayaking [2]. Additionally, the Monarch Butterfly Reserves in Michoac\u00e1n are a unique natural attraction where millions of butterflies gather between November and March [2].",
+        "supports": true,
+        "why": "The source text confirms the Copper Canyon's remote wilderness, Sea of Cortez's activities, and Monarch Butterfly Reserves' seasonal butterfly gathering."
+      },
+      {
+        "marker": "[6]",
+        "source_type": "tourism",
+        "claim": "You can explore the Mayan ruins of Tulum, which is a coastal city with spectacular Caribbean vistas dating from the late Mayan period [6]. Another impressive archaeological site is Teotihuacan, near Mexico City, known for its large pyramids [6].",
+        "supports": true,
+        "why": "The source text mentions Tulum as a Mayan coastal city with spectacular Caribbean vistas and Teotihuacan as a site with large pyramids near Mexico City."
+      }
+    ],
+    "lowconf_attributions": [
+      {
+        "marker": "[1]",
+        "source_type": "tourism",
+        "claim": "In Mexico, you might consider visiting the UNESCO world heritage sites, which include cultural landmarks from pre-Columbian civilizations and early colonial cities [1].",
+        "supports": true,
+        "why": "The source text confirms that Mexico has UNESCO world heritage sites related to pre-Columbian civilizations and early colonial cities."
+      },
+      {
+        "marker": "[2]",
+        "source_type": "tourism",
+        "claim": "For natural beauty, the Sea of Cortez is known for its marine life, including whale birthings and opportunities to swim with dolphins [2]. Additionally, the Monarch Butterfly Reserves in Michoac\u00e1n provide a unique natural spectacle between November and March [2].",
+        "supports": true,
+        "why": "The source text confirms whale birthings and opportunities to swim with dolphins in the Sea of Cortez and mentions the Monarch Butterfly Reserves in Michoac\u00e1n a"
+      },
+      {
+        "marker": "[6]",
+        "source_type": "tourism",
+        "claim": "The Mayan ruins of Tulum offer spectacular Caribbean vistas and are a significant historical site [6].",
+        "supports": true,
+        "why": "The source text confirms that Tulum is a Mayan coastal city with spectacular Caribbean vistas."
+      }
+    ],
+    "clean_answer": "Mexico offers a wide array of attractions for travelers. You can explore the Mayan ruins of Tulum, which is a coastal city with spectacular Caribbean vistas dating from the late Mayan period [6]. Another impressive archaeological site is Teotihuacan, near Mexico City, known for its large pyramids [6]. For natural beauty, the Copper Canyon provides a magnificent remote wilderness experience [2]. The Sea of Cortez, near La Paz, is ideal for whale watching, swimming with dolphins, and sea kayaking [2]. Additionally, the Monarch Butterfly Reserves in Michoac\u00e1n are a unique natural attraction where millions of butterflies gather between November and March [2]. Mexico also boasts 35 UNESCO World Heritage Sites, many of which are related to pre-Columbian civilizations and early colonial cities [1].",
+    "lowconf_answer": "Confidence is LOW because the retrieved sources may not fully cover the question. In Mexico, you might consider visiting the UNESCO world heritage sites, which include cultural landmarks from pre-Columbian civilizations and early colonial cities [1]. The Mayan ruins of Tulum offer spectacular Caribbean vistas and are a significant historical site [6]. For natural beauty, the Sea of Cortez is known for its marine life, including whale birthings and opportunities to swim with dolphins [2]. Additionally, the Monarch Butterfly Reserves in Michoac\u00e1n provide a unique natural spectacle between November and March [2]."
+  },
+  "Singapore": {
+    "query": "What should I visit in Singapore?",
+    "wk4_claimed_citations": 4,
+    "wk4_verdict": "passed",
+    "n_chunks": 8,
+    "clean_graph_citations": 2,
+    "clean_counts_samples": [
+      2,
+      2,
+      2
+    ],
+    "lowconf_counts_samples": [
+      2,
+      2,
+      2
+    ],
+    "clean_supported": 2,
+    "clean_total": 2,
+    "lowconf_supported": 2,
+    "lowconf_total": 2,
+    "clean_attributions": [
+      {
+        "marker": "[3]",
+        "source_type": "tourism",
+        "claim": "Additionally, the Bras Basah area is known for its colonial history and museums, providing a rich cultural experience [3].",
+        "supports": true,
+        "why": "The source text mentions the Bras Basah area as Singapore's colonial core with historical buildings and museums."
+      },
+      {
+        "marker": "[7]",
+        "source_type": "tourism",
+        "claim": "You can visit the Kong Meng San Phor Kark See Monastery, the Sri Mariamman Temple, the Burmese Buddhist Temple, and the Masjid Sultan on Arab Street, which are all notable religious sites welcoming to visitors [7]. If you're interested in nature, the Southern Ridges Walk offers a scenic 9 km trail through the hills and jungles of southern Singapore, featuring the impressive Henderson Waves pedestr",
+        "supports": true,
+        "why": "The source text mentions all the religious sites and the Southern Ridges Walk as notable attractions in Singapore."
+      }
+    ],
+    "lowconf_attributions": [
+      {
+        "marker": "[3]",
+        "source_type": "tourism",
+        "claim": "Additionally, exploring the Bras Basah area for its historical buildings and museums can offer insights into Singapore's colonial history [3].",
+        "supports": true,
+        "why": "The source text mentions the Bras Basah area as Singapore's colonial core with historical buildings and museums."
+      },
+      {
+        "marker": "[7]",
+        "source_type": "tourism",
+        "claim": "In Singapore, you might consider visiting cultural and religious sites such as the Kong Meng San Phor Kark See Monastery, Sri Mariamman Temple, Burmese Buddhist Temple, and Masjid Sultan on Arab Street, which are notable for their diverse architecture and welcoming atmosphere for non-followers outside of service times [7].",
+        "supports": true,
+        "why": "The source text lists the same cultural and religious sites mentioned in the claim and notes their welcoming atmosphere for non-followers outside of service tim"
+      }
+    ],
+    "clean_answer": "To make the most of your visit to Singapore, consider exploring its diverse cultural and historical sites. You can visit the Kong Meng San Phor Kark See Monastery, the Sri Mariamman Temple, the Burmese Buddhist Temple, and the Masjid Sultan on Arab Street, which are all notable religious sites welcoming to visitors [7]. Additionally, the Bras Basah area is known for its colonial history and museums, providing a rich cultural experience [3]. If you're interested in nature, the Southern Ridges Walk offers a scenic 9 km trail through the hills and jungles of southern Singapore, featuring the impressive Henderson Waves pedestrian bridge [7].",
+    "lowconf_answer": "Confidence is LOW because the retrieved sources may not fully cover the question. In Singapore, you might consider visiting cultural and religious sites such as the Kong Meng San Phor Kark See Monastery, Sri Mariamman Temple, Burmese Buddhist Temple, and Masjid Sultan on Arab Street, which are notable for their diverse architecture and welcoming atmosphere for non-followers outside of service times [7]. Additionally, exploring the Bras Basah area for its historical buildings and museums can offer insights into Singapore's colonial history [3]."
+  },
+  "Norway": {
+    "query": "What should I visit in Norway?",
+    "wk4_claimed_citations": 2,
+    "wk4_verdict": "passed",
+    "n_chunks": 8,
+    "clean_graph_citations": 2,
+    "clean_counts_samples": [
+      3,
+      2,
+      2
+    ],
+    "lowconf_counts_samples": [
+      3,
+      3,
+      2
+    ],
+    "clean_supported": 2,
+    "clean_total": 2,
+    "lowconf_supported": 2,
+    "lowconf_total": 3,
+    "clean_attributions": [
+      {
+        "marker": "[2]",
+        "source_type": "tourism",
+        "claim": "When visiting Norway, you should consider exploring its natural wonders such as the fjords, glaciers, and waterfalls, which are among the top nature experiences in the country [2]. Additionally, you can witness the Northern Lights and the Midnight Sun, which are unique natural phenomena [2].",
+        "supports": true,
+        "why": "The source text lists fjords, glaciers, waterfalls, Northern Lights, and the Midnight Sun as natural wonders and top nature experiences in Norway."
+      },
+      {
+        "marker": "[5]",
+        "source_type": "tourism",
+        "claim": "For a scenic journey, the Fl\u00e5m Railway and the North Cape cliff are must-see attractions [5]. If you enjoy cultural experiences, the Norwegian National Opera & Ballet and Vigeland Sculpture Park are notable attractions [5].",
+        "supports": true,
+        "why": "The source text lists the Fl\u00e5m Railway, North Cape cliff, Norwegian National Opera & Ballet, and Vigeland Sculpture Park as top attractions."
+      }
+    ],
+    "lowconf_attributions": [
+      {
+        "marker": "[2]",
+        "source_type": "tourism",
+        "claim": "When visiting Norway, you should consider exploring its natural wonders such as the fjords, glaciers, and waterfalls, which are among the top nature experiences in the country [2]. Additionally, the Northern Lights and the Midnight Sun are unique phenomena that attract many visitors [2].",
+        "supports": true,
+        "why": "The source text lists fjords, glaciers, waterfalls, Northern Lights, and Midnight Sun as top nature experiences in Norway."
+      },
+      {
+        "marker": "[5]",
+        "source_type": "tourism",
+        "claim": "For cultural attractions, you might want to visit the Norwegian National Opera & Ballet, Vigeland Sculpture Park, and the Fl\u00e5m Railway [5].",
+        "supports": true,
+        "why": "The source text lists the Norwegian National Opera & Ballet, Vigeland Sculpture Park, and the Fl\u00e5m Railway as top attractions."
+      },
+      {
+        "marker": "[6]",
+        "source_type": "tourism",
+        "claim": "The Lofoten Islands and the North Cape are also popular destinations for their stunning landscapes [6].",
+        "supports": false,
+        "why": "The source text does not mention the Lofoten Islands or the North Cape as popular destinations for their landscapes."
+      }
+    ],
+    "clean_answer": "When visiting Norway, you should consider exploring its natural wonders such as the fjords, glaciers, and waterfalls, which are among the top nature experiences in the country [2]. Additionally, you can witness the Northern Lights and the Midnight Sun, which are unique natural phenomena [2]. For a scenic journey, the Fl\u00e5m Railway and the North Cape cliff are must-see attractions [5]. If you enjoy cultural experiences, the Norwegian National Opera & Ballet and Vigeland Sculpture Park are notable attractions [5].",
+    "lowconf_answer": "Confidence is LOW because the retrieved sources may not fully cover the question. When visiting Norway, you should consider exploring its natural wonders such as the fjords, glaciers, and waterfalls, which are among the top nature experiences in the country [2]. Additionally, the Northern Lights and the Midnight Sun are unique phenomena that attract many visitors [2]. For cultural attractions, you might want to visit the Norwegian National Opera & Ballet, Vigeland Sculpture Park, and the Fl\u00e5m Railway [5]. The Lofoten Islands and the North Cape are also popular destinations for their stunning landscapes [6]."
+  },
+  "Japan": {
+    "query": "What should I visit in Japan?",
+    "wk4_claimed_citations": 4,
+    "wk4_verdict": "flagged",
+    "n_chunks": 8,
+    "clean_graph_citations": 0,
+    "clean_counts_samples": [
+      2,
+      4,
+      0
+    ],
+    "lowconf_counts_samples": [
+      8,
+      0,
+      8
+    ],
+    "clean_supported": 0,
+    "clean_total": 0,
+    "lowconf_supported": 0,
+    "lowconf_total": 8,
+    "clean_attributions": [],
+    "lowconf_attributions": [
+      {
+        "marker": "[1]",
+        "source_type": "state_dept",
+        "claim": "citizens visiting Japan [1][2][3][4][5][6][7][8].",
+        "supports": false,
+        "why": "The source text does not provide information on what to visit in Japan."
+      },
+      {
+        "marker": "[2]",
+        "source_type": "tourism",
+        "claim": "citizens visiting Japan [1][2][3][4][5][6][7][8].",
+        "supports": false,
+        "why": "The source text does not provide any information about what to visit in Japan."
+      },
+      {
+        "marker": "[3]",
+        "source_type": "state_dept",
+        "claim": "citizens visiting Japan [1][2][3][4][5][6][7][8].",
+        "supports": false,
+        "why": "The source text does not mention anything about what to visit in Japan."
+      },
+      {
+        "marker": "[4]",
+        "source_type": "tourism",
+        "claim": "citizens visiting Japan [1][2][3][4][5][6][7][8].",
+        "supports": false,
+        "why": "The source text does not mention anything about citizens visiting Japan or tourist attractions."
+      },
+      {
+        "marker": "[5]",
+        "source_type": "tourism",
+        "claim": "citizens visiting Japan [1][2][3][4][5][6][7][8].",
+        "supports": false,
+        "why": "The source text does not provide information on what to visit in Japan."
+      },
+      {
+        "marker": "[6]",
+        "source_type": "tourism",
+        "claim": "citizens visiting Japan [1][2][3][4][5][6][7][8].",
+        "supports": false,
+        "why": "The source text does not mention anything about visiting attractions in Japan."
+      },
+      {
+        "marker": "[7]",
+        "source_type": "state_dept",
+        "claim": "citizens visiting Japan [1][2][3][4][5][6][7][8].",
+        "supports": false,
+        "why": "The source text does not mention anything about visiting attractions in Japan."
+      },
+      {
+        "marker": "[8]",
+        "source_type": "state_dept",
+        "claim": "citizens visiting Japan [1][2][3][4][5][6][7][8].",
+        "supports": false,
+        "why": "The source text does not mention anything about what to visit in Japan."
+      }
+    ],
+    "clean_answer": "\u26a0\ufe0f Low confidence: none of the retrieved sources could be resolved into a citation for this question, so the answer below is not grounded in the WanderRAG corpus.\n\nThe provided sources do not contain specific recommendations on what to visit in Japan. They primarily focus on travel advisories, legal considerations, and entry requirements. Therefore, I cannot provide an answer based on the given sources.",
+    "lowconf_answer": "Confidence is LOW because the retrieved sources may not fully cover the question about what to visit in Japan. The sources provided do not offer specific recommendations on tourist attractions or places to visit in Japan. They mainly focus on travel advisories, legal considerations, and general travel information for U.S. citizens visiting Japan [1][2][3][4][5][6][7][8]."
+  },
+  "Canada": {
+    "query": "What should I visit in Canada?",
+    "wk4_claimed_citations": 0,
+    "wk4_verdict": "flagged",
+    "n_chunks": 7,
+    "clean_graph_citations": 0,
+    "clean_counts_samples": [
+      1,
+      2,
+      2
+    ],
+    "lowconf_counts_samples": [
+      0,
+      0,
+      0
+    ],
+    "clean_supported": 0,
+    "clean_total": 0,
+    "lowconf_supported": 0,
+    "lowconf_total": 0,
+    "clean_attributions": [],
+    "lowconf_attributions": [],
+    "clean_answer": "\u26a0\ufe0f Low confidence: none of the retrieved sources could be resolved into a citation for this question, so the answer below is not grounded in the WanderRAG corpus.\n\nThe provided sources do not contain specific recommendations on places to visit in Canada. Therefore, I cannot provide an answer based on the given information.",
+    "lowconf_answer": "Confidence is LOW because the retrieved sources may not fully cover the question. The sources provided do not offer specific recommendations on what to visit in Canada. For detailed travel advice and suggestions on attractions, it might be helpful to consult tourism websites or guides dedicated to Canadian destinations."
+  }
+}

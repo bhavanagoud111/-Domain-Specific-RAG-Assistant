@@ -1,0 +1,270 @@
+{
+  "nine": {
+    "Italy": {
+      "verdict": "sufficient",
+      "retries": 1,
+      "citations": 6,
+      "low_confidence": false,
+      "country": "Italy",
+      "n_chunks": 8,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "Italy offers a wide range of destinations that cater to various interests:  1. **Rome**: Known as the Eternal City, Rome is a must-visit for its rich historical",
+      "cited_urls": [
+        "https://www.italia.it/en",
+        "https://www.italia.it/en",
+        "https://www.italia.it/en",
+        "https://www.italia.it/en",
+        "https://www.italia.it/en",
+        "https://www.italia.it/en"
+      ],
+      "cost_usd": 0.012021,
+      "tokens": 5191,
+      "calls": 11
+    },
+    "Mexico": {
+      "verdict": "sufficient",
+      "retries": 1,
+      "citations": 4,
+      "low_confidence": false,
+      "country": "Mexico",
+      "n_chunks": 7,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "Mexico offers a wide array of attractions for travelers. You can explore its 35 UNESCO World Heritage Sites, which include cultural sites related to pre-Columbi",
+      "cited_urls": [
+        "https://en.wikivoyage.org/wiki/Mexico",
+        "https://en.wikivoyage.org/wiki/Mexico",
+        "https://en.wikivoyage.org/wiki/Mexico",
+        "https://en.wikivoyage.org/wiki/Mexico"
+      ],
+      "cost_usd": 0.011328,
+      "tokens": 5036,
+      "calls": 11
+    },
+    "Norway": {
+      "verdict": "sufficient",
+      "retries": 0,
+      "citations": 2,
+      "low_confidence": false,
+      "country": "Norway",
+      "n_chunks": 8,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "Norway offers a variety of attractions that are worth visiting. Some of the must-see nature attractions include the Northern lights, fjords, glaciers, waterfall",
+      "cited_urls": [
+        "https://www.visitnorway.com/",
+        "https://www.visitnorway.com/"
+      ],
+      "cost_usd": 0.005693,
+      "tokens": 2056,
+      "calls": 5
+    },
+    "Thailand": {
+      "verdict": "sufficient",
+      "retries": 1,
+      "citations": 2,
+      "low_confidence": false,
+      "country": "Thailand",
+      "n_chunks": 7,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "When visiting Thailand, you should consider exploring the following destinations:  1. **Bangkok**: The capital city is a vibrant metropolis known for its bustli",
+      "cited_urls": [
+        "https://www.tourismthailand.org/home",
+        "https://wwwnc.cdc.gov/travel/destinations/traveler/none/thailand"
+      ],
+      "cost_usd": 0.011236,
+      "tokens": 5065,
+      "calls": 11
+    },
+    "Canada": {
+      "verdict": "INSUFFICIENT",
+      "retries": 2,
+      "citations": 0,
+      "low_confidence": true,
+      "country": "Canada",
+      "n_chunks": 7,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (0 resolved)",
+      "answer_head": "\u26a0\ufe0f Low confidence: none of the retrieved sources could be resolved into a citation for this question, so the answer below is not grounded in the WanderRAG corpu",
+      "cited_urls": [],
+      "cost_usd": 0.013219,
+      "tokens": 7459,
+      "calls": 17
+    },
+    "UAE": {
+      "verdict": "sufficient",
+      "retries": 1,
+      "citations": 2,
+      "low_confidence": false,
+      "country": "United Arab Emirates",
+      "n_chunks": 5,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "To make the most of your visit to the United Arab Emirates, you should explore various attractions in Dubai. Some notable areas to visit include Palm Jumeirah, ",
+      "cited_urls": [
+        "https://www.visitdubai.com/en",
+        "https://www.visitdubai.com/en"
+      ],
+      "cost_usd": 0.009051,
+      "tokens": 4752,
+      "calls": 11
+    },
+    "Japan": {
+      "verdict": "INSUFFICIENT",
+      "retries": 2,
+      "citations": 0,
+      "low_confidence": true,
+      "country": "Japan",
+      "n_chunks": 8,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (0 resolved)",
+      "answer_head": "\u26a0\ufe0f Low confidence: none of the retrieved sources could be resolved into a citation for this question, so the answer below is not grounded in the WanderRAG corpu",
+      "cited_urls": [],
+      "cost_usd": 0.014465,
+      "tokens": 8071,
+      "calls": 17
+    },
+    "Singapore": {
+      "verdict": "sufficient",
+      "retries": 1,
+      "citations": 5,
+      "low_confidence": false,
+      "country": "Singapore",
+      "n_chunks": 8,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "In Singapore, there are several must-visit attractions and experiences. You can explore the diverse religious sites such as the Kong Meng San Phor Kark See Mona",
+      "cited_urls": [
+        "https://en.wikivoyage.org/wiki/Singapore",
+        "https://en.wikivoyage.org/wiki/Singapore",
+        "https://en.wikivoyage.org/wiki/Singapore",
+        "https://en.wikivoyage.org/wiki/Singapore",
+        "https://en.wikivoyage.org/wiki/Singapore"
+      ],
+      "cost_usd": 0.011669,
+      "tokens": 5327,
+      "calls": 11
+    },
+    "Brazil": {
+      "verdict": "sufficient",
+      "retries": 1,
+      "citations": 1,
+      "low_confidence": false,
+      "country": "Brazil",
+      "n_chunks": 7,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "When visiting Brazil, you should consider exploring a variety of destinations that offer unique experiences. In Rio de Janeiro, you can enjoy the vibrant samba ",
+      "cited_urls": [
+        "https://visitbrasil.com/en/"
+      ],
+      "cost_usd": 0.009857,
+      "tokens": 4953,
+      "calls": 11
+    }
+  },
+  "canonical": {
+    "q1": {
+      "verdict": "sufficient",
+      "retries": 0,
+      "citations": 1,
+      "low_confidence": false,
+      "country": "Japan",
+      "n_chunks": 8,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "No, as a US citizen, you do not need a visa to visit Japan for stays of less than 90 days [3].",
+      "cited_urls": [
+        "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Japan.html"
+      ],
+      "cost_usd": 0.004842,
+      "tokens": 1976,
+      "query": "Do I need a visa to visit Japan as a US citizen?"
+    },
+    "q2": {
+      "verdict": "sufficient",
+      "retries": 0,
+      "citations": 2,
+      "low_confidence": false,
+      "country": "Mexico",
+      "n_chunks": 8,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "The current safety situation in Mexico requires travelers to exercise increased caution due to issues such as terrorism and crime, as indicated by the U.S. Depa",
+      "cited_urls": [
+        "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/mexico-travel-advisory.html",
+        "https://wwwnc.cdc.gov/travel/destinations/traveler/none/mexico"
+      ],
+      "cost_usd": 0.005215,
+      "tokens": 1956,
+      "query": "What's the safety situation in Mexico right now?"
+    },
+    "q3": {
+      "verdict": "sufficient",
+      "retries": 0,
+      "citations": 3,
+      "low_confidence": false,
+      "country": "Vietnam",
+      "n_chunks": 8,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "Vietnam is generally a safe destination for travelers, where you can exercise normal precautions. However, petty crime is common, especially in popular tourist ",
+      "cited_urls": [
+        "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/vietnam-travel-advisory.html",
+        "https://vietnam.travel/",
+        "https://vietnam.travel/"
+      ],
+      "cost_usd": 0.005852,
+      "tokens": 2052,
+      "query": "Tell me about visiting Vietnam"
+    },
+    "q4": {
+      "verdict": "sufficient",
+      "retries": 0,
+      "citations": 3,
+      "low_confidence": false,
+      "country": "Brazil",
+      "n_chunks": 8,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (>=1 resolved)",
+      "answer_head": "Brazil does not have specific vaccination requirements for entry. However, certain vaccinations are recommended for travelers to Brazil. These include Hepatitis",
+      "cited_urls": [
+        "https://wwwnc.cdc.gov/travel/destinations/traveler/none/brazil",
+        "https://wwwnc.cdc.gov/travel/destinations/traveler/none/brazil",
+        "https://wwwnc.cdc.gov/travel/destinations/traveler/none/brazil"
+      ],
+      "cost_usd": 0.005445,
+      "tokens": 2034,
+      "query": "What vaccinations does Brazil require?"
+    },
+    "q5": {
+      "verdict": "INSUFFICIENT",
+      "retries": 2,
+      "citations": 0,
+      "low_confidence": true,
+      "country": null,
+      "n_chunks": 7,
+      "cross_country": 0,
+      "gate_method": "citation-resolution gate (0 resolved)",
+      "answer_head": "\u26a0\ufe0f Low confidence: none of the retrieved sources could be resolved into a citation for this question, so the answer below is not grounded in the WanderRAG corpu",
+      "cited_urls": [],
+      "cost_usd": 0.016756,
+      "tokens": 9334,
+      "query": "asdkjasd current safety xyz nonsense country"
+    }
+  },
+  "summary": {
+    "deviations": [
+      "Japan: expected sufficient, got INSUFFICIENT"
+    ],
+    "nonsense_still_0_citations_and_low_conf": true,
+    "retries_wk4": 14,
+    "retries_wk5": 10,
+    "nine_cost_wk4_usd": 0.077,
+    "nine_cost_wk5_usd": 0.098539,
+    "canonical_cost_wk5_usd": 0.03811,
+    "nine_tokens_wk5": 47910
+  }
+}
