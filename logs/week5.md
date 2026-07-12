@@ -355,14 +355,44 @@ Dependency notes (`requirements.txt`):
 - `requirements.txt` — added gradio (+hub pin) and the missing langgraph.
 - `logs/week5.md` — this log.
 - `scratchpad/week5_phase2.py`, `week5_attribution.py`, `*_results.json` — verification harnesses.
+- `.gitignore` — `logs/` was ignored wholesale, which would have silently dropped the weekly
+  write-ups (the actual deliverables) from the repo. Narrowed to `logs/*.json` so the
+  generated cost/scrape logs stay ignored but the `.md` investigations are tracked.
 
 ---
 
-## Files changed
+## Git history (created 2026-07-12)
 
-- `graph/wanderrag_graph.py` — self_check moved after generate and re-keyed on citation
-  resolution; new `finalize` node; `citations_resolved` + `low_confidence` in state;
-  disclaimer made deterministic; trace/CLI print updated. **No change to retrieval, TOP_K,
-  country filtering, chunking, or scrapers.**
-- `scratchpad/week5_phase2.py`, `scratchpad/week5_phase2_results.json` — Phase 2 harness + raw results.
-- `logs/week5.md` — this log.
+**The repo had ZERO commits** before this — `git log` errored with *"does not have any commits
+yet"*, and `git branch -a` was empty, so `week4-investigation` and `week5` were unborn
+pointers. There was no week-3 snapshot in git to branch from.
+
+History was therefore **reconstructed today** from the working tree, in 12 commits:
+
+- **`main` (8 commits)** — Weeks 1–3: scaffolding → config → scraping → processing →
+  embedding/storage → pipeline → Week 3 graph → README. The graph committed here is the
+  **pre-Week-5** version, restored verbatim; Week 4's own log confirms it changed no code, so
+  this is a faithful baseline rather than an invention. Verified by diff: the only symbols
+  Week 5 adds are `NO_ANSWER_CLAUSE` and `finalize_node`, and every changed hunk falls inside
+  a function knowingly edited this week.
+- **`week4-investigation` (1 commit off main)** — the investigation log only; no code, matching
+  what Week 4 recorded.
+- **`week5` (3 commits off week4-investigation)** — the citation-keyed gate fix, the Gradio UI +
+  requirements, then the log and harnesses.
+
+**Secrets:** `.env` is gitignored (`.gitignore:2`) and the live OpenRouter key was verified to
+appear in `.env` and nowhere else. `.env.example` and `README.md` carry only the `sk-or-...`
+placeholder. No key, secret, or `.env` is committed.
+
+**Push status: BLOCKED.** `origin` is correctly set to
+`https://github.com/bhavanagoud111/-Domain-Specific-RAG-Assistant.git`, but git/`gh` is
+authenticated as **`bhavanaediga`**, which has only **READ** on that repo (owned by
+`bhavanagoud111`) — all three pushes returned HTTP 403. The commits exist locally and are
+intact; nothing has been pushed.
+
+## Clean-install check
+
+Fresh Python 3.9.6 venv, `pip install -r requirements.txt` → exit 0. All imports succeed:
+`langgraph`, `gradio`, `qdrant_client`, `tiktoken`, `bs4`, `selenium`, `pdfplumber`, `dotenv`,
+`tenacity`, `requests`, `lxml`, plus every project module including `graph.wanderrag_graph`
+and `app`. **No missing dependencies.**
