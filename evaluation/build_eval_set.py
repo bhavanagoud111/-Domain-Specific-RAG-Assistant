@@ -35,7 +35,8 @@ from storage.qdrant_setup import get_client
 
 REF_MODEL = "anthropic/claude-sonnet-4.5"
 OUT_PATH = Path(__file__).resolve().parent / "eval_set.json"
-TOP_K = 6
+TOP_K = 6        # per-query retrieval depth
+EVIDENCE_K = 12  # how many merged chunks the reference writer may see (see retrieve())
 
 # Natural source_type per question type. Used only to *bias* retrieval; the reference
 # writer still sees whatever came back, so a wrong guess degrades to "unanswerable"
@@ -108,11 +109,23 @@ def _post(model: str, prompt: str, max_tokens: int = 400) -> str:
 
 
 def retrieve(question: str, country: str, source_type: str | None) -> list[dict[str, Any]]:
-    """Top-k chunks for a question, country-filtered, softly biased to a source_type.
+    """Evidence window for writing a reference answer. NOT the runtime retriever.
 
-    We query twice when a source_type is given -- once constrained, once unconstrained --
-    and merge, so a question whose answer happens to live in a different source still
-    finds it instead of being scored unanswerable for a filing reason.
+    This deliberately looks WIDER than the graph's runtime top-5. A reference answer must
+    describe what the *corpus* can support, independent of what the runtime retriever
+    happens to rank highly -- otherwise the evaluation is circular: retrieval would be
+    graded against a reference built from that same retrieval, and a retrieval miss could
+    never show up as a miss.
+
+    An earlier version of this function was circular in exactly that way. It concatenated
+    the source_type-constrained hits and then the unconstrained hits and sliced to TOP_K,
+    so the 6 constrained chunks crowded out every unconstrained one. Japan's "no visa
+    required for stays less than 90 days" sits at ranks 1-4 of the unconstrained query but
+    never survived the slice, and the question was wrongly rejected as INSUFFICIENT --
+    i.e. a *retrieval ordering artifact* was being recorded as a corpus gap.
+
+    Now both result sets are kept (deduped, up to EVIDENCE_K), so INSUFFICIENT means the
+    corpus genuinely lacks the answer.
     """
     client = get_client()
     vec = embed_batch([question])[0]
@@ -140,7 +153,9 @@ def retrieve(question: str, country: str, source_type: str | None) -> list[dict[
         merged.append({"chunk_id": str(h.id), "score": round(h.score, 4),
                        "country": p.get("country"), "source_type": p.get("source_type"),
                        "source_url": p.get("source_url"), "text": p.get("text", "")})
-    return merged[:TOP_K]
+    # Rank by score across BOTH queries rather than keeping the constrained block first.
+    merged.sort(key=lambda c: c["score"], reverse=True)
+    return merged[:EVIDENCE_K]
 
 
 def build_item(question: str, country: str, qtype: str, tier: str) -> dict[str, Any]:

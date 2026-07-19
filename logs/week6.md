@@ -174,3 +174,54 @@ The tier spread is the single most important context for reading the Phase 4 num
 corpus is **not uniform**. It ranges from Japan at 138 chunks to the United States at 4.
 Aggregate scores average over a corpus that is genuinely rich for a third of its countries
 and genuinely threadbare for another third.
+
+---
+
+## PHASE 3 — THE EVAL SET
+
+`evaluation/eval_set.json`, built by `evaluation/build_eval_set.py` against the frozen
+corpus. Four question types (`visa`, `health`, `safety`, `what_to_visit`) across 24
+countries spanning all three tiers, plus 5 deliberately-unanswerable questions.
+
+### Reference answers are grounded structurally, not on trust
+
+The brief requires reference answers derivable from chunks that exist in *this* corpus. That
+is enforced by construction rather than by asking a model to behave:
+
+1. retrieve an evidence window from Qdrant, filtered to the expected country;
+2. hand the writer **those chunk texts and nothing else** — no country hint, no outside context;
+3. instruct it to emit the literal token `INSUFFICIENT` when the chunks don't contain the
+   answer, and to prefer that over a hedged guess;
+4. record the exact chunk ids the reference was written from, in `grounded_in`.
+
+The writer is `anthropic/claude-sonnet-4.5` — deliberately not gpt-4o, which generates the
+answers under evaluation.
+
+### The first version of this eval set was circular — caught and fixed
+
+The first build rejected 12 questions as `INSUFFICIENT`, including **`visa` for Japan,
+Mexico, Israel and Italy** — all rich countries. That was suspicious: I had read Japan's
+visa text myself during Phase 1a (`state_dept idx=0`: *"No visa required for stays less than
+90 days"*). Probing confirmed the corpus does contain it, at ranks 1–4 of a country-filtered
+query.
+
+The bug was in my own builder. `retrieve()` ran a source_type-constrained query and an
+unconstrained one, concatenated them, and sliced to `TOP_K=6` — so the 6 constrained
+`state_dept` chunks crowded out **every** unconstrained result. The chunk holding the answer
+never reached the writer.
+
+**Why this mattered more than a missing question.** It would have made the whole evaluation
+circular: reference answers built from the runtime retriever's top-k, then used to grade
+that same retriever. A retrieval miss could never have shown up as a miss — it would have
+been silently reclassified as "the corpus doesn't have it", which is exactly the error that
+flatters a RAG system's scores.
+
+Fixed by scoring both result sets together and widening the reference window to
+`EVIDENCE_K=12`, so the reference describes **what the corpus can support**, independent of
+runtime ranking. Japan, Mexico and other visa questions now build correctly. The circular v1
+is kept at `scratchpad/eval_set_v1_circular.json` for comparison.
+
+This is the second time in Week 6 that my own measurement instrument was wrong in the
+direction that would have made the results look cleaner (the first being the `\bSTEP\b`
+false positives in 1b). Both were caught by checking a surprising result against raw text
+rather than accepting it.

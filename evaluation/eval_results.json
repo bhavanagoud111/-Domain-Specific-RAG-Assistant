@@ -1,0 +1,110 @@
+{
+  "judge_model": "anthropic/claude-sonnet-4.5",
+  "judge_blinded": true,
+  "runs_thin": 3,
+  "runs_rich": 1,
+  "corpus_points_count": 2319,
+  "results": [
+    {
+      "question": "Do I need a visa to visit Japan as a US citizen?",
+      "expected_country": "Japan",
+      "question_type": "visa",
+      "corpus_tier": "rich",
+      "answerable": true,
+      "reference_answer": "Based on the chunks provided, US citizens can enter Japan visa-free for stays of up to 90 days, which is generally valid for tourism purposes. The Ministry of Foreign Affairs maintains an online Guide to Japanese Visas for further information.",
+      "n_runs": 1,
+      "runs": [
+        {
+          "run": 1,
+          "final_answer": "As a US citizen, you do not need a visa to visit Japan for stays of up to 90 days for tourism or business purposes [5].\n\n_Note: this answer rests on a single supporting source (thin grounding) — treat it with extra caution._",
+          "citations_resolved": 1,
+          "low_confidence": false,
+          "thin_pass": true,
+          "retries": 1,
+          "n_retrieved": 6,
+          "retrieved_chunks_text": [
+            "(country=Japan, source=state_dept, score=0.633)\nJapan Travel Advisory | Travel.state.gov\n\nSkip to content\n\nWorldwide Caution:\nThe Department of State advises Americans worldwide to exercise increased caution.\n\nJapan\n\nReview the latest State Department Travel Advisory about Japan. You can plan for safe travel by following the entry and exit requirements, reviewing local laws, and other travel guidance from the U.S. embassy or consulate.\n\nVisit\njp.usembassy.gov\n\nLearn more about U.S. and Japan relations at\nState.gov\n\nTravel advisory levels\n\nTravel Advisory\nlevels\n\nExercise increased caution\n\nReconsider travel\n\nDo not travel\n\nTravel advisory - Japan\n\nLevel 1 - Exercise normal precautions\n\nDate issued: May 15, 2025 -\n\nadvisory history\n\nin\nJapan.\n\nAdvisory summary\n\nU.S. citizens should always exercise caution when traveling abroad. Use these general tips to stay safe.\n\nIf you decide to travel to Japan:\n\nEnroll in the\nSmart Traveler Enrollment Program (STEP)\nto receive messages and Alerts from the U.S. Embassy and make it easier to locate you in an emergency.\n\nReview the\nCountry Security Report\nfor Japan.\n\nPrepare a contingency plan for emergency situations.  Review the\nInternational Travel Checklist\n\nVisit the CDC page for the latest\nTravel Health Information\nrelated to your travel and return to the United States.\n\nWe highly recommend that you buy insurance before you travel. Check with your\ntravel insurance provider\nabout evacuation assistance, medical insurance, and trip cancellation coverage.\n\nScroll to review full advisory\n",
+            "(country=Japan, source=state_dept, score=0.628)\nfor the entire stay\n\n1 blank page required per entry stamp.\n\nYou cannot travel on a passport you have previously declared lost or stolen, even if you find it later.\n\nCurrency on entry and exit\n\nEntry:\n¥1,000,000 or more to be declared (about 6,450 USD).\n\nExit:\n¥1,000,000 or more to be declared.\n\nTips from the U.S. embassy\n\nDrugs like marijuana and certain prescription drugs like Adderall are illegal in Japan, even if you have a prescription from the United States.\n\nTraffic moves on the left side of the road.\n\nU.S. prescriptions are not honored in Japan. Bring enough medication for your stay.\n\nHelp for U.S. citizens\n\n1-10-5 Akasaka, Minato-ku,\n\nTokyo 107-8420 Japan\n\n+81-3-3224-5856\n\nhttps://jp.usembassy.gov/\n\nSave contact to device\n\nEMBASSY UPDATE\n\nPrevious messages\n\nReview full alert\n\nMessage failed to load\n\nWe are unable to load the message. Visit the main\nU.S. embassy or consulate website\nfor updates.\n\nGet embassy updates right to your inbox\n\nReview how STEP works\n\nTravel guidance for Japan\n\nExplore our travel guidance topics to prepare for your trip abroad.\n\nSelect a topic\n\nEntry, exit, and visa requirements\n\nSafety and security\n\nLocal laws and customs\n\nHealth\n\nTransportation\n\nWeather and natural disasters\n\nU.S. citizens living abroad\n\nEmbassies and consulates\n\nEntry, exit, and visa requirements\nHelpful resources\n\nEmbassy of Japan\n\nDual Nationality\n\nPrevention of International Child Abduction (IPCA)\n\nLaws Abroad\n\nEntry and exit requirements\n\nFor tourist or business “visa f",
+            "(country=Japan, source=tourism, score=0.565)\nYou should carry your hotel's business card with you, to show a taxi driver or someone if you lose your way.\n\nPublic facilities like trains almost universally include English signage, and the Shinkansen and other commonly-used trains also announce upcoming stops in English. Tourist attractions and large businesses also usually have at least some English signage, but as you get farther off the beaten path, English becomes more spotty (and the translations more questionable).\n\nSome of the major tourist attractions and large international hotels in Tokyo have staff who can speak\nMandarin\nKorean\n, and many major airports and railway stations also have signs in Chinese and Korean as well. In Hokkaido, a few people who live in ports frequented by Russian sailors may know some\nRussian\n\nJapanese Sign Language\n(JSL, 日本手話\nnihon shuwa\n) is the dominant sign language. Its adoption has been slow. It is mutually intelligible with Korean and Taiwanese Sign Languages, but not with any others.\n\nGet in\n\nVisa policy of Japan\n\nVisa-free - up to 6 months\n\nVisa-free - 90 days\n\nVisa-free - 30 days (registered passports only)\n\nVisa-free - 15 days\n\nVisa-free - 15 days (registered passports only)\n\nVisa required\n\nAdmission refused\n\nVisa policy overview\n\nVisa free entry\n: 15, 30 or 90 days for citizens of\ncertain countries\n\nTransit Visa\n: 15 days\n\nTemporary Visitor Visa\n: max. 90 days (for short-term stay like tourism and business)\n\nWorking Visa\n: max. 3 years\n\nGeneral Visa\n: max. 3 years (for accepting",
+            "(country=Japan, source=state_dept, score=0.561)\nthe term “resident” involves more than simply visa status or length of stay in Japan. It is determined by the police.\n\nA foreign driver’s license alone is not valid in Japan for residents.\n\nU.S. Embassy’s website\nfor more information on driving in Japan.\n\nAviation safety oversight\n\nThe U.S. Federal Aviation Administration (FAA) has found that Japan’s Civil Aviation Authority meets international standards for aviation safety oversight.\nFAA’s website\nincludes more information on its assessment program.\n\nMaritime travel\n\nMariners planning travel to Japan should check the following:\n\nU.S. Coast Guard Homeport Directory\n\nU.S. Department of Transportation Maritime Advisories\n\nMARAD Active Maritime Alerts\n\nMaritime Safety Office Navigational Warnings\n\nWeather\nDisaster preparedness\n\nJapan is prone to natural disasters, including:\n\nEarthquakes\n\nTyphoons\n\nTsunamis\n\nLandslides\n\nThe top 3 events in Japan include:\n\nTyphoons\n: Strong storms with heavy rain and high winds. These typically occur from summer to fall.\n\nEarthquakes\n: Japan is located on the Pacific Ring of Fire. Earthquakes are common, sometimes causing damage, which can be severe.\n\nHeavy snow\n: In winter, northern Japan and the mountains get a lot of snow. This can disrupt travel and daily life.\n\nStay informed:\n\nU.S. Embassy’s disaster preparedness web pag\ne for recommendations and steps you can take to prepare for an emergency.\n\nDownload:\n\nSafety Tips app\nfor safety cellphone alerts\n\nNHK World app\nfor safety cellphone alerts ",
+            "(country=Japan, source=tourism, score=0.559)\n, which is generally valid for a stay of 90 days. The Ministry of Foreign Affairs maintains an\non-line Guide to Japanese Visas\n\nTransit without a visa (TWOV)\n\nNo visa is required for a same-day transit between international flights at the same airport, so long as you do not leave the secured area.\n\nVisitors with tickets for onward travel to a third country may be granted a\nShore Pass\nfor a maximum of 72 hours with their permitted stay area limited to the vicinity of the port of entry. The port of departure does not have to be the same as the port of entry. Instead, it only needs to be in its vicinity.\n\nShore Passes are granted at immigration discretion and airlines may hesitate to allow you to board if you have a multi-day layover and are relying on getting on. Getting a transit visa in advance is always a safer option.\n\nResidence Card\n\nTravellers entering Japan with anything other than a temporary visitor visa are required to obtain a \"Residence Card\" (在留カード), colloquially known as a\ngaijin card\n, within 90 days of arrival and carry it at all times in lieu of their passport. Those staying for 90 days or less may complete this registration, but they are not obligated to. This will be invalidated upon exit from Japan, unless a re-entry permit is held.\n\nCustoms\n\nForeigners must typically fill out a\ndisembarkation form\nfor immigration, a\ndeclaration form\nfor customs, and a\nquarantine form\nif required. The\nVisit Japan Web service\ncan be used to electronically submit all required ",
+            "(country=Japan, source=state_dept, score=0.538)\nyou exit from Japan if you have unpaid bills.\n\nAll visitors must provide fingerprints and have their photo taken upon arrival. This doesn't apply to those entering on diplomatic visas, minors, or certain members of the military traveling on official orders.\n\nFor further information about landing procedures, please visit the\nImmigration Bureau of Japan\n\nLost or stolen passports\n\nYou cannot use a passport that you’ve reported as lost or stolen, even if you find it later.\n\nJapanese authorities will likely deny you entry if you try.\n\nIf your passport was lost or stolen, you need to get a new one before traveling.\n\nEmbassy of Japan\nto see instructions on how to replace a lost or stolen passport.\n\nTransiting through Japan\n\nEnsure that your passport and visa are valid for your entire stay. Passport services are not available at the airport.\n\nAirlines in Japan may not let you board if you don't have the right travel documents for your next destination, or if your passport has less than 6 months of validity.\n\nMilitary and SOFA travelers\n\nActive-duty U.S. military personnel may enter Japan under the Status of Forces Agreement (SOFA) with proper Department of Defense (DoD) identification and travel orders.\n\nHowever, all SOFA family members, civilian employees, and contractors must have valid passports to enter Japan.\n\nPlease consult the\nDOD Foreign Clearance Guide\nbefore leaving the United States.\n\nImmigration Services Agency website\nfor various immigration procedures.\n\nHIV and AIDS res"
+          ],
+          "citations_text": [
+            "[[5]] (country=Japan, source=tourism)\n"
+          ],
+          "retrieval": {
+            "n": 6,
+            "n_judged": 6,
+            "n_relevant": 1,
+            "precision": 0.1667,
+            "verdicts": [
+              {
+                "chunk": 1,
+                "relevant": false,
+                "why": "Generic travel advisory, no visa information provided"
+              },
+              {
+                "chunk": 2,
+                "relevant": false,
+                "why": "Currency and prescription rules, not visa requirements"
+              },
+              {
+                "chunk": 3,
+                "relevant": false,
+                "why": "Language and navigation tips, not visa information"
+              },
+              {
+                "chunk": 4,
+                "relevant": false,
+                "why": "Driving, aviation, and disaster info, no visas"
+              },
+              {
+                "chunk": 5,
+                "relevant": true,
+                "why": "Directly states 90-day visa waiver for visitors"
+              },
+              {
+                "chunk": 6,
+                "relevant": false,
+                "why": "Fingerprints and lost passports, not visa requirements"
+              }
+            ],
+            "country_match_rate": 1.0,
+            "expected_country_retrieved": true,
+            "countries_seen": [
+              "Japan"
+            ]
+          },
+          "faithfulness": {
+            "n_claims": 1,
+            "n_supported": 0,
+            "score": 0.0,
+            "claims": [
+              {
+                "claim": "US citizens do not need a visa to visit Japan for stays of up to 90 days for tourism or business purposes",
+                "supported": false,
+                "why": "Chunk [5] text not provided, cannot verify claim"
+              }
+            ]
+          },
+          "gate": {
+            "passed": true,
+            "correct": true,
+            "expectation": "expected >=1 citation",
+            "citations_resolved": 1
+          }
+        }
+      ],
+      "gate_verdicts": [
+        true
+      ],
+      "gate_flipped": false,
+      "gate_correct_rate": 1.0,
+      "mean_citations": 1,
+      "mean_precision": 0.1667,
+      "mean_faithfulness": 0.0,
+      "expected_country_retrieved_rate": 1.0
+    }
+  ]
+}
