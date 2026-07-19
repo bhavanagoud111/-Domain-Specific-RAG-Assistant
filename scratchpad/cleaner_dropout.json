@@ -1,0 +1,1380 @@
+[
+  {
+    "country": "India",
+    "url": "https://www.incredibleindia.org/",
+    "n_dropped_types": 62,
+    "n_dropped_contentish": 57,
+    "dropped_occurrences": 421,
+    "examples": [
+      [
+        "Explore",
+        36
+      ],
+      [
+        "Heritage",
+        13
+      ],
+      [
+        "Apply",
+        12
+      ],
+      [
+        "Clear",
+        12
+      ],
+      [
+        "Nature",
+        12
+      ],
+      [
+        "The",
+        11
+      ],
+      [
+        "Adventure",
+        8
+      ],
+      [
+        "Spiritual",
+        7
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Switzerland",
+    "url": "https://www.myswitzerland.com/en/",
+    "n_dropped_types": 71,
+    "n_dropped_contentish": 55,
+    "dropped_occurrences": 522,
+    "examples": [
+      [
+        "Zurich",
+        11
+      ],
+      [
+        "Jun",
+        11
+      ],
+      [
+        "Bern",
+        8
+      ],
+      [
+        "Basel",
+        8
+      ],
+      [
+        "Geneva",
+        8
+      ],
+      [
+        "Zermatt",
+        8
+      ],
+      [
+        "Jungfraujoch",
+        8
+      ],
+      [
+        "Lucerne",
+        8
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Nepal",
+    "url": "https://ntb.gov.np/",
+    "n_dropped_types": 50,
+    "n_dropped_contentish": 47,
+    "dropped_occurrences": 181,
+    "examples": [
+      [
+        "Lumbini",
+        11
+      ],
+      [
+        "Swayambhunath",
+        6
+      ],
+      [
+        "Kanchenjunga",
+        6
+      ],
+      [
+        "Kathmandu",
+        5
+      ],
+      [
+        "Pokhara",
+        5
+      ],
+      [
+        "Everest",
+        5
+      ],
+      [
+        "Chitwan",
+        5
+      ],
+      [
+        "Annapurna",
+        4
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Singapore",
+    "url": "https://en.wikivoyage.org/wiki/Singapore",
+    "n_dropped_types": 95,
+    "n_dropped_contentish": 42,
+    "dropped_occurrences": 1901,
+    "examples": [
+      [
+        "Little India",
+        13
+      ],
+      [
+        "East Coast",
+        11
+      ],
+      [
+        "Chinatown",
+        10
+      ],
+      [
+        "The",
+        9
+      ],
+      [
+        "Johor Bahru",
+        9
+      ],
+      [
+        "Sentosa",
+        8
+      ],
+      [
+        "Marina Bay",
+        7
+      ],
+      [
+        "Kuala Lumpur",
+        7
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Japan",
+    "url": "https://en.wikivoyage.org/wiki/Japan",
+    "n_dropped_types": 80,
+    "n_dropped_contentish": 34,
+    "dropped_occurrences": 1118,
+    "examples": [
+      [
+        "Tokyo",
+        15
+      ],
+      [
+        "Okinawa",
+        14
+      ],
+      [
+        "Osaka",
+        13
+      ],
+      [
+        "The",
+        13
+      ],
+      [
+        "Hokkaido",
+        12
+      ],
+      [
+        "Kyoto",
+        12
+      ],
+      [
+        "Nagasaki",
+        8
+      ],
+      [
+        "IATA",
+        8
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Cambodia",
+    "url": "https://en.wikivoyage.org/wiki/Cambodia",
+    "n_dropped_types": 53,
+    "n_dropped_contentish": 32,
+    "dropped_occurrences": 558,
+    "examples": [
+      [
+        "Phnom Penh",
+        27
+      ],
+      [
+        "Siem Reap",
+        26
+      ],
+      [
+        "Sihanoukville",
+        13
+      ],
+      [
+        "Battambang",
+        11
+      ],
+      [
+        "Koh Kong",
+        9
+      ],
+      [
+        "Poipet",
+        9
+      ],
+      [
+        "Cambodia",
+        8
+      ],
+      [
+        "Bangkok",
+        6
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "South Korea",
+    "url": "https://en.wikivoyage.org/wiki/South_Korea",
+    "n_dropped_types": 70,
+    "n_dropped_contentish": 30,
+    "dropped_occurrences": 961,
+    "examples": [
+      [
+        "Seoul",
+        26
+      ],
+      [
+        "Busan",
+        16
+      ],
+      [
+        "Jeju",
+        10
+      ],
+      [
+        "Japan",
+        7
+      ],
+      [
+        "Gwangju",
+        6
+      ],
+      [
+        "Incheon",
+        6
+      ],
+      [
+        "J",
+        6
+      ],
+      [
+        "East Asia",
+        4
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Sweden",
+    "url": "https://en.wikivoyage.org/wiki/Sweden",
+    "n_dropped_types": 60,
+    "n_dropped_contentish": 29,
+    "dropped_occurrences": 891,
+    "examples": [
+      [
+        "From",
+        20
+      ],
+      [
+        "Stockholm",
+        14
+      ],
+      [
+        "Gothenburg",
+        9
+      ],
+      [
+        "IATA",
+        9
+      ],
+      [
+        "Malm\u00f6",
+        8
+      ],
+      [
+        "Norway",
+        8
+      ],
+      [
+        "Norrland",
+        7
+      ],
+      [
+        "Uppsala",
+        6
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Mexico",
+    "url": "https://en.wikivoyage.org/wiki/Mexico",
+    "n_dropped_types": 50,
+    "n_dropped_contentish": 27,
+    "dropped_occurrences": 724,
+    "examples": [
+      [
+        "Mexico City",
+        14
+      ],
+      [
+        "IATA",
+        9
+      ],
+      [
+        "Guadalajara",
+        7
+      ],
+      [
+        "Monterrey",
+        7
+      ],
+      [
+        "Baja California",
+        6
+      ],
+      [
+        "UNESCO World Heritage Site",
+        6
+      ],
+      [
+        "Sinaloa",
+        4
+      ],
+      [
+        "Sonora",
+        4
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Morocco",
+    "url": "https://en.wikivoyage.org/wiki/Morocco",
+    "n_dropped_types": 45,
+    "n_dropped_contentish": 24,
+    "dropped_occurrences": 573,
+    "examples": [
+      [
+        "Casablanca",
+        8
+      ],
+      [
+        "Marrakech",
+        7
+      ],
+      [
+        "Fez",
+        6
+      ],
+      [
+        "Tangier",
+        6
+      ],
+      [
+        "Melilla",
+        5
+      ],
+      [
+        "Rabat",
+        5
+      ],
+      [
+        "Meknes",
+        5
+      ],
+      [
+        "Arabic",
+        4
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Greece",
+    "url": "https://en.wikivoyage.org/wiki/Greece",
+    "n_dropped_types": 46,
+    "n_dropped_contentish": 23,
+    "dropped_occurrences": 642,
+    "examples": [
+      [
+        "Crete",
+        13
+      ],
+      [
+        "Rhodes",
+        11
+      ],
+      [
+        "Athens",
+        9
+      ],
+      [
+        "Cyclades",
+        8
+      ],
+      [
+        "Corfu",
+        7
+      ],
+      [
+        "Turkey",
+        7
+      ],
+      [
+        "The",
+        6
+      ],
+      [
+        "Mykonos",
+        6
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Israel",
+    "url": "https://en.wikivoyage.org/wiki/Israel",
+    "n_dropped_types": 53,
+    "n_dropped_contentish": 22,
+    "dropped_occurrences": 874,
+    "examples": [
+      [
+        "Jerusalem",
+        13
+      ],
+      [
+        "Tel Aviv",
+        11
+      ],
+      [
+        "Haifa",
+        8
+      ],
+      [
+        "Egypt",
+        6
+      ],
+      [
+        "Golan Heights",
+        6
+      ],
+      [
+        "Eilat",
+        6
+      ],
+      [
+        "United States",
+        5
+      ],
+      [
+        "Jordan",
+        5
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Saudi Arabia",
+    "url": "https://en.wikivoyage.org/wiki/Saudi_Arabia",
+    "n_dropped_types": 39,
+    "n_dropped_contentish": 20,
+    "dropped_occurrences": 571,
+    "examples": [
+      [
+        "Medina",
+        14
+      ],
+      [
+        "Riyadh",
+        13
+      ],
+      [
+        "Mecca",
+        12
+      ],
+      [
+        "Hajj",
+        9
+      ],
+      [
+        "Jeddah",
+        9
+      ],
+      [
+        "Dammam",
+        6
+      ],
+      [
+        "Middle East",
+        5
+      ],
+      [
+        "Islam",
+        5
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Sri Lanka",
+    "url": "https://en.wikivoyage.org/wiki/Sri_Lanka",
+    "n_dropped_types": 32,
+    "n_dropped_contentish": 20,
+    "dropped_occurrences": 396,
+    "examples": [
+      [
+        "Jaffna",
+        6
+      ],
+      [
+        "Colombo",
+        6
+      ],
+      [
+        "Kandy",
+        5
+      ],
+      [
+        "Nuwara Eliya",
+        5
+      ],
+      [
+        "Anuradhapura",
+        5
+      ],
+      [
+        "India",
+        4
+      ],
+      [
+        "Mannar",
+        4
+      ],
+      [
+        "Polonnaruwa",
+        4
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "New Zealand",
+    "url": "https://en.wikivoyage.org/wiki/New_Zealand",
+    "n_dropped_types": 37,
+    "n_dropped_contentish": 19,
+    "dropped_occurrences": 626,
+    "examples": [
+      [
+        "Wellington",
+        10
+      ],
+      [
+        "Dunedin",
+        9
+      ],
+      [
+        "Christchurch",
+        8
+      ],
+      [
+        "Auckland",
+        7
+      ],
+      [
+        "The",
+        7
+      ],
+      [
+        "Queenstown",
+        5
+      ],
+      [
+        "Australia",
+        5
+      ],
+      [
+        "M\u0101ori",
+        4
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Peru",
+    "url": "https://en.wikivoyage.org/wiki/Peru",
+    "n_dropped_types": 34,
+    "n_dropped_contentish": 18,
+    "dropped_occurrences": 602,
+    "examples": [
+      [
+        "Cuzco",
+        11
+      ],
+      [
+        "Lima",
+        10
+      ],
+      [
+        "Arequipa",
+        6
+      ],
+      [
+        "Machu Picchu",
+        5
+      ],
+      [
+        "South America",
+        4
+      ],
+      [
+        "Peru",
+        4
+      ],
+      [
+        "Ayacucho",
+        4
+      ],
+      [
+        "Chile",
+        4
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Italy",
+    "url": "https://www.italia.it/en",
+    "n_dropped_types": 26,
+    "n_dropped_contentish": 17,
+    "dropped_occurrences": 236,
+    "examples": [
+      [
+        "Like",
+        63
+      ],
+      [
+        "Discover",
+        21
+      ],
+      [
+        "Villages",
+        11
+      ],
+      [
+        "City",
+        6
+      ],
+      [
+        "Region",
+        6
+      ],
+      [
+        "UNESCO",
+        5
+      ],
+      [
+        "Events",
+        4
+      ],
+      [
+        "Previous",
+        4
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Czech Republic",
+    "url": "https://en.wikivoyage.org/wiki/Czechia",
+    "n_dropped_types": 44,
+    "n_dropped_contentish": 16,
+    "dropped_occurrences": 630,
+    "examples": [
+      [
+        "Prague",
+        15
+      ],
+      [
+        "Brno",
+        11
+      ],
+      [
+        "Ostrava",
+        7
+      ],
+      [
+        "K\u010d",
+        7
+      ],
+      [
+        "The",
+        6
+      ],
+      [
+        "Olomouc",
+        5
+      ],
+      [
+        "Karlovy Vary",
+        4
+      ],
+      [
+        "Kutn\u00e1 Hora",
+        4
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Croatia",
+    "url": "https://en.wikivoyage.org/wiki/Croatia",
+    "n_dropped_types": 29,
+    "n_dropped_contentish": 15,
+    "dropped_occurrences": 353,
+    "examples": [
+      [
+        "Zagreb",
+        10
+      ],
+      [
+        "Dubrovnik",
+        10
+      ],
+      [
+        "Split",
+        7
+      ],
+      [
+        "IATA",
+        7
+      ],
+      [
+        "Pula",
+        6
+      ],
+      [
+        "Rijeka",
+        6
+      ],
+      [
+        "Osijek",
+        5
+      ],
+      [
+        "Hvar",
+        4
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Egypt",
+    "url": "https://en.wikivoyage.org/wiki/Egypt",
+    "n_dropped_types": 31,
+    "n_dropped_contentish": 15,
+    "dropped_occurrences": 462,
+    "examples": [
+      [
+        "Cairo",
+        10
+      ],
+      [
+        "Aswan",
+        7
+      ],
+      [
+        "Luxor",
+        7
+      ],
+      [
+        "Siwa",
+        7
+      ],
+      [
+        "Israel",
+        6
+      ],
+      [
+        "Alexandria",
+        5
+      ],
+      [
+        "Sinai",
+        4
+      ],
+      [
+        "Aqua",
+        4
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Vietnam",
+    "url": "https://vietnam.travel/",
+    "n_dropped_types": 84,
+    "n_dropped_contentish": 12,
+    "dropped_occurrences": 1597,
+    "examples": [
+      [
+        "Culture",
+        280
+      ],
+      [
+        "Adventure",
+        142
+      ],
+      [
+        "Beaches",
+        114
+      ],
+      [
+        "Nature",
+        110
+      ],
+      [
+        "Food",
+        106
+      ],
+      [
+        "City Breaks",
+        80
+      ],
+      [
+        "Luxury",
+        68
+      ],
+      [
+        "Cities",
+        64
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "China",
+    "url": "https://www.travelchina.org.cn/",
+    "n_dropped_types": 15,
+    "n_dropped_contentish": 10,
+    "dropped_occurrences": 130,
+    "examples": [
+      [
+        "Explore",
+        20
+      ],
+      [
+        "Learn More",
+        16
+      ],
+      [
+        "Cultural Immersion",
+        14
+      ],
+      [
+        "Natural Wonders",
+        12
+      ],
+      [
+        "Modern Metropolises",
+        10
+      ],
+      [
+        "Millennial Civilization",
+        10
+      ],
+      [
+        "Intangible Cultural Heritage",
+        6
+      ],
+      [
+        "Chinese Souvenirs",
+        6
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Iceland",
+    "url": "https://en.wikivoyage.org/wiki/Iceland",
+    "n_dropped_types": 30,
+    "n_dropped_contentish": 9,
+    "dropped_occurrences": 330,
+    "examples": [
+      [
+        "Reykjav\u00edk",
+        7
+      ],
+      [
+        "The",
+        7
+      ],
+      [
+        "Akureyri",
+        5
+      ],
+      [
+        "Iceland",
+        4
+      ],
+      [
+        "J\u00f6kuls\u00e1rl\u00f3n",
+        3
+      ],
+      [
+        "Blue Lagoon",
+        3
+      ],
+      [
+        "Gullfoss",
+        3
+      ],
+      [
+        "Faroe Islands",
+        3
+      ]
+    ],
+    "is_wikivoyage": true
+  },
+  {
+    "country": "Australia",
+    "url": "https://www.australia.com/en",
+    "n_dropped_types": 12,
+    "n_dropped_contentish": 7,
+    "dropped_occurrences": 48,
+    "examples": [
+      [
+        "Nature",
+        4
+      ],
+      [
+        "Kangaroo Island",
+        4
+      ],
+      [
+        "Play Video",
+        4
+      ],
+      [
+        "Canberra",
+        3
+      ],
+      [
+        "The Whitsundays",
+        3
+      ],
+      [
+        "Mornington Peninsula",
+        3
+      ],
+      [
+        "Backpacking",
+        3
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Ireland",
+    "url": "https://www.ireland.com/en-us/",
+    "n_dropped_types": 24,
+    "n_dropped_contentish": 7,
+    "dropped_occurrences": 170,
+    "examples": [
+      [
+        "Attraction",
+        13
+      ],
+      [
+        "From",
+        11
+      ],
+      [
+        "To",
+        11
+      ],
+      [
+        "Experience Now",
+        11
+      ],
+      [
+        "Article",
+        11
+      ],
+      [
+        "Save",
+        4
+      ],
+      [
+        "Ireland's Hidden Heartlands",
+        3
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "France",
+    "url": "https://www.france.fr/en",
+    "n_dropped_types": 11,
+    "n_dropped_contentish": 6,
+    "dropped_occurrences": 50,
+    "examples": [
+      [
+        "Ecolabel",
+        9
+      ],
+      [
+        "Loire Valley",
+        5
+      ],
+      [
+        "Provence",
+        4
+      ],
+      [
+        "Paris",
+        4
+      ],
+      [
+        "Champagne",
+        4
+      ],
+      [
+        "Atlantic Coast",
+        3
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Philippines",
+    "url": "https://philippines.travel/",
+    "n_dropped_types": 5,
+    "n_dropped_contentish": 5,
+    "dropped_occurrences": 22,
+    "examples": [
+      [
+        "Diving",
+        7
+      ],
+      [
+        "Beaches",
+        6
+      ],
+      [
+        "Island-hopping",
+        3
+      ],
+      [
+        "Culture",
+        3
+      ],
+      [
+        "Snorkeling",
+        3
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Portugal",
+    "url": "https://www.visitportugal.com/en",
+    "n_dropped_types": 10,
+    "n_dropped_contentish": 5,
+    "dropped_occurrences": 55,
+    "examples": [
+      [
+        "Events",
+        11
+      ],
+      [
+        "Suggestions",
+        8
+      ],
+      [
+        "Videos",
+        4
+      ],
+      [
+        "Golf",
+        4
+      ],
+      [
+        "Select Suggestions",
+        3
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "United Kingdom",
+    "url": "https://www.visitbritain.com/en",
+    "n_dropped_types": 14,
+    "n_dropped_contentish": 5,
+    "dropped_occurrences": 164,
+    "examples": [
+      [
+        "England",
+        4
+      ],
+      [
+        "North West England",
+        4
+      ],
+      [
+        "Lowland Scotland",
+        4
+      ],
+      [
+        "London",
+        4
+      ],
+      [
+        "Northern Ireland",
+        3
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Chile",
+    "url": "https://www.chile.travel/en/",
+    "n_dropped_types": 15,
+    "n_dropped_contentish": 3,
+    "dropped_occurrences": 170,
+    "examples": [
+      [
+        "Typicial Cuisine",
+        6
+      ],
+      [
+        "Hot Springs",
+        4
+      ],
+      [
+        "Mountain Experiences",
+        3
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Colombia",
+    "url": "https://colombia.travel/en",
+    "n_dropped_types": 5,
+    "n_dropped_contentish": 2,
+    "dropped_occurrences": 21,
+    "examples": [
+      [
+        "SEE MORE",
+        4
+      ],
+      [
+        "World Travel Awards",
+        4
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Dominican Republic",
+    "url": "https://www.godominicanrepublic.com/",
+    "n_dropped_types": 2,
+    "n_dropped_contentish": 2,
+    "dropped_occurrences": 6,
+    "examples": [
+      [
+        "Punta Cana",
+        3
+      ],
+      [
+        "Beaches",
+        3
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Jordan",
+    "url": "https://international.visitjordan.com/",
+    "n_dropped_types": 3,
+    "n_dropped_contentish": 2,
+    "dropped_occurrences": 15,
+    "examples": [
+      [
+        "EXPLORE NOW",
+        6
+      ],
+      [
+        "Local Recommendations",
+        4
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "South Africa",
+    "url": "https://www.southafrica.net/gl/en/travel/",
+    "n_dropped_types": 11,
+    "n_dropped_contentish": 2,
+    "dropped_occurrences": 54,
+    "examples": [
+      [
+        "Travel Website",
+        4
+      ],
+      [
+        "Explore",
+        3
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Turkey",
+    "url": "https://www.goturkiye.com/",
+    "n_dropped_types": 17,
+    "n_dropped_contentish": 2,
+    "dropped_occurrences": 97,
+    "examples": [
+      [
+        "Sustainable Routes",
+        4
+      ],
+      [
+        "Travel Responsibly",
+        4
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Costa Rica",
+    "url": "https://www.visitcostarica.com/en",
+    "n_dropped_types": 5,
+    "n_dropped_contentish": 1,
+    "dropped_occurrences": 29,
+    "examples": [
+      [
+        "Image",
+        9
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Poland",
+    "url": "https://www.poland.travel/en",
+    "n_dropped_types": 3,
+    "n_dropped_contentish": 1,
+    "dropped_occurrences": 55,
+    "examples": [
+      [
+        "Opole",
+        3
+      ]
+    ],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Argentina",
+    "url": "https://www.argentina.travel/en",
+    "n_dropped_types": 0,
+    "n_dropped_contentish": 0,
+    "dropped_occurrences": 0,
+    "examples": [],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Austria",
+    "url": "https://www.austria.info/en",
+    "n_dropped_types": 2,
+    "n_dropped_contentish": 0,
+    "dropped_occurrences": 7,
+    "examples": [],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Canada",
+    "url": "https://www.destinationcanada.com/en",
+    "n_dropped_types": 0,
+    "n_dropped_contentish": 0,
+    "dropped_occurrences": 0,
+    "examples": [],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Germany",
+    "url": "https://www.germany.travel/en/home.html",
+    "n_dropped_types": 7,
+    "n_dropped_contentish": 0,
+    "dropped_occurrences": 117,
+    "examples": [],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Indonesia",
+    "url": "https://www.indonesia.travel/gb/en/home",
+    "n_dropped_types": 2,
+    "n_dropped_contentish": 0,
+    "dropped_occurrences": 11,
+    "examples": [],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Netherlands",
+    "url": "https://www.holland.com/global/tourism.htm",
+    "n_dropped_types": 1,
+    "n_dropped_contentish": 0,
+    "dropped_occurrences": 5,
+    "examples": [],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "Spain",
+    "url": "https://www.spain.info/en/",
+    "n_dropped_types": 7,
+    "n_dropped_contentish": 0,
+    "dropped_occurrences": 28,
+    "examples": [],
+    "is_wikivoyage": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "url": "https://www.visitdubai.com/en",
+    "n_dropped_types": 0,
+    "n_dropped_contentish": 0,
+    "dropped_occurrences": 0,
+    "examples": [],
+    "is_wikivoyage": false
+  }
+]

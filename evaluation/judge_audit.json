@@ -1,0 +1,106 @@
+{
+  "method": "Stratified hand-verification of claim-level faithfulness verdicts. Each sampled verdict was read against the full text of the chunk the judge was shown. Adjudicated by the human-in-the-loop reviewer, not by another model. Sample drawn by evaluation/verify_judge.py --n 6 --pin Mexico,Japan --seed 20260719.",
+  "judge_model": "anthropic/claude-sonnet-4.5",
+  "pool": {"total_claim_verdicts": 880, "supported": 764, "unsupported": 116},
+  "why_stratified": "Sampling only suspicious (UNSUPPORTED) verdicts would measure false-rejection rate and say nothing about rubber-stamping. The two error directions bias the headline in OPPOSITE ways, so accuracy is reported per direction and never blended.",
+
+  "unsupported_direction": {
+    "n": 6,
+    "judge_correct": 4,
+    "judge_wrong": 2,
+    "accuracy": 0.667,
+    "interpretation": "The judge OVER-REJECTS. Both errors were over-strict readings of chunks that a human would accept. This means the headline faithfulness is UNDERSTATED, not inflated.",
+    "verdicts": [
+      {
+        "country": "Japan", "qtype": "visa", "judge_said": false, "human_verdict": false,
+        "judge_correct": true,
+        "claim": "As a US citizen, you do not need a visa to visit Japan for a stay of up to 90 days",
+        "note": "Cited chunk [4] covers transit-without-visa, Shore Pass and Residence Card. It never states US citizens are visa-exempt. The CLAIM IS TRUE and the corpus does support it elsewhere (state_dept idx=0: 'No visa required for stays less than 90 days') -- but the model cited the wrong chunk. Correct answer, wrong citation: exactly the attribution failure this metric exists to catch."
+      },
+      {
+        "country": "Mexico", "qtype": "visa", "judge_said": false, "human_verdict": false,
+        "judge_correct": true,
+        "claim": "US citizens do not need a visa to visit Mexico for stays of up to 180 days",
+        "note": "Cited chunk [1] is the Travel Advisory page header -- 'Skip to content', 'Worldwide Caution', advisory-level boilerplate. Zero visa content. Again the claim is true and the corpus states it at state_dept idx=13 ('A visa is required when visiting for more than 180 days'), but that chunk was not the one cited."
+      },
+      {
+        "country": "United Arab Emirates", "qtype": "what_to_visit", "judge_said": false,
+        "human_verdict": false, "judge_correct": true,
+        "claim": "These areas provide a mix of modern architecture, shopping, dining, and cultural experiences",
+        "note": "Cited chunk is a bare district-name list (Al Seef, Al Quoz, Business Bay...) with no descriptions whatsoever. The characterisation is invented. Same defect flagged in Phase 1d."
+      },
+      {
+        "country": "Switzerland", "qtype": "what_to_visit", "judge_said": false,
+        "human_verdict": false, "judge_correct": true,
+        "claim": "Äscher Cliff Restaurant provides unique dining experience with stunning views",
+        "note": "Chunk contains only the heading 'Hiking and Äscher cliff restaurant'. 'Unique dining experience with stunning views' is fabricated embellishment."
+      },
+      {
+        "country": "Switzerland", "qtype": "what_to_visit", "judge_said": false,
+        "human_verdict": true, "judge_correct": false,
+        "claim": "Alpstein Area is a destination for hiking and exploring",
+        "note": "JUDGE WRONG (over-strict). The chunk's section heading is literally 'Hiking and Äscher cliff restaurant', immediately followed by the Alpstein description. A human reads that as supporting 'Alpstein is for hiking'. Borderline, but the support is present."
+      },
+      {
+        "country": "Norway", "qtype": "safety", "judge_said": false, "human_verdict": true,
+        "judge_correct": false,
+        "claim": "It is generally safe to travel in Norway right now",
+        "note": "JUDGE WRONG (over-strict). Cited chunks carry CDC 'Level 1 Practice Usual Precautions' and State Dept Level 1. Level 1 is the standard institutional signal for 'safe'; requiring the literal word 'safe' is too literal a reading."
+      }
+    ]
+  },
+
+  "supported_direction": {
+    "n": 6,
+    "judge_correct": 6,
+    "judge_wrong": 0,
+    "accuracy": 1.0,
+    "interpretation": "No rubber-stamping detected. Every sampled approval was traceable to near-verbatim chunk text.",
+    "verdicts": [
+      {
+        "country": "Japan", "qtype": "health", "judge_said": true, "human_verdict": true,
+        "judge_correct": true,
+        "claim": "All international travelers should be fully vaccinated against measles with MMR",
+        "note": "Chunk states it verbatim: 'All international travelers should be fully vaccinated against measles with the measles-mumps-rubella (MMR) vaccine'."
+      },
+      {
+        "country": "Mexico", "qtype": "health", "judge_said": true, "human_verdict": true,
+        "judge_correct": true,
+        "claim": "Routine vaccinations: Varicella, DTaP/Tdap/Td, Flu, MMR, Polio, Shingles",
+        "note": "Matches the CDC routine-vaccine block present in the cited CDC chunk."
+      },
+      {
+        "country": "Greece", "qtype": "what_to_visit", "judge_said": true, "human_verdict": true,
+        "judge_correct": true,
+        "claim": "Rhodes features ancient monuments",
+        "note": "MY OWN CHECK WAS WRONG FIRST. Grepping the cited chunks for 'Rhodes' returned nothing, which looked like a rubber-stamp. But the chunk reads '(Ρόδος, Ródos) — island with ancient monuments, as well as beaches'. Ródos IS Rhodes. The judge was right and my verification instrument was too literal. Root cause: the cleaner deleted the English name 'Rhodes' (and 'Crete', 'Athens', 'Corfu', 'Mykonos') as repeated short lines, leaving only Greek script and transliteration."
+      },
+      {
+        "country": "United States", "qtype": "what_to_visit", "judge_said": true,
+        "human_verdict": true, "judge_correct": true,
+        "claim": "Massachusetts road trip through Boston, Cape Cod and the Berkshires",
+        "note": "Chunk: 'Plan a Massachusetts road trip through Boston, Cape Cod, Central Massachusetts and the Berkshires, exploring history, coastline and scenic stops'. Near-verbatim."
+      },
+      {
+        "country": "China", "qtype": "what_to_visit", "judge_said": true, "human_verdict": true,
+        "judge_correct": true,
+        "claim": "Yulong Snow Mountain is known for its sacred summit of snow and ice",
+        "note": "Chunk: 'Yulong Snow Mountain: the sacred summit of snow and ice'. Verbatim."
+      },
+      {
+        "country": "Vietnam", "qtype": "what_to_visit", "judge_said": true, "human_verdict": true,
+        "judge_correct": true,
+        "claim": "The Mekong Delta offers drifting, cycling, and exploring experiences",
+        "note": "Chunk carries the article title 'Drift, cycle, explore: Vietnam's Mekong Delta'. Converting a headline into a factual claim is mildly generous, but the activities are asserted by the source. Counted correct, flagged as the most lenient of the six."
+      }
+    ]
+  },
+
+  "conclusion": {
+    "headline_faithfulness_measured": 0.870,
+    "bias_direction": "UNDERSTATED",
+    "reasoning": "Approvals were 6/6 accurate; rejections were 4/6. The judge errs by rejecting claims a human would accept, never by rubber-stamping. So the true faithfulness is at or above the measured 87.0%.",
+    "naive_correction": "If ~1/3 of the 116 UNSUPPORTED verdicts are false rejections, ~38 claims flip to supported, giving roughly 91% rather than 87%.",
+    "confidence_caveat": "n=6 per direction is SMALL. A 2/6 error rate has very wide error bars -- the true rejection accuracy could plausibly sit anywhere from ~40% to ~90%. The DIRECTION of the bias (over-rejection, not rubber-stamping) is the trustworthy finding; the magnitude of the correction is not. Do not report 91% as a measured number."
+  }
+}

@@ -225,3 +225,117 @@ This is the second time in Week 6 that my own measurement instrument was wrong i
 direction that would have made the results look cleaner (the first being the `\bSTEP\b`
 false positives in 1b). Both were caught by checking a surprising result against raw text
 rather than accepting it.
+
+### Follow-up audit: was the Mexico / Israel "visa gap" real?
+
+After the v1 rejections I claimed in passing that Mexico and Israel had *no* US-citizen visa
+content even at k=20 — "a genuine coverage hole". **That claim was wrong**, and a direct
+payload scan (no embeddings involved) over all 104 Mexico and 81 Israel chunks disproved it.
+It was an artifact of the narrow regex I probed with (`no visa required|visa-free|without a
+visa`), which matches neither country's actual phrasing.
+
+| | Mexico | Israel |
+|---|---|---|
+| chunks containing visa/entry terms | 16 / 104 | 9 / 81 |
+| those chunks' ranks in an embedding k=20 | 1,2,3,4,5,6,8,14,15 | 1,2,3,14,17 |
+| verdict | **not a gap, not a retrieval failure** | **retrieval is fine; see below** |
+
+**Mexico — fully answerable.** `state_dept idx=13` states it outright:
+
+> *"Travel requirements — Tourist visa requirements: A visa is required when visiting for
+> more than 180 days."*
+
+That chunk ranks **4th**, and the tourism chunks add the Forma Migratoria Múltiple (FMM)
+detail. Both text and ranking are healthy.
+
+**Israel — I first called this a source-level "specificity gap". That was WRONG.**
+Verifying it against the live page proved it is a **bug in our own cleaner**, and tracing
+the mechanism turned up the single largest corpus-quality defect found all term.
+
+Retrieval is excellent — the three visa chunks rank **1, 2, 3** — and the content is exactly
+on topic. But the ETA eligibility list in our scraped text reads *"…United Arab Emirates
+**United Kingdom Uruguay** Vanuatu"*, skipping the United States. Three-layer comparison:
+
+| layer | contains "United States" in the ETA list? |
+|---|---|
+| cached HTML fetched 2026-06-28 | **YES** — `"United Kingdom, United States, Uruguay"` |
+| the live page, re-fetched 2026-07-19 | **YES** — identical |
+| after our `clean_html()` → the corpus | **NO** — the gap between UK and Uruguay is `''` |
+
+The source is fine. **We delete it.**
+
+### Root cause: the repeated-short-line heuristic in `processing/cleaner.py`
+
+```python
+repeated = {ln for ln, n in counts.items() if n >= 3 and len(ln) < 40}
+```
+
+`soup.get_text(separator="\n")` puts **every `<a>` on its own line**. On a Wikivoyage or
+tourism-board page, every place name is a link, so each becomes a standalone line. Any such
+line appearing ≥3 times and shorter than 40 chars is classified as a nav/menu item and
+deleted **everywhere in the document** — including from inside real prose and real lists.
+
+On the Israel page `"United States"` occurs as a standalone line **5 times**, so all five
+were dropped, taking the ETA entry with them. It is not a chunking artifact and not
+retrieval: the text never survived cleaning.
+
+### Blast radius — this is not an Israel problem
+
+Replayed the cleaner over all 45 cached tourism sources (read-only, no re-scrape):
+
+| | |
+|---|---|
+| sources audited | 45 (17 Wikivoyage, 28 tourism boards) |
+| sources dropping ≥1 content-like token | **37 of 45** |
+| distinct content-like token *types* deleted | **643** |
+
+What is actually being deleted is **the destination names themselves**:
+
+| country | deleted (occurrences on page) |
+|---|---|
+| Nepal | Lumbini ×11, Swayambhunath ×6, Kanchenjunga ×6, Kathmandu ×5, Pokhara ×5, Everest ×5, Chitwan ×5, Annapurna ×4 |
+| Switzerland | Zurich ×11, Bern ×8, Basel ×8, Geneva ×8, Zermatt ×8, Jungfraujoch ×8, Lucerne ×8 |
+| Japan | Tokyo ×15, Okinawa ×14, Osaka ×13, Hokkaido ×12, Kyoto ×12, Nagasaki ×8 |
+| Cambodia | Phnom Penh ×27, Siem Reap ×26, Sihanoukville ×13, Battambang ×11 |
+| Singapore | Little India ×13, East Coast ×11, Chinatown ×10, Sentosa ×8, Marina Bay ×7 |
+| Israel | Jerusalem ×13, Tel Aviv ×11, Haifa ×8, Golan Heights ×6, West Bank ×3 |
+
+**The loss is partial, not total** — and the distinction matters. Only *standalone-line*
+occurrences are deleted; a name embedded in a prose sentence survives, because that line is
+longer than 40 chars. Measured in the frozen corpus:
+
+| | surviving occurrences (tourism chunks) |
+|---|---|
+| Nepal — Everest, Lumbini, Annapurna | **0, 0, 0** (link-list only → erased completely) |
+| Nepal — Kathmandu | **0** in tourism (its 22 corpus hits are all State Dept / CDC) |
+| Switzerland — Zermatt | **0** |
+| Japan — Tokyo / Kyoto / Osaka | 45 / 13 / 15 (Wikivoyage prose survives) |
+| Cambodia — Phnom Penh / Siem Reap | 59 / 34 |
+
+So prose-heavy Wikivoyage pages survive reasonably; **link-list-heavy tourism-board pages
+(Nepal, Switzerland, India) are gutted**, losing precisely the named attractions a
+"what should I visit" question needs.
+
+### Why this probably explains a Week 4 mystery
+
+The Week 4 investigation recorded that an LLM judge kept failing correct "what should I
+visit in X" answers because it *"wanted a ranked list of named attractions the corpus
+doesn't phrase that way"*. That framing assumed a phrasing mismatch. The likelier
+explanation is now measurable: **for several countries the attraction names were deleted
+from the corpus before embedding.** The judge wanted names the corpus no longer contained.
+
+### Not fixed — deliberately
+
+The corpus is frozen (Phase 2) and the brief for this check was report-only. Fixing the
+cleaner would require re-cleaning, re-chunking and re-embedding every tourism source, which
+would invalidate every number in Phases 3–5. **Recorded as the top-priority defect for
+future work**, with the fix sketched in the Week 6 summary.
+
+**The reference writer handled the downstream symptom correctly**, which is a good sign for
+the eval set's integrity — rather than fabricating US eligibility from world knowledge:
+
+> *"US citizens are not explicitly mentioned in the list of countries eligible for Israel's
+> Electronic Travel Authorization… the United States is not listed among them."*
+
+That reference is faithful to the corpus as it exists. It is *wrong about the world*, and it
+is right about our data — which is exactly what a grounded-QA reference should be.

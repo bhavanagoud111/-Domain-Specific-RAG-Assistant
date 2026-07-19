@@ -1,0 +1,1620 @@
+========================================================================================================
+JUDGE VERDICT AUDIT -- stratified, hand-verification material
+========================================================================================================
+judge  = anthropic/claude-sonnet-4.5   blinded = True
+pool   = 880 claim-level verdicts (764 SUPPORTED / 116 UNSUPPORTED)
+sample = 6 UNSUPPORTED + 6 SUPPORTED  (seed=20260719, pinned=['Japan', 'Mexico'])
+
+Accuracy MUST be reported per direction:
+  wrong REJECTIONS -> headline faithfulness is UNDERSTATED
+  wrong APPROVALS  -> headline faithfulness is OVERSTATED
+
+
+########################################################################################################
+# JUDGE SAID: UNSUPPORTED   (n=6)
+########################################################################################################
+
+========================================================================================================
+[UNSUPPORTED 1] Japan / visa [rich]  run 1
+  Q: Do I need a visa to visit Japan as a US citizen?
+  JUDGE REASON: 'Chunk does not mention US citizens or their visa requirements'
+
+  CLAIM UNDER TEST:
+      As a US citizen, you do not need a visa to visit Japan for a stay of up to 90 days
+
+  FULL ANSWER:
+      As a US citizen, you do not need a visa to visit Japan for a stay of up to 90 days [4].
+      
+      _Note: this answer rests on a single supporting source (thin grounding) — treat it with
+      extra caution._
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [4] (country=Japan, source=tourism)
+      , which is generally valid for a stay of 90 days. The Ministry of Foreign Affairs
+      maintains an
+      on-line Guide to Japanese Visas
+      
+      Transit without a visa (TWOV)
+      
+      No visa is required for a same-day transit between international flights at the same
+      airport, so long as you do not leave the secured area.
+      
+      Visitors with tickets for onward travel to a third country may be granted a
+      Shore Pass
+      for a maximum of 72 hours with their permitted stay area limited to the vicinity of the
+      port of entry. The port of departure does not have to be the same as the port of entry.
+      Instead, it only needs to be in its vicinity.
+      
+      Shore Passes are granted at immigration discretion and airlines may hesitate to allow you
+      to board if you have a multi-day layover and are relying on getting on. Getting a transit
+      visa in advance is always a safer option.
+      
+      Residence Card
+      
+      Travellers entering Japan with anything other than a temporary visitor visa are required
+      to obtain a "Residence Card" (在留カード), colloquially known as a
+      gaijin card
+      , within 90 days of arrival and carry it at all times in lieu of their passport. Those
+      staying for 90 days or less may complete this registration, but they are not obligated to.
+      This will be invalidated upon exit from Japan, unless a re-entry permit is held.
+      
+      Customs
+      
+      Foreigners must typically fill out a
+      disembarkation form
+      for immigration, a
+      declaration form
+      for customs, and a
+      quarantine form
+      if required. The
+      Visit Japan Web service
+      can be used to electronically submit all required
+
+
+========================================================================================================
+[UNSUPPORTED 2] Mexico / visa [rich]  run 1
+  Q: Do I need a visa to visit Mexico as a US citizen?
+  JUDGE REASON: 'Chunk does not mention visa requirements at all'
+
+  CLAIM UNDER TEST:
+      US citizens do not need a visa to visit Mexico for tourism or business purposes for stays
+      of up to 180 days
+
+  FULL ANSWER:
+      No, as a US citizen, you do not need a visa to visit Mexico for tourism or business
+      purposes for stays of up to 180 days [1].
+      
+      _Note: this answer rests on a single supporting source (thin grounding) — treat it with
+      extra caution._
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [1] (country=Mexico, source=state_dept)
+      Mexico Travel Advisory | Travel.State.gov
+      
+      Skip to content
+      
+      Worldwide Caution:
+      The Department of State advises Americans worldwide to exercise increased caution.
+      
+      Review the latest State Department Travel Advisory about Mexico. You can plan for safe
+      travel by following the entry and exit requirements, reviewing local laws, and other
+      travel guidance from the U.S. embassy or consulate.
+      
+      Visit
+      mx.usembassy.gov
+      
+      Learn more about U.S. and Mexico relations at
+      State.gov
+      
+      Travel advisory levels
+      
+      Learn more about
+      
+      Travel Advisory
+      levels
+      
+      Exercise normal precautions
+      
+      Reconsider travel
+      
+      Do not travel
+      
+      Travel advisory - United Mexican States
+      
+      Level 2 - Exercise increased caution
+      
+      1
+      
+      3
+      
+      4
+      
+      Date issued: May 29, 2026 -
+      
+      advisory history
+      
+      in
+      due to
+      terrorism, crime,
+      Some areas have increased risk. Read the entire Travel Advisory.
+      
+      Advisory summary
+      
+      For Americans traveling to Mexico for FIFA World Cup 2026 matches, follow the
+      latest guidance from the U.S. Embassy in Mexico
+      
+      Many violent crimes take place in Mexico.  They include homicide, kidnapping, carjacking,
+      sexual assault, and robbery.  There is a risk of terrorist violence, including terrorist
+      attacks and other activity in Mexico.  Visit the U.S. Department of State’s
+      country reports on terrorism
+      to learn more.
+      
+      The U.S. government has limited ability to help in many parts of Mexico, a large country
+      in which conditions can vary widely from state to state and even within a state.  U.S.
+      government employees may not travel to certain high-
+
+
+========================================================================================================
+[UNSUPPORTED 3] Switzerland / what_to_visit [mid]  run 1
+  Q: What should I visit in Switzerland?
+  JUDGE REASON: "Chunk [2] mentions Alpstein but doesn't state it's for hiking"
+
+  CLAIM UNDER TEST:
+      Alpstein Area is a destination for hiking and exploring
+
+  FULL ANSWER:
+      You should consider visiting the following places in Switzerland:
+      
+      1. **Alpstein Area**: This region offers a dramatic transition from the hilly landscape of
+      Central Switzerland to the rugged alpine scenery, making it a unique and impressive
+      destination for hiking and exploring [2].
+      
+      2. **Äscher Cliff Restaurant**: Located in the Alpstein area, this restaurant provides a
+      unique dining experience with stunning views [2].
+      
+      3. **Montreux Riviera**: Nestled in a sheltered bay on Lake Geneva, Montreux is surrounded
+      by beautiful landscapes and is a charming place to visit [2].
+      
+      4. **Matterhorn**: Known as a symbol of Switzerland, the Matterhorn is a must-see
+      destination. The area is car-free and has maintained its original character [6].
+      
+      5. **Bernina Express**: This train journey offers fresh mountain air and stunning views
+      along the Albula and Bernina rail lines, making it a relaxing and exciting way to see the
+      Swiss landscape [6].
+      
+      6. **St. Gallen Abbey District**: In St. Gallen, you can explore a charming, traffic-free
+      old town filled with history [6].
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [2] (country=Switzerland, source=tourism)
+      Switzerland Travel & Vacation | Switzerland Tourism
+      
+      Inspiration Calendar
+      
+      Note for screen reader users
+      
+      The following content is heavily based on moving video content and mouse interactions. He
+      is therefore not very accessible to screen readers. Short videos are displayed, sorted by
+      month.
+      Jump directly to the content overview
+      
+      We need Switzerland.
+      
+      Get inspired now!
+      
+      Start
+      
+      Video and animations
+      
+      Hiking and Äscher cliff restaurant
+      
+      Nowhere else in Switzerland is the change from the hilly landscape of Central Switzerland
+      to the craggy alpine scenery so abrupt or impressive as in the Alpstein area.
+      
+      Ebenalp and Wildkirchli
+      
+      Already Neanderthal men were here where today a cableway sweeps visitors up.
+      
+      Montreux Riviera
+      
+      The town of Montreux nestles in a sheltered Lake Geneva bay, surrounded by vineyards and
+      against the breathtaking backdrop of snow-covered Alps.
+      
+      Bern Cathedral
+      
+      The Bern Münster Cathedral of St. Vincent is the most impressive late-Gothic building in
+      the city.
+      
+      City breaks
+      
+      City breaks are a brief escape from everyday life – and our Swiss Boutique Towns are
+      perfect for the occasion.
+      
+      Not many cities have managed to retain their historic features quite as successfully as
+      Bern, the capital of Switzerland.
+      
+      Dream route Airolo - Gletsch
+      
+      From Airolo, the historic pass road snakes around hairpin bends up to the Gotthard.
+      
+      Swiss Alps Jungfrau-Aletsch
+      
+      The Jungfrau-Aletsch Region was chosen as the first Alpine UNESCO World Natural Heritage
+      Site in 2001.
+      
+      Glaciers
+      
+      Ventu
+
+      [6] (country=Switzerland, source=tourism)
+      anenland ...
+      
+      ... a highlight on the Grand Tour of Switzerland.
+      
+      Snow and piste report
+      
+      Daily updated information on 250 winter sports stations.
+      
+      Matterhorn – Symbol for Switzerland
+      
+      The Matterhorn and Switzerland are inseparably linked to each other.
+      
+      The vacation destination is a car-free zone and has preserved its original character.
+      
+      Bernina Express
+      
+      Fresh mountain air and stunning views from the Albula and Bernina rail lines.
+      
+      Train, Bus, Boat – Grand Train Tour
+      
+      The way of travelling that is as exciting as it is relaxing.
+      
+      The compact metropolis of eastern Switzerland between Lake Constance and Appenzellerland
+      with a charming, traffic-free old town.
+      
+      St. Gallen Abbey District
+      
+      In St. Gallen you'll find history at every turn.
+      
+      13 four thousand meter peaks surround the glacier village, which is located at an altitude
+      of 1800 meters above sea level.
+      
+      On the Top of Europe: A visit to the Jungfraujoch puts a jewel in the crown of any visit
+      to Switzerland.
+      
+      Sun-drenched plateau high above the Rhone Valley.
+      
+      Albert Heim Hut
+      
+      The views of the Galenstock and the crystalline rock-climbing routes are stunning.
+      
+      Rigi Kaltbad Swiss Quality Hotel
+      
+      Enjoy the hospitality in an inspiring alpine setting.
+      
+      Highland hike from Rigi-Kaltbad to Urmiberg
+      
+      The highland tour from Kaltbad via the Scheidegg to Urmiberg can only be described as
+      absolute top!
+      
+      Gateway to central Switzerland.
+      
+      Switzerland’s cities ...
+      
+      ... want to seduce you into discovering something new or experiencing something ol
+
+
+========================================================================================================
+[UNSUPPORTED 4] United Arab Emirates / what_to_visit [thin]  run 2
+  Q: What should I visit in United Arab Emirates?
+  JUDGE REASON: "Chunk only lists names, doesn't describe what they provide"
+
+  CLAIM UNDER TEST:
+      These areas provide a mix of modern architecture, shopping, dining, and cultural
+      experiences
+
+  FULL ANSWER:
+      To explore the United Arab Emirates, you should consider visiting Dubai, which offers a
+      wide range of attractions and experiences. Some notable areas to explore in Dubai include
+      Palm Jumeirah, Downtown Dubai, Jumeirah, Dubai Marina, and Deira. These areas provide a
+      mix of modern architecture, shopping, dining, and cultural experiences [3].
+      
+      _Note: this answer rests on a single supporting source (thin grounding) — treat it with
+      extra caution._
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [3] (country=United Arab Emirates, source=tourism)
+      sha Heights
+      Al Seef
+      Al Quoz
+      Business Bay
+      Dubai International Financial Centre
+      Dubai Design District
+      Jumeirah Lakes Towers
+      Al Sufouh
+      Al Safa
+      Al Karama
+      Al Satwa
+      Umm Suqeim
+      1
+      Palm Jumeirah
+      2
+      Downtown Dubai
+      3
+      Jumeirah
+      4
+      Dubai Marina
+      5
+      Deira
+      6
+      Bur Dubai
+      7
+      Al Barsha & Barsha Heights
+      8
+      Al Seef
+      9
+      Al Quoz
+      10
+      Business Bay
+      11
+      Dubai International Financial Centre
+      12
+      Dubai Design District
+      13
+      Jumeirah Lakes Towers
+      14
+      Al Sufouh
+      15
+      Al Safa
+      16
+      Al Karama
+      17
+      Al Satwa
+      18
+      Umm Suqeim
+      Plan ahead
+      Visa guide
+      Essential information before you plan your trip to Dubai
+      Public transport
+      Learn how to arrive in Dubai and the best ways to get around
+      Places to stay
+      Explore an incredible range of accommodation options
+      About Dubai
+      See how Dubai transformed into a sun-soaked modern metropolis
+      
+      Hungry for more?
+      
+      Thank you.
+      
+      Your interest has been saved
+
+
+========================================================================================================
+[UNSUPPORTED 5] Norway / safety [thin]  run 3
+  Q: How safe is it to travel in Norway right now?
+  JUDGE REASON: 'Neither chunk explicitly states Norway is generally safe'
+
+  CLAIM UNDER TEST:
+      It is generally safe to travel in Norway right now
+
+  FULL ANSWER:
+      It is generally safe to travel in Norway right now. The CDC has issued a Level 1 Travel
+      Health Notice for Norway, recommending that travelers practice usual precautions [1].
+      Additionally, the U.S. Department of State has issued a Level 1 Travel Advisory for
+      Norway, advising travelers to exercise normal precautions [3].
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [1] (country=Norway, source=cdc)
+      Norway - Traveler view | Travelers' Health | CDC
+      
+      Skip directly to site content
+      
+      Skip directly to page options
+      
+      Norway
+      Traveler View
+      
+      Clinician View
+      
+      Traveler View
+      
+      On This Page
+      
+      Travel Health Notices
+      
+      Vaccines and Medicines
+      
+      Non-Vaccine-Preventable Diseases
+      
+      Stay Healthy and Safe
+      
+      Packing List
+      
+      After Your Trip
+      
+      Travel Health Notices
+      
+      Be aware of current health issues in Norway. Learn how to protect yourself.
+      
+      Level 1 Practice Usual Precautions
+      
+      Global Measles
+      
+      May 28, 2025
+      
+      Measles cases are rising in many countries around the world. All international travelers
+      should be fully vaccinated against measles with the measles-mumps-rubella (MMR) vaccine,
+      according to CDC's measles vaccination recommendations for international travel.
+      
+      Vaccines and Medicines
+      
+      Check the vaccines and medicines list and visit your doctor at least a month before your
+      trip to get vaccines or medicines you may need. If you or your doctor need help finding a
+      location that provides certain vaccines or medicines, visit the
+      Find a Clinic
+      page.
+      
+      Vaccines for disease
+      
+      Recommendations
+      
+      Clinical Guidance for Healthcare providers
+      
+      Routine vaccines
+      
+      Make sure you are up-to-date on all routine vaccines before every trip. Some of these
+      vaccines include
+      
+      Chickenpox (Varicella)
+      
+      Diphtheria-Tetanus-Pertussis (DTaP, Tdap, or Td)
+      
+      Flu (influenza)
+      
+      Measles-Mumps-Rubella (MMR)
+      
+      Polio
+      
+      Shingles
+      
+      Immunization schedules
+      
+      Macrolide-resistant
+      Bordetella
+      
+      pertussis
+      
+      COVID-19
+      
+      All eligible travelers should be up to date with thei
+
+      [3] (country=Norway, source=state_dept)
+      Records and Authentications
+      
+      Popular Links
+      
+      Stay Connected
+      
+      Legal Information
+      
+      Info for U.S. Law Enforcement
+      
+      Replace or Certify Documents
+      
+      English
+      
+      Share this page:
+      
+      A
+      
+      B
+      
+      C
+      
+      D
+      
+      E
+      
+      F
+      
+      G
+      
+      H
+      
+      I
+      
+      J
+      
+      K
+      
+      L
+      
+      M
+      
+      N
+      
+      O
+      
+      P
+      
+      Q
+      
+      R
+      
+      S
+      
+      T
+      
+      U
+      
+      V
+      
+      W
+      
+      X
+      
+      Y
+      
+      Z
+      
+      All
+      
+      Filter Countries
+      
+      Travel Advisory
+      February 3, 2025
+      
+      Norway - Level 1: Exercise Normal Precautions
+      
+      O
+      
+      D
+      
+      K
+      
+      E
+      
+      N
+      
+      H
+      
+      U
+      
+      T
+      
+      C
+      
+      Reissued after periodic review with minor edits
+      
+      Exercise normal precautions in Norway.
+      
+      Read the
+      country information page
+      for additional information on travel to Norway.
+      
+      If you decide to travel to Norway:
+      
+      Enroll in the
+      Smart Traveler Enrollment Program
+      (
+      STEP
+      ) to receive travel alerts and make it easier to locate you in an emergency.
+      
+      Follow the Department of State on
+      Facebook
+      and X (
+      formerly Twitter
+      )
+      
+      Review the
+      Country Security Report
+      for Norway.
+      
+      Prepare a backup plan for emergency situations. Review the
+      Traveler’s Checklist
+      .
+      
+      Travel Advisory Levels
+      
+      Assistance for U.S. Citizens
+      
+      U.S. Embassy Oslo
+      
+      Morgedalsvegen 36
+      0378 Oslo
+      Norway
+      
+      Telephone
+      
+      +(47) 2130-8540
+      
+      Emergency
+      
+      +(47) 2130-8540
+      
+      Fax
+      
+      +(47) 2256-2751
+      
+      Email
+      
+      osloacs@state.gov
+      
+      Website
+      
+      https://no.usembassy.gov/
+      
+      Norway Map
+      
+      View Larger Map
+      
+      Search for Travel Advisories
+      
+      ×
+      
+      External Link
+      
+      You are about to leave travel.state.gov for an external website that is not maintained by
+      the U.S. Department of State.
+      
+      Links to external websites are provided as a convenience and should not be construed as an
+      endorsement by the U.S. Department of State
+
+
+========================================================================================================
+[UNSUPPORTED 6] Switzerland / what_to_visit [mid]  run 1
+  Q: What should I visit in Switzerland?
+  JUDGE REASON: 'Chunk [2] only mentions the restaurant name, no description'
+
+  CLAIM UNDER TEST:
+      Äscher Cliff Restaurant provides unique dining experience with stunning views
+
+  FULL ANSWER:
+      You should consider visiting the following places in Switzerland:
+      
+      1. **Alpstein Area**: This region offers a dramatic transition from the hilly landscape of
+      Central Switzerland to the rugged alpine scenery, making it a unique and impressive
+      destination for hiking and exploring [2].
+      
+      2. **Äscher Cliff Restaurant**: Located in the Alpstein area, this restaurant provides a
+      unique dining experience with stunning views [2].
+      
+      3. **Montreux Riviera**: Nestled in a sheltered bay on Lake Geneva, Montreux is surrounded
+      by beautiful landscapes and is a charming place to visit [2].
+      
+      4. **Matterhorn**: Known as a symbol of Switzerland, the Matterhorn is a must-see
+      destination. The area is car-free and has maintained its original character [6].
+      
+      5. **Bernina Express**: This train journey offers fresh mountain air and stunning views
+      along the Albula and Bernina rail lines, making it a relaxing and exciting way to see the
+      Swiss landscape [6].
+      
+      6. **St. Gallen Abbey District**: In St. Gallen, you can explore a charming, traffic-free
+      old town filled with history [6].
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [2] (country=Switzerland, source=tourism)
+      Switzerland Travel & Vacation | Switzerland Tourism
+      
+      Inspiration Calendar
+      
+      Note for screen reader users
+      
+      The following content is heavily based on moving video content and mouse interactions. He
+      is therefore not very accessible to screen readers. Short videos are displayed, sorted by
+      month.
+      Jump directly to the content overview
+      
+      We need Switzerland.
+      
+      Get inspired now!
+      
+      Start
+      
+      Video and animations
+      
+      Hiking and Äscher cliff restaurant
+      
+      Nowhere else in Switzerland is the change from the hilly landscape of Central Switzerland
+      to the craggy alpine scenery so abrupt or impressive as in the Alpstein area.
+      
+      Ebenalp and Wildkirchli
+      
+      Already Neanderthal men were here where today a cableway sweeps visitors up.
+      
+      Montreux Riviera
+      
+      The town of Montreux nestles in a sheltered Lake Geneva bay, surrounded by vineyards and
+      against the breathtaking backdrop of snow-covered Alps.
+      
+      Bern Cathedral
+      
+      The Bern Münster Cathedral of St. Vincent is the most impressive late-Gothic building in
+      the city.
+      
+      City breaks
+      
+      City breaks are a brief escape from everyday life – and our Swiss Boutique Towns are
+      perfect for the occasion.
+      
+      Not many cities have managed to retain their historic features quite as successfully as
+      Bern, the capital of Switzerland.
+      
+      Dream route Airolo - Gletsch
+      
+      From Airolo, the historic pass road snakes around hairpin bends up to the Gotthard.
+      
+      Swiss Alps Jungfrau-Aletsch
+      
+      The Jungfrau-Aletsch Region was chosen as the first Alpine UNESCO World Natural Heritage
+      Site in 2001.
+      
+      Glaciers
+      
+      Ventu
+
+      [6] (country=Switzerland, source=tourism)
+      anenland ...
+      
+      ... a highlight on the Grand Tour of Switzerland.
+      
+      Snow and piste report
+      
+      Daily updated information on 250 winter sports stations.
+      
+      Matterhorn – Symbol for Switzerland
+      
+      The Matterhorn and Switzerland are inseparably linked to each other.
+      
+      The vacation destination is a car-free zone and has preserved its original character.
+      
+      Bernina Express
+      
+      Fresh mountain air and stunning views from the Albula and Bernina rail lines.
+      
+      Train, Bus, Boat – Grand Train Tour
+      
+      The way of travelling that is as exciting as it is relaxing.
+      
+      The compact metropolis of eastern Switzerland between Lake Constance and Appenzellerland
+      with a charming, traffic-free old town.
+      
+      St. Gallen Abbey District
+      
+      In St. Gallen you'll find history at every turn.
+      
+      13 four thousand meter peaks surround the glacier village, which is located at an altitude
+      of 1800 meters above sea level.
+      
+      On the Top of Europe: A visit to the Jungfraujoch puts a jewel in the crown of any visit
+      to Switzerland.
+      
+      Sun-drenched plateau high above the Rhone Valley.
+      
+      Albert Heim Hut
+      
+      The views of the Galenstock and the crystalline rock-climbing routes are stunning.
+      
+      Rigi Kaltbad Swiss Quality Hotel
+      
+      Enjoy the hospitality in an inspiring alpine setting.
+      
+      Highland hike from Rigi-Kaltbad to Urmiberg
+      
+      The highland tour from Kaltbad via the Scheidegg to Urmiberg can only be described as
+      absolute top!
+      
+      Gateway to central Switzerland.
+      
+      Switzerland’s cities ...
+      
+      ... want to seduce you into discovering something new or experiencing something ol
+
+
+########################################################################################################
+# JUDGE SAID: SUPPORTED   (n=6)
+########################################################################################################
+
+========================================================================================================
+[SUPPORTED 1] Japan / health [rich]  run 1
+  Q: What vaccinations or health precautions do I need for Japan?
+  JUDGE REASON: 'Chunk 2 states this explicitly in the text'
+
+  CLAIM UNDER TEST:
+      All international travelers to Japan should be fully vaccinated against measles with the
+      MMR vaccine due to rising global measles cases
+
+  FULL ANSWER:
+      For travel to Japan, it is recommended that all international travelers be fully
+      vaccinated against measles with the measles-mumps-rubella (MMR) vaccine due to rising
+      global measles cases [2]. Additionally, vaccination for Japanese encephalitis is
+      recommended for travelers who plan to live in or spend long periods in areas with Japanese
+      encephalitis, or for those who will be doing activities that increase the risk of
+      infection, such as visiting rural areas, hiking, or camping [3].
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [2] (country=Japan, source=cdc)
+      Japan - Traveler view | Travelers' Health | CDC
+      
+      Skip directly to site content
+      
+      Skip directly to page options
+      
+      Japan
+      Traveler View
+      
+      Clinician View
+      
+      Traveler View
+      
+      On This Page
+      
+      Travel Health Notices
+      
+      Vaccines and Medicines
+      
+      Non-Vaccine-Preventable Diseases
+      
+      Stay Healthy and Safe
+      
+      Packing List
+      
+      After Your Trip
+      
+      Travel Health Notices
+      
+      Be aware of current health issues in Japan. Learn how to protect yourself.
+      
+      Level 1 Practice Usual Precautions
+      
+      Global Measles
+      
+      May 28, 2025
+      
+      Measles cases are rising in many countries around the world. All international travelers
+      should be fully vaccinated against measles with the measles-mumps-rubella (MMR) vaccine,
+      according to CDC's measles vaccination recommendations for international travel.
+      
+      Vaccines and Medicines
+      
+      Check the vaccines and medicines list and visit your doctor at least a month before your
+      trip to get vaccines or medicines you may need. If you or your doctor need help finding a
+      location that provides certain vaccines or medicines, visit the
+      Find a Clinic
+      page.
+      
+      Vaccines for disease
+      
+      Recommendations
+      
+      Clinical Guidance for Healthcare providers
+      
+      Routine vaccines
+      
+      Make sure you are up-to-date on all routine vaccines before every trip. Some of these
+      vaccines include
+      
+      Chickenpox (Varicella)
+      
+      Diphtheria-Tetanus-Pertussis (DTaP, Tdap, or Td)
+      
+      Flu (influenza)
+      
+      Measles-Mumps-Rubella (MMR)
+      
+      Polio
+      
+      Shingles
+      
+      Immunization schedules
+      
+      Macrolide-resistant
+      Bordetella
+      
+      pertussis
+      
+      COVID-19
+      
+      All eligible travelers should be up to date with their C
+
+      [3] (country=Japan, source=cdc)
+      unvaccinated travelers younger than 60 years old traveling to Japan. Unvaccinated
+      travelers 60 years and older may get vaccinated before traveling to Japan.
+      
+      Sex and Travel - CDC Yellow Book
+      
+      Japanese Encephalitis
+      
+      Recommended for travelers who
+      
+      Are moving to an area with Japanese encephalitis to live
+      
+      Spend long periods of time, such as a month or more, in areas with Japanese encephalitis
+      
+      Frequently travel to areas with Japanese encephalitis
+      
+      Consider vaccination for travelers
+      
+      Spending less than a month in areas with Japanese encephalitis but will be doing
+      activities that increase risk of infection, such as visiting rural areas, hiking or
+      camping, or staying in places without air conditioning, screens, or bed nets
+      
+      Going to areas with Japanese encephalitis who are uncertain of their activities or how
+      long they will be there
+      
+      Not recommended for travelers planning short-term travel to urban areas or travel to areas
+      with no clear Japanese encephalitis season.
+      
+      Japanese encephalitis - CDC Yellow Book
+      
+      Measles
+      
+      Cases of measles are on the rise worldwide. Travelers are at risk of measles if they have
+      not been fully vaccinated at least two weeks prior to departure, or have not had measles
+      in the past, and travel internationally to areas where measles is spreading.
+      
+      All international travelers should be fully vaccinated against measles with the measles-
+      mumps-rubella (MMR) vaccine, including an early dose for infants 6–11 months, according to
+      CDC’s measles vaccination recommendati
+
+
+========================================================================================================
+[SUPPORTED 2] Mexico / health [rich]  run 1
+  Q: What vaccinations or health precautions do I need for Mexico?
+  JUDGE REASON: 'Chunk [3] lists all these routine vaccinations for Mexico'
+
+  CLAIM UNDER TEST:
+      Travelers should be up to date on routine vaccinations such as Varicella, Diphtheria-
+      Tetanus-Pertussis (DTaP, Tdap, or Td), Flu (influenza), Measles-Mumps-Rubella (MMR),
+      Polio, and Shingles
+
+  FULL ANSWER:
+      For travel to Mexico, it is recommended that travelers be up to date on routine
+      vaccinations such as Varicella, Diphtheria-Tetanus-Pertussis (DTaP, Tdap, or Td), Flu
+      (influenza), Measles-Mumps-Rubella (MMR), Polio, and Shingles [3]. Additionally, all
+      eligible travelers should be up to date with their COVID-19 vaccines [3]. Hepatitis A
+      vaccination is recommended for unvaccinated travelers one year old or older, and infants 6
+      to 11 months old should also be vaccinated against Hepatitis A [3]. There is also an
+      elevated risk of chikungunya in Mexico, and vaccination may be considered for those
+      planning to stay for an extended period [3].
+      
+      _Note: this answer rests on a single supporting source (thin grounding) — treat it with
+      extra caution._
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [3] (country=Mexico, source=cdc)
+      (Varicella)
+      
+      Diphtheria-Tetanus-Pertussis (DTaP, Tdap, or Td)
+      
+      Flu (influenza)
+      
+      Measles-Mumps-Rubella (MMR)
+      
+      Polio
+      
+      Shingles
+      
+      Immunization schedules
+      
+      Macrolide-resistant
+      Bordetella
+      
+      pertussis
+      
+      COVID-19
+      
+      All eligible travelers should be up to date with their COVID-19 vaccines. Please see
+      Your COVID-19 Vaccination
+      for more information.
+      
+      COVID-19 vaccine
+      
+      Chikungunya
+      
+      There is
+      elevated chikungunya risk
+      in Mexico.
+      Chikungunya vaccination
+      may be considered for people traveling or moving to this location if they are planning to
+      stay for an extended period of time (for example, 6 months or more).
+      
+      Chikungunya - CDC Yellow Book
+      
+      Hepatitis A
+      
+      Recommended for unvaccinated travelers one year old or older going to Mexico.
+      
+      Infants 6 to 11 months old should also be vaccinated against Hepatitis A. The dose does
+      not count toward the routine 2-dose series.
+      
+      Travelers allergic to a vaccine component should receive a single dose of immune globulin,
+      which provides effective protection for up to 2 months depending on dosage given.
+      
+      Unvaccinated travelers who are over 40 years old, are immunocompromised, or have chronic
+      medical conditions planning to depart to a risk area in less than 2 weeks should get the
+      initial dose of vaccine and at the same appointment receive immune globulin.
+      
+      Hepatitis A - CDC Yellow Book
+      
+      Vaccine dosing information - Hep A
+      
+      Hepatitis B
+      
+      Recommended for unvaccinated travelers younger than 60 years old traveling to Mexico.
+      Unvaccinated travelers 60 years and older may get
+
+
+========================================================================================================
+[SUPPORTED 3] Greece / what_to_visit [rich]  run 1
+  Q: What should I visit in Greece?
+  JUDGE REASON: "Chunk states 'island with ancient monuments'"
+
+  CLAIM UNDER TEST:
+      Rhodes features ancient monuments
+
+  FULL ANSWER:
+      You should consider visiting several notable places in Greece:
+      
+      1. **Delphi** - Known for the famous oracle of Apollo, Delphi is a major archaeological
+      site [8].
+      2. **Meteora** - Famous for its hilltop monasteries, Meteora offers stunning views and
+      historical significance [8].
+      3. **Olympia** - The sanctuary dedicated to Zeus and the site of the ancient Olympics is a
+      must-see for history enthusiasts [8].
+      4. **Rhodes** - This island features ancient monuments and beautiful beaches [8].
+      5. **Santorini** - Renowned for its beautiful views, towns, and sunsets, Santorini is a
+      volcanic island that attracts many visitors [8].
+      
+      These locations offer a mix of historical, cultural, and natural attractions that are
+      quintessentially Greek.
+      
+      _Note: this answer rests on a single supporting source (thin grounding) — treat it with
+      extra caution._
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [8] (country=Greece, source=tourism)
+      island with many attractions
+      
+      38.4823
+      22.5013
+      3
+      
+      Delphi
+      (Δελφοί) — site of the famous oracle of Apollo, major archaeological site
+      
+      39.714167
+      21.631111
+      4
+      
+      Meteora
+      (Μετέωρα) — hilltop monasteries
+      
+      40.157222
+      24.326389
+      5
+      
+      (Άθως,
+      Áthos
+      ) — semi-independent republic, home to many Orthodox monasteries (access restricted)
+      
+      37.45
+      25.35
+      6
+      
+      (Μύκονος) — world famous, sophisticated holidays
+      
+      37.638
+      21.63
+      7
+      
+      Olympia
+      (Ὀλυμπία) — sanctuary dedicated to Zeus, site of the ancient Olympics
+      
+      36.166667
+      28
+      8
+      
+      (Ρόδος,
+      Ródos
+      ) — island with ancient monuments, as well as beaches
+      
+      36.416667
+      25.433333
+      9
+      
+      (Σαντορίνη or Θήρα,
+      Thira
+      ) — a volcanic island known for its beautiful views, towns and sunsets
+      
+      See also the
+      UNESCO World Heritage
+      sites in Greece
+      
+      Understand
+      
+      Capital
+      
+      Currency
+      
+      euro (EUR)
+      
+      Population
+      
+      10.4 million (2021)
+      
+      Electricity
+      
+      230 volt / 50 hertz (Europlug, Schuko)
+      
+      Country code
+      
+      +
+      30
+      
+      Time zone
+      
+      UTC+02:00
+      
+      Emergencies
+      
+      112 (emergency), 100 (police), 166 (emergency medical services), 199 (fire department)
+      
+      Driving side
+      
+      right
+      
+      edit on Wikidata
+      
+      Visitors are drawn to the country's beaches and reliable sunny summer weather, its
+      nightlife, historical sites and natural beauty. In 2018, Greece received 33 million
+      visitors, more than three visitors for each of the country's residents.
+      
+      Backstreets of charming Firá, Santoríni
+      
+      The majority of visitors come to Greece from other European countries, although tourists
+      from other world regions have been increasing in number. The vast majority of visito
+
+
+========================================================================================================
+[SUPPORTED 4] United States / what_to_visit [thin]  run 1
+  Q: What should I visit in United States?
+  JUDGE REASON: 'Chunk 2 states this Massachusetts road trip plan exactly'
+
+  CLAIM UNDER TEST:
+      You can embark on a Massachusetts road trip through Boston, Cape Cod, and the Berkshires
+      to experience history, coastline, and scenic stops
+
+  FULL ANSWER:
+      For a visit to the United States, consider exploring a variety of destinations. You can
+      embark on a Massachusetts road trip through Boston, Cape Cod, and the Berkshires to
+      experience history, coastline, and scenic stops [2]. Additionally, you might enjoy a
+      performing arts tour of Broadway in Manhattan and beyond, connecting iconic theaters and
+      live music venues [2]. Other notable places to visit include Silver Falls State Park in
+      Oregon, St. George in Utah, Traverse City in Michigan, and Miami Beach in Florida [4].
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [2] (country=United States, source=tourism)
+      Explore
+      
+      America
+      
+      your
+      
+      way
+      
+      Slide
+      01
+      /
+      of
+      07
+      
+      Plan Your Family Vacation to These U.S. Theme Parks
+      
+      Favorite characters, roller coasters and exotic animals make for a memory-packed family
+      getaway.
+      
+      Luxury
+      
+      Helicopters, Trains, Cruises and RVs: Explore the USA in Unique Ways
+      
+      Discover a new perspective on iconic destinations with these exhilarating ways to travel
+      and tour.
+      
+      Massachusetts Road Trip Guide: Explore Boston, Coast and Countryside
+      
+      Plan a Massachusetts road trip through Boston, Cape Cod, Central Massachusetts and the
+      Berkshires, exploring history, coastline and scenic stops along the way.
+      
+      American Originals
+      
+      Performing Arts Tour of Broadway, Manhattan & Beyond
+      
+      From Broadway’s bright lights to New England stages, this Northeast journey connects
+      iconic theaters, live music and cultural landmarks.
+      
+      Where to Try Native American Cuisine in the USA
+      
+      Explore Native American culture and heritage through food experiences and nearby
+      attractions.
+      
+      Journey Across the Indigenous Lands of Oregon
+      
+      Experience the rich, vibrant culture of the nine federally recognized tribes of Oregon.
+      
+      Unexpected States for Fresh-Air Fun
+      
+      For the curious explorer, these hidden-gem outdoorsy destinations are perfectly poised to
+      host unexpected adventures.
+      
+      Outdoors
+      
+      Wyoming’s Great Outdoors: Epic Destinations for Adventure
+      
+      From towering peaks to wide-open valleys, Wyoming’s landscapes offer hiking, fishing,
+      wildlife watching and other unforgettable adventures.
+      
+      Family-Friendly Outdoor Adventures
+
+      [4] (country=United States, source=tourism)
+      90 days without needing a visa. Travelers using a B1 visa need to declare their length of
+      visit at customs.
+      
+      What can I expect at customs?
+      Even with a valid visa or ESTA approval, CBP decides entry at the port of entry. Stay calm
+      and be prepared to answer questions clearly, completely and truthfully about your visit
+      including plans, finances, accommodations and length of stay.
+      
+      Slide
+      
+      01
+      
+      /
+      
+      of
+      
+      02
+      
+      Silver Falls State Park, Oregon
+      
+      St. George, Utah
+      
+      Traverse City, Michigan
+      
+      Miami Beach, Florida
+      
+      Plan Your Trip with AI
+
+
+========================================================================================================
+[SUPPORTED 5] China / what_to_visit [mid]  run 1
+  Q: What should I visit in China?
+  JUDGE REASON: "Chunk states 'sacred summit of snow and ice'"
+
+  CLAIM UNDER TEST:
+      Yulong Snow Mountain is known for its sacred summit of snow and ice
+
+  FULL ANSWER:
+      You should consider visiting several notable attractions in China. The Forbidden City in
+      Beijing is the world's largest and best-preserved wooden-framed historical palace complex,
+      offering a glimpse into China's imperial past [3]. Another remarkable site is the Yulong
+      Snow Mountain, known for its sacred summit of snow and ice [3]. For those interested in
+      art and history, the Dazu Rock Carvings are the last grand monument of Chinese grotto art
+      [3]. Additionally, the city of Jingdezhen is famous for its porcelain-making, where a
+      millennium-old kiln meets global creativity [3]. If you're looking for a unique
+      transportation experience, Chongqing's Liziba "Through-Building Monorail" is a fascinating
+      sight where an overhead train runs through a building [3]. Lastly, Mount Tai is a symbol
+      of ancient Chinese civilization and belief, offering both cultural and natural beauty [3].
+      
+      _Note: this answer rests on a single supporting source (thin grounding) — treat it with
+      extra caution._
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [3] (country=China, source=tourism)
+      Travel China - the Official Tourism Website of The People's Republic of China
+      
+      China's charm lies in tiny villages, grand vistas, exquisite crafts and romances. Join us!
+      Yulong Snow Mountain: the sacred summit of snow and ice
+      The Forbidden City in Beijing—The World’s Largest and Best-preserved Wooden-framed
+      Historical Palace Complex
+      Dazu Rock Carvings—The Last Grand Monument of Chinese Grotto Art
+      The Art of Porcelain-Making in Jingdezhen, Where a Millennium-Old Kiln Meets Global
+      Creativity
+      Qianxinan: Where Culture and Nature Coexist in Harmony
+      Chongqing's Liziba "Through-Building Monorail", Where the Overhead Train That Runs Through
+      a Building
+      Endless excitement awaits—Xinjiang's Boertala is your winter wonderland!
+      Mount Tai - Symbol of Ancient Chinese Civilization and Belief
+      Yunhe Rice Terraces: A verdant tapestry of time
+      Yulong Snow Mountain: the sacred summit of snow and ice
+      The Forbidden City in Beijing—The World’s Largest and Best-preserved Wooden-framed
+      Historical Palace Complex
+      Your all-in-one guide to China: from preparation to departure—everything for a smooth
+      journey.
+      Nihao China App——A One-step Solution for Overseas Visitors to China
+      Regional Visa-Free Entry Policies for Foreign Nationals
+      What is the Departure Tax Refund Policy?
+      Regional Visa-Free Entry Policies for Foreign Nationals
+      What is the Departure Tax Refund Policy?
+      Your all-in-one guide to China: from preparation to departure—everything for a smooth
+      journey.
+      Regional Visa-Free Entry Policies for Foreign Na
+
+
+========================================================================================================
+[SUPPORTED 6] Vietnam / what_to_visit [mid]  run 1
+  Q: What should I visit in Vietnam?
+  JUDGE REASON: "Chunk [3] title states 'Drift, cycle, explore: Vietnam's Mekong Delta'"
+
+  CLAIM UNDER TEST:
+      The Mekong Delta offers drifting, cycling, and exploring experiences
+
+  FULL ANSWER:
+      When visiting Vietnam, there are several must-see destinations and activities to consider.
+      You can explore the pristine beaches and idyllic islands, as well as ancient treasures and
+      UNESCO wonders throughout the country [1]. The Mekong Delta offers unique experiences such
+      as drifting, cycling, and exploring the vibrant region [3]. For a cultural experience, you
+      can visit the ancient traditional silk villages or the Trang An Landscape Complex [6].
+      Phong Nha - Ke Bang National Park is notable for being home to the world's largest cave,
+      making it a fascinating natural wonder to explore [6]. Additionally, Ha Long Bay offers
+      luxurious overnight cruises, providing a stunning view of the bay's emerald waters [7].
+
+  CITED CHUNK TEXT (what the judge compared against):
+      [1] (country=Vietnam, source=tourism)
+      Visit Vietnam: The Official Tourism Website of Vietnam
+      
+      Discover the Charm of Vietnam
+      
+      Step into the magical world of Vietnam!
+      
+      A land where timeless beauty meets warm hospitality.
+      
+      Enjoy our favourable visa policies including bilateral visa exemptions for selected
+      countries, 45-day unilateral visa-free access for travellers from 24 nations and exclusive
+      waivers for celebrities and distinguished guests. For longer journeys, visitors can easily
+      obtain 90-day e-visa available for all nationalities, making entry smoother and more
+      accessible.
+      
+      A network of convenient direct international flights whisks you away to this mesmerizing
+      destination, where every journey begins effortlessly. Immerse yourself in pristine beaches
+      and idyllic islands, explore ancient treasures and UNESCO wonders, marvel at breathtaking
+      landscapes, savour legendary cuisine, and celebrate with vibrant festivals alive with
+      tradition.
+      
+      Vietnam invites you to create unforgettable stories, where every moment is a celebration
+      of beauty, culture, and adventure. Your extraordinary Vietnamese journey awaits - come, be
+      enchanted!
+      
+      All
+      
+      Explore
+      
+      Relax
+      
+      Play
+      
+      All
+      
+      Explore
+      
+      Relax
+      
+      Play
+      
+      Ha Giang Loop: Where nature and culture come in one
+      
+      Moc Chau: A green and peaceful summer oasis near Hanoi
+      
+      Get on a healing journey in Vietnam
+      
+      Hue: A Living Tapestry of Culture
+      
+      Get on a coolcation in Mang Den
+      
+      Kitesurfing in Phan Rang: A rising destination for adventure seekers
+      
+      Dak Lak: Into the wild heart of Vietnam’s Central Highla
+
+      [3] (country=Vietnam, source=tourism)
+      modern Vietnamese restaurants
+      
+      3 must-do moments at JW Marriott Phu Quoc
+      
+      Drift, cycle, explore: Vietnam's Mekong Delta
+      
+      A traveller's guide to Tet holiday
+      
+      Heal, restore, and relax in Central Vietnam
+      
+      Three reasons to stay at Mai Chau Lodge
+      
+      5 ways to encounter Vietnam's ethnic groups
+      
+      5 ways to encounter Vietnam's ethnic groups
+      
+      Vietnam mobile wallpapers
+      
+      Christmas & New Year activities in Vietnam
+      
+      Christmas & New Year activities in Vietnam
+      
+      My HCMC: Nam Quan
+      
+      Wind, sand and sea: Mui Ne's must-do list
+      
+      Wind, sand and sea: Mui Ne's must-do list
+      
+      Motorbiking Hoi An to Hue over Hai Van Pass
+      
+      Seeing Vietnam with Victoria Voyages
+      
+      My Nha Trang: TK Nguyen
+      
+      My Nha Trang: Lien Phan
+      
+      My Ha Noi: Maia Do
+      
+      Three days aboard The Au Co cruise
+      
+      My Da Nang: Mai Thuy Tram
+      
+      15 dreamy desserts to try in Vietnam
+      
+      Dishes from the north of Vietnam
+      
+      #MyVietnam
+      
+      5 Hanoi cafes for architecture enthusiasts
+      
+      5 Hanoi cafes for architecture enthusiasts
+      
+      Sea and sky: Ha Long aboard the Emeraude
+      
+      Sea and sky: Ha Long aboard the Emeraude
+      
+      Fun-filled holidays at Vinpearl Nha Trang
+      
+      7 reasons to stay at Diamond Bay Resort
+      
+      My Sapa: Ly Thy Ker
+      
+      Top 10 festivals & holidays in Vietnam
+      
+      Discovering Cao Bang: 7 must-do experiences
+      
+      Discovering Cao Bang: 7 must-do experiences
+      
+      25 striking images of Vietnam's ethnic groups
+      
+      25 striking images of Vietnam's ethnic groups
+      
+      Dining in the Delta
+      
+      Seeing Ha Long Bay from the sky
+      
+      A peek inside Vietnam's most extravagant hotel
+      
+      A peek inside Vietnam's most extravagant hot
+
+      [6] (country=Vietnam, source=tourism)
+      in lotus land
+      
+      Vietnam’s New Provincial System: 34 Names You Should Know
+      
+      [Infographic] Visa exemption for citizens of Poland, Czech and Switzerland
+      
+      Persimmons Garden - “Green” travel spots in Da Lat
+      
+      Tea Factory 1927: the living witness to the development of Vietnam's tea industry
+      
+      Wander the ancient traditional silk villages of Vietnam
+      
+      Vietnam - The nature wonder of Asia
+      
+      Virtual travel to Trang An Landscape Complex
+      
+      Go green in Co To
+      
+      10 Tourist spots not to be missed in Ho Chi Minh City
+      
+      Ru Cha Mangrove Forest: A sleeping beauty of Hue
+      
+      Lost in green wonderland in Tra Su Cajuput Forest
+      
+      Phong Nha - Ke Bang National Park: Beyond the home of the World’s largest cave
+      
+      Pu Luong, Thanh Hoa: The hidden paradise
+      
+      Thac Ba Lake - The emerald of Yen Bai
+      
+      Enjoy bus rides back and forth between T1 and T2 Noi Bai International Airport free of
+      charge!
+      
+      Vietnam - A rising star for event and wedding tourism
+      
+      Big News! Vietnam approves extending e-visas to 90 days
+      
+      Moc Chau: Your One-Stop Nature Escape
+      
+      Explore the Bay of Dragons on a Halong Bay cruise
+      
+      Chill out at the beautiful lakes and streams of Binh Thuan
+      
+      A World of Water-Based Wonders
+      
+      A guide to the boat tours of Ninh Binh
+      
+      Cu Lao Cau Island: Nature’s Unspoiled Paradise
+      
+      Phu Quoc Island: A Laid back, Leisure Getaway
+      
+      Binh Thuan: A Waterfall Paradise
+      
+      Sacred Night - Unbroken Vietnamese Spirit: A Prisoner’s Life at Hoa Lo
+      
+      7 Reasons Hanoi is World’s Leading City Break Destination for 2022
+      
+      Adventure awaits on the sandy hills and
+
+      [7] (country=Vietnam, source=tourism)
+      healing journey in Vietnam
+      
+      Hue: A Living Tapestry of Culture
+      
+      Kitesurfing in Phan Rang: A rising destination for adventure seekers
+      
+      Gia Lai - Where mountains embrace the sea
+      
+      Overnight cruises in Ha Long Bay: A luxury summer experience
+      
+      DIFF 2026 opening night: Lighting up the Han River sky
+      
+      The Whisper of Pearl Island: An Insider’s Guide to Phu Quoc
+      
+      Ninh Binh: A journey through golden valleys
+      
+      Nha Trang: Where Vietnam glows in sun and sea
+      
+      Lan Ha Bay: Gliding through emerald waters
+      
+      Preserving Red Dao Culture Through Sustainable Tourism
+      
+      Mui Ne: Land of Sand Dunes and Water Sports
+      
+      Da Lat: Enjoy Four Seasons in a Day
+      
+      Phong Nha: Beneath the Mountains Lies Another World
+      
+      Cu Lao Cham: An eco-paradise near Hoi An
+      
+      Sustainable Marine Eco Tourism in Vietnam: A Slow Living Experience at Whale Island Resort
+      
+      Eco Retreat Experience in Northern Vietnam Mountains
+      
+      Sun, Sand & Serenity: 5 Vietnamese Islands for the Perfect Summer Escape
+      
+      A Heritage Journey: Discovering the Soul of Central Vietnam
+      
+      Con Dao: A Sanctuary of Sea, Solitude and Slow Travel
+      
+      Vietnam’s 9 Best Beaches for a Laid-Back Family Getaway
+      
+      Da Nang: Eat, Play, Relax - Your Ultimate Coastal Escape
+      
+      Da Nang Travel Guides
+      
+      Da Nang Crowned Asia’s Second-Best Summer Destination by Lonely Planet
+      
+      Da Nang fireworks festival ranks among world’s top 9 summer events
+      
+      Son Doong Cave: The Subterranean Marvel That Looks Out of This World
+      
+      15 Extraordinary Experiences Across Vietnam
+      
+      Lonely Planet spotlights Vietnam’s most strikin
+
+
+========================================================================================================
+Record adjudications in evaluation/judge_audit.json:
+  {"direction": "unsupported", "country": ..., "judge_said": false,
+   "human_verdict": false, "judge_correct": true, "note": "..."}

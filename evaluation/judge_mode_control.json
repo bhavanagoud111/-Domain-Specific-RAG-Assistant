@@ -1,0 +1,300 @@
+{
+  "chunks_compared": 40,
+  "agreements": 40,
+  "disagreements": 0,
+  "agreement_rate": 1.0,
+  "batch_called_relevant_when_eval_did_not": 0,
+  "eval_called_relevant_when_batch_did_not": 0,
+  "rows": [
+    {
+      "question": "Do I need a visa to visit Mexico as a US citizen?",
+      "country": "Mexico",
+      "n_compared": 8,
+      "eval_mode_relevant": 0,
+      "batch_mode_relevant": 0,
+      "delta": 0,
+      "per_chunk": [
+        {
+          "chunk": 1,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 2,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 3,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 4,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 5,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 6,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 7,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 8,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        }
+      ]
+    },
+    {
+      "question": "What should I visit in Singapore?",
+      "country": "Singapore",
+      "n_compared": 8,
+      "eval_mode_relevant": 1,
+      "batch_mode_relevant": 1,
+      "delta": 0,
+      "per_chunk": [
+        {
+          "chunk": 1,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 2,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 3,
+          "eval_mode": true,
+          "batch_mode": true,
+          "agree": true
+        },
+        {
+          "chunk": 4,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 5,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 6,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 7,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 8,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        }
+      ]
+    },
+    {
+      "question": "Do I need a visa to visit South Korea as a US citizen?",
+      "country": "South Korea",
+      "n_compared": 8,
+      "eval_mode_relevant": 1,
+      "batch_mode_relevant": 1,
+      "delta": 0,
+      "per_chunk": [
+        {
+          "chunk": 1,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 2,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 3,
+          "eval_mode": true,
+          "batch_mode": true,
+          "agree": true
+        },
+        {
+          "chunk": 4,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 5,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 6,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 7,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 8,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        }
+      ]
+    },
+    {
+      "question": "Do I need a visa to visit New Zealand as a US citizen?",
+      "country": "New Zealand",
+      "n_compared": 8,
+      "eval_mode_relevant": 1,
+      "batch_mode_relevant": 1,
+      "delta": 0,
+      "per_chunk": [
+        {
+          "chunk": 1,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 2,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 3,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 4,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 5,
+          "eval_mode": true,
+          "batch_mode": true,
+          "agree": true
+        },
+        {
+          "chunk": 6,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 7,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 8,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        }
+      ]
+    },
+    {
+      "question": "What should I visit in Greece?",
+      "country": "Greece",
+      "n_compared": 8,
+      "eval_mode_relevant": 1,
+      "batch_mode_relevant": 1,
+      "delta": 0,
+      "per_chunk": [
+        {
+          "chunk": 1,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 2,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 3,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 4,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 5,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 6,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 7,
+          "eval_mode": false,
+          "batch_mode": false,
+          "agree": true
+        },
+        {
+          "chunk": 8,
+          "eval_mode": true,
+          "batch_mode": true,
+          "agree": true
+        }
+      ]
+    }
+  ]
+}

@@ -151,6 +151,33 @@ Reply with ONLY this JSON:
 {{"claims": [{{"claim": "<short>", "supported": true, "why": "<10 words>"}}, ...]}}"""
 
 
+def resolve_citation_text(citations: list[dict], retrieved: list[dict]) -> list[str]:
+    """Attach the ACTUAL chunk text to each citation.
+
+    Citation dicts built by ``generate_node`` carry only marker/country/source_type/
+    source_url/score -- deliberately, since the UI does not need the body text. The
+    faithfulness judge very much does: without it the judge is asked whether a claim is
+    supported by a chunk whose text it cannot see, and it correctly refuses every claim,
+    producing a meaningless faithfulness score of 0.00 across the board. (That is exactly
+    what the first attempt at this run produced before the bug was caught.)
+
+    The marker "[n]" indexes into the retrieved chunks 1-based, matching generate_node.
+    """
+    out = []
+    for c in citations:
+        m = re.match(r"\[(\d+)\]", str(c.get("marker", "")))
+        text = ""
+        if m:
+            idx = int(m.group(1)) - 1
+            if 0 <= idx < len(retrieved):
+                text = (retrieved[idx].get("text") or "")
+        out.append(
+            f"{c.get('marker')} (country={c.get('country')}, source={c.get('source_type')})\n"
+            f"{text[:1500] if text else '<<TEXT MISSING -- marker did not resolve>>'}"
+        )
+    return out
+
+
 def runs_for(item: dict[str, Any]) -> int:
     """Thin tier and unanswerable questions get repeated sampling; rich/mid get one run."""
     if item["question_type"] == "unanswerable" or item["corpus_tier"] == "thin":
@@ -180,10 +207,7 @@ def one_run(item: dict[str, Any], run_idx: int) -> dict[str, Any]:
             f"score={round(float(c.get('score', 0)), 3)})\n{(c.get('text') or '')[:1500]}"
             for c in retrieved
         ],
-        "citations_text": [
-            f"[{c.get('marker')}] (country={c.get('country')}, source={c.get('source_type')})\n"
-            f"{(c.get('text') or '')[:1500]}" for c in citations
-        ],
+        "citations_text": resolve_citation_text(citations, retrieved),
     }
 
     # ---- 1. retrieval precision + country correctness ----------------------
@@ -209,9 +233,12 @@ def one_run(item: dict[str, Any], run_idx: int) -> dict[str, Any]:
 
     # ---- 2. faithfulness ---------------------------------------------------
     if citations:
-        cited_blob = "\n\n".join(
-            f"[{c.get('marker')}] (country={c.get('country')}, source={c.get('source_type')})\n"
-            f"{(c.get('text') or '')[:900]}" for c in citations)
+        cited_blob = "\n\n".join(rec["citations_text"])
+        # Guard: never score faithfulness against chunk text we failed to resolve.
+        if "<<TEXT MISSING" in cited_blob:
+            raise AssertionError(
+                f"citation marker did not resolve to a retrieved chunk for: {q!r}"
+            )
         v = _judge(FAITHFULNESS_PROMPT.format(
             q=q, answer=rec["final_answer"][:2500], chunks=cited_blob),
             generated_answer=rec["final_answer"][:2500])
