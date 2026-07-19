@@ -289,33 +289,33 @@ def rewrite_node(state: GraphState) -> dict[str, Any]:
         subs = [original]  # fail safe: never leave retrieve with nothing
 
     # ------------------------------------------------------------------ #
-    # WEEK 6 FIX -- always retrieve with the user's ACTUAL question too.
+    # TRIED AND REVERTED (Week 6 fixes, 2026-07-19): appending the unmodified user
+    # question here as an extra sub-query.
     #
-    # The rewriter emits SOURCE-ORIENTED sub-queries ("Singapore travel advisories",
-    # "CDC health notices Mexico"). Those match source PAGE FURNITURE rather than
-    # content: the header "Singapore Travel Advisory | Travel.State.gov" scores 0.761
-    # against its own sub-query, above EVERY genuine Singapore tourism chunk
-    # (0.576-0.681), and retrieve_node's score-sorted merge then crowds real content
-    # out. Measured on the 5 worst-precision eval questions, against the same judge
-    # relevance sets:
+    # The DIAGNOSIS behind it still stands and is independently evidenced: this node
+    # emits SOURCE-ORIENTED sub-queries ("Singapore travel advisories"), which match
+    # source PAGE FURNITURE rather than content -- the header "Singapore Travel
+    # Advisory | Travel.State.gov" scores 0.761 against its own sub-query, above EVERY
+    # genuine Singapore tourism chunk (0.576-0.681). Querying with the raw question
+    # ALONE scored 0.625 mean precision vs 0.100 for this node's output (6.2x) on the
+    # 5 worst eval questions.
     #
-    #     graph rewrite+merge   mean precision 0.100
-    #     raw question alone    mean precision 0.625     (6.2x better)
+    # But the REMEDY did not work. A full 91-question / 141-run re-eval on the frozen
+    # corpus measured precision 44.2% -> 44.2% (-0.0pp). Per-question deltas were pure
+    # sampling noise: 26 improved / 30 regressed / 30 unchanged, mean -0.04pp, yet mean
+    # ABSOLUTE delta 12.62pp -- and churn scaled inversely with sampling depth (1x
+    # questions churned 14.87pp, 3x questions 5.21pp), the signature of run-to-run
+    # variance at temperature=0.3 rather than a treatment effect.
     #
-    # e.g. "What should I visit in Singapore?" returned 6 State Dept boilerplate
-    # chunks from a country holding 99 tourism chunks.
+    # Root cause of the miss: retrieve_node merges by RAW COSINE SCORE, so a 0.761
+    # page-furniture chunk still outranks real content at 0.576-0.681 even once good
+    # candidates are in the pool. Adding a candidate set cannot fix a broken ranking.
+    # The binding constraint is the MERGE, not the query text -- the next thing to try
+    # is Reciprocal Rank Fusion over the per-sub-query result lists.
     #
-    # Appending the unmodified question guarantees the merge always contains one
-    # candidate set built from the real information need. Deliberately ADDITIVE:
-    # the rewriter's sub-queries are kept, so this can only widen the pool, never
-    # narrow it. TOP_K, the country filter, chunking, the gate and MAX_RETRIES are
-    # all unchanged.
-    #
-    # Kept on retries too: a retry means the previous attempt resolved 0 citations,
-    # which is exactly when the literal question is most worth re-trying.
+    # Reverted so this node matches the state the frozen Week 6 evaluation was measured
+    # against. Full write-up: logs/week6_fixes.md.
     # ------------------------------------------------------------------ #
-    if original not in subs:
-        subs = subs + [original]
 
     return {
         "sub_queries": subs,
