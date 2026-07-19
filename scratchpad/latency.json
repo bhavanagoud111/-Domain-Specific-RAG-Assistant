@@ -1,0 +1,82 @@
+[
+  {
+    "query": "What should I visit in Japan?",
+    "label": "rich/what_to_visit",
+    "seconds": 16.69,
+    "retries": 1,
+    "citations": 6,
+    "low_conf": false
+  },
+  {
+    "query": "What should I visit in Italy?",
+    "label": "mid/what_to_visit",
+    "seconds": 13.91,
+    "retries": 1,
+    "citations": 6,
+    "low_conf": false
+  },
+  {
+    "query": "What should I visit in Canada?",
+    "label": "thin/refusal-expected",
+    "seconds": 19.57,
+    "retries": 2,
+    "citations": 0,
+    "low_conf": true
+  },
+  {
+    "query": "Do I need a visa to visit Japan as a US citizen?",
+    "label": "rich/visa",
+    "seconds": 12.78,
+    "retries": 1,
+    "citations": 1,
+    "low_conf": false
+  },
+  {
+    "query": "Do I need a visa to visit Mexico as a US citizen?",
+    "label": "rich/visa",
+    "seconds": 13.64,
+    "retries": 1,
+    "citations": 1,
+    "low_conf": false
+  },
+  {
+    "query": "What vaccinations does Brazil require?",
+    "label": "thin/health",
+    "seconds": 5.41,
+    "retries": 0,
+    "citations": 1,
+    "low_conf": false
+  },
+  {
+    "query": "What's the safety situation in Mexico right now?",
+    "label": "rich/safety",
+    "seconds": 6.49,
+    "retries": 0,
+    "citations": 4,
+    "low_conf": false
+  },
+  {
+    "query": "How safe is it to travel in Norway right now?",
+    "label": "thin/safety",
+    "seconds": 5.59,
+    "retries": 0,
+    "citations": 2,
+    "low_conf": false
+  },
+  {
+    "query": "What is the current price of a 7-day rail pass in Japan?",
+    "label": "unanswerable",
+    "seconds": 21.46,
+    "retries": 2,
+    "citations": 0,
+    "low_conf": true
+  },
+  {
+    "query": "asdkjasd current safety xyz nonsense country",
+    "label": "nonsense",
+    "seconds": 19.85,
+    "retries": 2,
+    "citations": 0,
+    "low_conf": true
+  }
+]
