@@ -1,0 +1,602 @@
+[
+  {
+    "country": "Argentina",
+    "tourism": 1,
+    "state_dept": 2,
+    "cdc": 11,
+    "bad_url": 0,
+    "bad_text": 1,
+    "mislabeled": 1,
+    "tourism_urls": [
+      "https://www.argentina.travel/en"
+    ]
+  },
+  {
+    "country": "Australia",
+    "tourism": 4,
+    "state_dept": 2,
+    "cdc": 10,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.australia.com/en"
+    ]
+  },
+  {
+    "country": "Austria",
+    "tourism": 3,
+    "state_dept": 2,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.austria.info/en"
+    ]
+  },
+  {
+    "country": "Brazil",
+    "tourism": 2,
+    "state_dept": 4,
+    "cdc": 13,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://visitbrasil.com/en/"
+    ]
+  },
+  {
+    "country": "Cambodia",
+    "tourism": 48,
+    "state_dept": 20,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Cambodia"
+    ]
+  },
+  {
+    "country": "Canada",
+    "tourism": 1,
+    "state_dept": 13,
+    "cdc": 8,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.destinationcanada.com/en"
+    ]
+  },
+  {
+    "country": "Chile",
+    "tourism": 3,
+    "state_dept": 2,
+    "cdc": 10,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.chile.travel/en/"
+    ]
+  },
+  {
+    "country": "China",
+    "tourism": 2,
+    "state_dept": 32,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.travelchina.org.cn/"
+    ]
+  },
+  {
+    "country": "Colombia",
+    "tourism": 3,
+    "state_dept": 18,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://colombia.travel/en"
+    ]
+  },
+  {
+    "country": "Costa Rica",
+    "tourism": 3,
+    "state_dept": 17,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.visitcostarica.com/en"
+    ]
+  },
+  {
+    "country": "Croatia",
+    "tourism": 34,
+    "state_dept": 15,
+    "cdc": 10,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Croatia"
+    ]
+  },
+  {
+    "country": "Czech Republic",
+    "tourism": 49,
+    "state_dept": 16,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Czechia"
+    ]
+  },
+  {
+    "country": "Dominican Republic",
+    "tourism": 2,
+    "state_dept": 14,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.godominicanrepublic.com/"
+    ]
+  },
+  {
+    "country": "Egypt",
+    "tourism": 50,
+    "state_dept": 19,
+    "cdc": 11,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Egypt"
+    ]
+  },
+  {
+    "country": "France",
+    "tourism": 2,
+    "state_dept": 15,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.france.fr/en"
+    ]
+  },
+  {
+    "country": "Germany",
+    "tourism": 7,
+    "state_dept": 15,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.germany.travel/en/home.html"
+    ]
+  },
+  {
+    "country": "Greece",
+    "tourism": 53,
+    "state_dept": 16,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Greece"
+    ]
+  },
+  {
+    "country": "Iceland",
+    "tourism": 34,
+    "state_dept": 19,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Iceland"
+    ]
+  },
+  {
+    "country": "India",
+    "tourism": 9,
+    "state_dept": 25,
+    "cdc": 14,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.incredibleindia.org/"
+    ]
+  },
+  {
+    "country": "Indonesia",
+    "tourism": 14,
+    "state_dept": 2,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.indonesia.travel/gb/en/home"
+    ]
+  },
+  {
+    "country": "Ireland",
+    "tourism": 7,
+    "state_dept": 14,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.ireland.com/en-us/"
+    ]
+  },
+  {
+    "country": "Israel",
+    "tourism": 66,
+    "state_dept": 5,
+    "cdc": 10,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Israel"
+    ]
+  },
+  {
+    "country": "Italy",
+    "tourism": 19,
+    "state_dept": 17,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.italia.it/en"
+    ]
+  },
+  {
+    "country": "Japan",
+    "tourism": 15,
+    "state_dept": 15,
+    "cdc": 9,
+    "bad_url": 15,
+    "bad_text": 8,
+    "mislabeled": 15,
+    "tourism_urls": [
+      "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Japan.html"
+    ]
+  },
+  {
+    "country": "Jordan",
+    "tourism": 2,
+    "state_dept": 23,
+    "cdc": 10,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://international.visitjordan.com/"
+    ]
+  },
+  {
+    "country": "Malaysia",
+    "tourism": 2,
+    "state_dept": 21,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.malaysia.travel/"
+    ]
+  },
+  {
+    "country": "Mexico",
+    "tourism": 57,
+    "state_dept": 34,
+    "cdc": 13,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Mexico"
+    ]
+  },
+  {
+    "country": "Morocco",
+    "tourism": 49,
+    "state_dept": 2,
+    "cdc": 10,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Morocco"
+    ]
+  },
+  {
+    "country": "Nepal",
+    "tourism": 2,
+    "state_dept": 19,
+    "cdc": 11,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://ntb.gov.np/"
+    ]
+  },
+  {
+    "country": "Netherlands",
+    "tourism": 2,
+    "state_dept": 2,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.holland.com/global/tourism.htm"
+    ]
+  },
+  {
+    "country": "New Zealand",
+    "tourism": 78,
+    "state_dept": 15,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/New_Zealand"
+    ]
+  },
+  {
+    "country": "Norway",
+    "tourism": 10,
+    "state_dept": 2,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.visitnorway.com/"
+    ]
+  },
+  {
+    "country": "Peru",
+    "tourism": 53,
+    "state_dept": 4,
+    "cdc": 13,
+    "bad_url": 0,
+    "bad_text": 1,
+    "mislabeled": 1,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Peru"
+    ]
+  },
+  {
+    "country": "Philippines",
+    "tourism": 2,
+    "state_dept": 3,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://philippines.travel/"
+    ]
+  },
+  {
+    "country": "Poland",
+    "tourism": 5,
+    "state_dept": 2,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.poland.travel/en"
+    ]
+  },
+  {
+    "country": "Portugal",
+    "tourism": 4,
+    "state_dept": 15,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.visitportugal.com/en"
+    ]
+  },
+  {
+    "country": "Saudi Arabia",
+    "tourism": 43,
+    "state_dept": 30,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Saudi_Arabia"
+    ]
+  },
+  {
+    "country": "Singapore",
+    "tourism": 99,
+    "state_dept": 14,
+    "cdc": 10,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Singapore"
+    ]
+  },
+  {
+    "country": "South Africa",
+    "tourism": 3,
+    "state_dept": 16,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.southafrica.net/gl/en/travel/"
+    ]
+  },
+  {
+    "country": "South Korea",
+    "tourism": 84,
+    "state_dept": 14,
+    "cdc": 11,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/South_Korea"
+    ]
+  },
+  {
+    "country": "Spain",
+    "tourism": 2,
+    "state_dept": 14,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.spain.info/en/"
+    ]
+  },
+  {
+    "country": "Sri Lanka",
+    "tourism": 36,
+    "state_dept": 15,
+    "cdc": 11,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Sri_Lanka"
+    ]
+  },
+  {
+    "country": "Sweden",
+    "tourism": 55,
+    "state_dept": 2,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://en.wikivoyage.org/wiki/Sweden"
+    ]
+  },
+  {
+    "country": "Switzerland",
+    "tourism": 12,
+    "state_dept": 15,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.myswitzerland.com/en/"
+    ]
+  },
+  {
+    "country": "Thailand",
+    "tourism": 2,
+    "state_dept": 3,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.tourismthailand.org/home"
+    ]
+  },
+  {
+    "country": "Turkey",
+    "tourism": 11,
+    "state_dept": 24,
+    "cdc": 10,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.goturkiye.com/"
+    ]
+  },
+  {
+    "country": "United Arab Emirates",
+    "tourism": 2,
+    "state_dept": 3,
+    "cdc": 11,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.visitdubai.com/en"
+    ]
+  },
+  {
+    "country": "United Kingdom",
+    "tourism": 7,
+    "state_dept": 13,
+    "cdc": 9,
+    "bad_url": 0,
+    "bad_text": 1,
+    "mislabeled": 1,
+    "tourism_urls": [
+      "https://www.visitbritain.com/en"
+    ]
+  },
+  {
+    "country": "United States",
+    "tourism": 3,
+    "state_dept": 0,
+    "cdc": 1,
+    "bad_url": 0,
+    "bad_text": 0,
+    "mislabeled": 0,
+    "tourism_urls": [
+      "https://www.visittheusa.com/"
+    ]
+  },
+  {
+    "country": "Vietnam",
+    "tourism": 24,
+    "state_dept": 2,
+    "cdc": 12,
+    "bad_url": 0,
+    "bad_text": 2,
+    "mislabeled": 2,
+    "tourism_urls": [
+      "https://vietnam.travel/"
+    ]
+  }
+]

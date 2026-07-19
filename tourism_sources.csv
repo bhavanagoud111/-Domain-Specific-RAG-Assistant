@@ -1,5 +1,10 @@
 # Tourism sources. tag column: official_board | state_dept_substitute | wikivoyage_fallback.
-# Japan is a deliberate State Dept choice (visa query needs entry requirements; japan.travel has none).
+# Week 6: Japan's State Dept substitute is REVERTED to a real tourism source. The substitution
+# made "what should I visit in Japan" unanswerable (0 chunks of destination content), and it was
+# redundant anyway -- 11/15 of those chunks were >=0.60 near-duplicates of Japan's own state_dept
+# chunks, which already carry the visa/entry text the substitution was meant to supply.
+# japan.travel was re-probed and is unreliable (read timeout / HTTP 502), so Japan uses the same
+# wikivoyage_fallback the corpus already uses for Peru and South Korea.
 country,url,format,source_tag
 France,https://www.france.fr/en,html,official_board
 Spain,https://www.spain.info/en/,html,official_board
@@ -20,7 +25,7 @@ Iceland,https://en.wikivoyage.org/wiki/Iceland,html,wikivoyage_fallback
 Sweden,https://en.wikivoyage.org/wiki/Sweden,html,wikivoyage_fallback
 Norway,https://www.visitnorway.com/,html,official_board
 China,https://www.travelchina.org.cn/,html,official_board
-Japan,https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Japan.html,html,state_dept_substitute(deliberate:visa)
+Japan,https://en.wikivoyage.org/wiki/Japan,html,wikivoyage_fallback
 Thailand,https://www.tourismthailand.org/home,html,official_board
 Vietnam,https://vietnam.travel/,html,official_board
 Indonesia,https://www.indonesia.travel/gb/en/home,html,official_board

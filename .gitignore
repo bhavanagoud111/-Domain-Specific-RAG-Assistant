@@ -18,6 +18,10 @@ data/
 # the .md and ignore only the machine-written .json (cost/scrape/repair logs).
 logs/*.json
 
+# Local corpus dump used by the Week 6 audit harness -- 6MB, and fully
+# regenerable from Qdrant via `python scratchpad/dump_corpus.py`.
+scratchpad/corpus_dump.json
+
 # OS / editor
 .DS_Store
 .idea/

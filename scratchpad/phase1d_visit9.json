@@ -1,0 +1,124 @@
+[
+  {
+    "country": "Italy",
+    "query": "What should I visit in Italy?",
+    "citations_resolved": 6,
+    "low_confidence": false,
+    "thin_pass": false,
+    "retries": 1,
+    "cited_sources": [
+      "tourism/Italy",
+      "tourism/Italy",
+      "tourism/Italy",
+      "tourism/Italy",
+      "tourism/Italy",
+      "tourism/Italy"
+    ],
+    "answer_head": "In Italy, there are several must-visit destinations that offer a mix of history, culture, and natural beauty:  1. **Bologna**: Known for its rich history, art, music, and delicious traditional food, B"
+  },
+  {
+    "country": "Mexico",
+    "query": "What should I visit in Mexico?",
+    "citations_resolved": 3,
+    "low_confidence": false,
+    "thin_pass": false,
+    "retries": 1,
+    "cited_sources": [
+      "tourism/Mexico",
+      "tourism/Mexico",
+      "tourism/Mexico"
+    ],
+    "answer_head": "In Mexico, there are several must-visit destinations:  1. **Copper Canyon**: Known for its magnificent remote wilderness, Copper Canyon offers breathtaking views and is a unique destination for nature"
+  },
+  {
+    "country": "Norway",
+    "query": "What should I visit in Norway?",
+    "citations_resolved": 3,
+    "low_confidence": false,
+    "thin_pass": false,
+    "retries": 0,
+    "cited_sources": [
+      "tourism/Norway",
+      "tourism/Norway",
+      "tourism/Norway"
+    ],
+    "answer_head": "In Norway, you should visit the Lofoten Islands, known for their dramatic scenery and picturesque villages [1]. The Geirangerfjord is another must-see destination, famous for its stunning natural beau"
+  },
+  {
+    "country": "Thailand",
+    "query": "What should I visit in Thailand?",
+    "citations_resolved": 2,
+    "low_confidence": false,
+    "thin_pass": false,
+    "retries": 1,
+    "cited_sources": [
+      "tourism/Thailand",
+      "tourism/Thailand"
+    ],
+    "answer_head": "In Thailand, travelers can explore a variety of destinations and experiences. Central Thailand offers historical sites such as ancient temples, Bang Pa-in Royal Palace, and Bang Sai Royal Folk Arts an"
+  },
+  {
+    "country": "Canada",
+    "query": "What should I visit in Canada?",
+    "citations_resolved": 0,
+    "low_confidence": true,
+    "thin_pass": false,
+    "retries": 2,
+    "cited_sources": [],
+    "answer_head": "\u26a0\ufe0f Low confidence: none of the retrieved sources could be resolved into a citation for this question, so the answer below is not grounded in the WanderRAG corpus.  The sources provided do not contain "
+  },
+  {
+    "country": "United Arab Emirates",
+    "query": "What should I visit in United Arab Emirates?",
+    "citations_resolved": 1,
+    "low_confidence": false,
+    "thin_pass": true,
+    "retries": 1,
+    "cited_sources": [
+      "tourism/United Arab Emirates"
+    ],
+    "answer_head": "To explore the United Arab Emirates, particularly Dubai, you should consider visiting several key areas and attractions. Some of the notable places include Palm Jumeirah, Downtown Dubai, Jumeirah, Dub"
+  },
+  {
+    "country": "Japan",
+    "query": "What should I visit in Japan?",
+    "citations_resolved": 5,
+    "low_confidence": false,
+    "thin_pass": false,
+    "retries": 1,
+    "cited_sources": [
+      "tourism/Japan",
+      "tourism/Japan",
+      "tourism/Japan",
+      "tourism/Japan",
+      "tourism/Japan"
+    ],
+    "answer_head": "When visiting Japan, there are several unique experiences and attractions you should consider:  1. **Festivals (Matsuri)**: Japan hosts numerous festivals throughout the year, often featuring parades "
+  },
+  {
+    "country": "Singapore",
+    "query": "What should I visit in Singapore?",
+    "citations_resolved": 3,
+    "low_confidence": false,
+    "thin_pass": false,
+    "retries": 1,
+    "cited_sources": [
+      "tourism/Singapore",
+      "tourism/Singapore",
+      "tourism/Singapore"
+    ],
+    "answer_head": "In Singapore, there are several must-visit attractions that showcase the city's diverse culture and modern architecture. You should consider visiting the Kong Meng San Phor Kark See Monastery, the Sri"
+  },
+  {
+    "country": "Brazil",
+    "query": "What should I visit in Brazil?",
+    "citations_resolved": 1,
+    "low_confidence": false,
+    "thin_pass": true,
+    "retries": 1,
+    "cited_sources": [
+      "tourism/Brazil"
+    ],
+    "answer_head": "Travelers to Brazil have a wide array of destinations to choose from, each offering unique experiences. You can explore the vibrant streets of Rio de Janeiro, where the infectious beats of samba creat"
+  }
+]
