@@ -339,3 +339,169 @@ the eval set's integrity — rather than fabricating US eligibility from world k
 
 That reference is faithful to the corpus as it exists. It is *wrong about the world*, and it
 is right about our data — which is exactly what a grounded-QA reference should be.
+
+---
+
+## PHASE 4 — EVALUATION RESULTS
+
+91 questions, 141 graph runs, 0 errors, against the frozen 2,319-point corpus.
+Judge: `anthropic/claude-sonnet-4.5`, blinded (see `assert_judge_blinded`). Sampling:
+thin-tier and unanswerable ×3, rich/mid ×1.
+
+### THE HEADLINE FINDING: the rewrite node makes retrieval 6.2× worse
+
+The proposal (§4) calls `rewrite` **"the core agentic behavior"** — it is the node that
+justified LangGraph and the conditional retry loop. Measured against the frozen corpus, it
+is **actively harmful to retrieval**.
+
+`rewrite_node` discards the user's question and emits *source-oriented* sub-queries:
+
+> `"What should I visit in Singapore?"`
+> → `['Singapore tourism pages', 'Singapore travel advisories', 'Singapore CDC health notices']`
+
+Those sub-queries lexically match **source page furniture**, not content. The State Dept
+page header `"Singapore Travel Advisory | Travel.State.gov"` scores **0.761** against
+`"Singapore travel advisories"` — higher than *any* genuine Singapore tourism chunk
+(0.576–0.681). The score-sorted merge in `retrieve_node` then crowds real content out.
+
+Concretely, for "What should I visit in Singapore?" the graph returned **6 State Dept
+boilerplate chunks** (advisory levels, embassy message failures, VPN advice) from a country
+holding **99 tourism chunks**.
+
+Ablation, scored against the same validated relevance sets:
+
+| retrieval path | mean precision (5 worst cases) |
+|---|---|
+| graph `rewrite` + merge | **0.100** |
+| raw user question, passed straight through | **0.625** |
+
+**6.2× better with the "agentic" step removed.**
+
+| country/type | tier | chunks | R | max achievable | graph | raw | verdict |
+|---|---|---:|---:|---:|---:|---:|---|
+| Mexico/visa | rich | 104 | 6 | 0.75 | 0.000 | 0.625 | retrieval miss |
+| Singapore/what_to_visit | rich | 123 | 20 | 1.00 | 0.125 | 0.625 | retrieval miss |
+| South Korea/visa | rich | 109 | 4 | 0.50 | 0.125 | 0.375 | retrieval miss |
+| New Zealand/visa | rich | 102 | 6 | 0.75 | 0.125 | 0.625 | retrieval miss |
+| Greece/what_to_visit | rich | 78 | 9 | 1.00 | 0.125 | 0.875 | retrieval miss |
+
+**Why 44.2% precision is not a window artifact.** `R` is the number of relevant chunks in
+the *entire* country corpus, found by scanning every payload directly — no embedding query
+involved. Max-achievable precision at the fixed window of 8 is `min(R,8)/8`. These countries
+hold **4–20** relevant chunks and ceilings of 0.5–1.0, so the retriever is underperforming
+its own ceiling by 4–8×. Every one of the five is **rich-tier**: this failure has nothing to
+do with thin corpora.
+
+**Confound ruled out.** `R` came from batch-mode judging (10 chunks/call) while `actual`
+came from eval-mode judging (8 chunks/call). If batch mode were more lenient, `R` would be
+inflated and corpus-limited cases would be misreported as retrieval failures.
+`evaluation/judge_mode_control.py` re-judged the *same 8 chunks* in batch mode:
+**40/40 verdict agreement, zero net leniency.** With that closed, the misses are real.
+
+**Two honest limits on this result.**
+1. *The ablation is measured on our own relevance sets.* `R` was decided by a judge assessing
+   relevance **to the question**, and the raw-question path queries with that same phrasing,
+   so some unknown amount of lexical alignment with the relevance criterion is doing work.
+   The header-score evidence (0.761 vs 0.576–0.681) is *independent* of the judge and points
+   the same way, and hand-inspection of Singapore's 8 retrieved chunks (6 = State Dept
+   boilerplate) is independent human confirmation. But state this as measured on our sets,
+   not as a universal property of query rewriting.
+2. *Not fixed.* The fix is one line — add the raw question as a fourth sub-query — but
+   shipping it would invalidate every number in this frozen evaluation during the final
+   week. **Diagnosed, fix validated at 6.2×, deliberately not shipped. Week 7+ work.**
+
+### The robustness result hiding in the numbers
+
+| | precision | faithfulness | gate | correct country |
+|---|---|---|---|---|
+| **ALL** | **44.2%** | **87.0%** | **97.1%** | **100%** |
+| rich | 45.1% | 86.7% | 94.9% | 100% |
+| mid | 48.8% | 90.6% | 100% | 100% |
+| thin | 47.4% | 82.6% | 96.7% | 100% |
+
+Retrieval is badly underperforming — and **output quality mostly survived it**. Precision
+44.2% with faithfulness 87.0% and gate correctness 97.1% is not a contradiction; it is the
+`NO_ANSWER_CLAUSE` and the citation-keyed gate doing their job. Because generation may only
+cite what actually supports a claim, **noise chunks are ignored rather than fabricated
+from**. The pipeline degrades by *declining to use* bad retrieval instead of hallucinating
+over it. That is the strongest architectural result in the project after the rewriter
+finding, and it is worth stating plainly: the Week 5 gate is what makes a 44%-precision
+retriever survivable.
+
+### By question type
+
+| type | precision | faithfulness | gate |
+|---|---|---|---|
+| visa | **22.3%** | 84.4% | **88.2%** |
+| health | 53.7% | 90.5% | 100% |
+| safety | 62.9% | 90.8% | 100% |
+| what_to_visit | 41.9% | 81.3% | 97.1% |
+| unanswerable | n/a | n/a | 100% |
+
+`visa` is the worst type, and `visa/rich` the worst cell in the matrix (77.8% gate, 71.4%
+faithfulness). This is a direct consequence of the rewriter: visa questions are specific,
+and source-oriented sub-queries are maximally wrong for them.
+
+### Gate flips — the amendment's headline
+
+**1 of 25** questions sampled 3× flipped (**4.0%**), and it clustered in thin tier exactly
+as predicted: **UAE `what_to_visit`, verdicts `[False, True, False]`** — the same boundary
+case as Phase 1d, reproduced under controlled sampling. Every other thin-tier and
+unanswerable question was stable 3/3.
+
+**Caveat that must be reported with it:** rich and mid ran ×1 by design, so their flip rate
+is **0/0 — untested, not proven stable.**
+
+### Unanswerable questions: 5/5, 15/15 runs
+
+All five correctly resolved 0 citations in all three runs, **including the two baited ones**
+— Japan rail-pass (the corpus gained 5 chunks discussing the Japan Rail Pass but no price)
+and Chicago→Singapore (chunks name Singapore Airlines, Scoot, Qantas and "nonstop to North
+America" but never Chicago). The gate refused topically-tempting retrieval every time.
+
+### Judge audit — 12 verdicts hand-verified, per direction
+
+| direction | n | correct | accuracy |
+|---|---|---|---|
+| judge said UNSUPPORTED | 6 | 4 | **66.7%** |
+| judge said SUPPORTED | 6 | 6 | **100%** |
+
+**The judge over-rejects and never rubber-stamps, so 87.0% is a conservative FLOOR.**
+A naive correction lands near 91%, but **do not report that as measured** — n=6 per
+direction has very wide error bars. The *direction* of the bias is the trustworthy finding;
+the magnitude is not.
+
+Both pinned 0.0%-faithfulness cases were **the judge being right**: Mexico and Japan visa
+answers are *factually correct* but cite a chunk that does not support them (Mexico cited
+the advisory page header; Japan cited a transit/Shore-Pass chunk). Correct answer, wrong
+citation — a distinct failure mode from hallucination.
+
+### The four failure modes
+
+Two of these were discovered this week.
+
+| mode | example | detection |
+|---|---|---|
+| corpus gap | Canada what-to-visit (1 tourism chunk) | chunk counts |
+| **retrieval failure** | Singapore, Mexico, Greece — the rewriter | R vs actual + mode control |
+| **ingestion loss** | Israel ETA list; 37/45 sources, 643 tokens | live-page diff |
+| **correct answer, wrong citation** | Mexico/Japan visa | faithfulness judge |
+
+### The Week 4 mystery: NOT disentangled
+
+Week 4 recorded an LLM judge failing correct "what should I visit" answers because it
+*"wanted a ranked list of named attractions the corpus doesn't phrase that way"*. Three
+candidate mechanisms now exist, and **this report does not pick one**:
+
+1. **cleaner deleted the names** (Nepal: Everest/Lumbini/Annapurna at 0 occurrences)
+2. **retrieval handed it boilerplate** (Singapore: 6 State Dept chunks for a what-to-visit query)
+3. **the Week 4 judge was simply mis-specified** (which is why Week 5 replaced it)
+
+**Italy rules out (1) and (2) for Italy specifically.** Italy's cleaner dropout was only
+generic UI words — `Like`, `Discover`, `Villages`, `City`, `Region`, `UNESCO` — and **no
+place names**: Venice (5), Rome (7), Dolomites (10), Turin (6), Aosta (4) all survive in
+Italy's tourism chunks. Week 5 further recorded Italy answering with 4–6 citations naming
+exactly those places, so Italy's retrieval worked too. Yet Week 4's judge still failed it.
+
+The experiment that would disentangle these was not run. **Two mechanisms identified, both
+plausible, neither confirmed as the cause.**
