@@ -323,6 +323,9 @@ def retrieve_node(state: GraphState) -> dict[str, Any]:
                     "id": pid, "score": float(h.score),
                     "country": p.get("country"), "source_type": p.get("source_type"),
                     "source_url": p.get("source_url"), "text": p.get("text", ""),
+                    # Metadata only -- carried so generate_node can attach it to citations
+                    # for the UI. Nothing in retrieval, ranking or the gate reads it.
+                    "scrape_date": p.get("scrape_date"),
                 }
     chunks = sorted(merged.values(), key=lambda c: c["score"], reverse=True)[: TOP_K + 3]
 
@@ -475,6 +478,10 @@ def generate_node(state: GraphState) -> dict[str, Any]:
             c = chunks[n - 1]
             citations.append({"marker": f"[{n}]", "country": c["country"],
                               "source_type": c["source_type"], "source_url": c["source_url"],
+                              # Week 6: carried through so the UI can show the point-in-time
+                              # stamp (proposal Risk 3). METADATA ONLY -- this field is never
+                              # read by retrieve, generate, self_check or the citation gate.
+                              "scrape_date": c.get("scrape_date"),
                               "score": round(c["score"], 3)})
     return {
         "final_answer": answer, "citations": citations,

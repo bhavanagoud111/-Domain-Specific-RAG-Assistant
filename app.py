@@ -25,13 +25,33 @@ from urllib.parse import urlparse
 
 import gradio as gr
 
+from config import settings
 from graph.wanderrag_graph import run_query, session_cost
+from storage.qdrant_setup import get_client
 
 SOURCE_LABELS = {
     "state_dept": "US State Dept",
     "cdc": "CDC",
     "tourism": "Tourism board",
 }
+
+
+def _corpus_stats() -> tuple[str, str]:
+    """Live (points_count, countries) read from Qdrant at startup.
+
+    Week 6 fix: the header used to hardcode "2,220 chunks", which silently went stale the
+    moment Japan's tourism source was replaced (2,220 -> 2,319). Reading it live means the
+    banner can never disagree with the collection again.
+
+    Falls back to "—" rather than raising: a wrong number is worse than no number, and the
+    UI should still start so the user sees the graph's own connection error.
+    """
+    try:
+        client = get_client()
+        n = client.count(collection_name=settings.QDRANT_COLLECTION, exact=True).count
+        return f"{n:,}", "50"
+    except Exception:
+        return "—", "50"
 
 
 def _domain(url: str) -> str:
@@ -71,7 +91,13 @@ def _render_status(state: dict) -> str:
 
 
 def _render_sources(citations: list[dict]) -> str:
-    """One line per citation: marker, source, country, score, link."""
+    """One line per citation: marker, source, country, scrape date, score, link.
+
+    The scrape date is a point-in-time honesty signal, not decoration: every answer is
+    "what this source said on that date", and advisories/entry rules change often. The
+    proposal (Risk 3) commits to surfacing it, and the data was already on 100% of chunks
+    but was never carried into the citation dict until now.
+    """
     if not citations:
         return ""
     rows = ["\n---\n\n**Sources**\n"]
@@ -79,9 +105,11 @@ def _render_sources(citations: list[dict]) -> str:
         url = c.get("source_url") or ""
         src = SOURCE_LABELS.get(c.get("source_type", ""), c.get("source_type", "?"))
         link = f"[{_domain(url)}]({url})" if url else "_no URL on this chunk_"
+        scraped = c.get("scrape_date")
+        stamp = f" &nbsp; <sub>scraped {scraped}</sub>" if scraped else ""
         rows.append(
             f"- **`{c['marker']}`** &nbsp; {src} · {c.get('country', '?')} &nbsp; "
-            f"→ &nbsp; {link} &nbsp; <sub>score {c.get('score')}</sub>"
+            f"→ &nbsp; {link}{stamp} &nbsp; <sub>score {c.get('score')}</sub>"
         )
     return "\n".join(rows)
 
@@ -135,13 +163,15 @@ CSS = """
 footer { display: none !important; }
 """
 
+_POINTS, _COUNTRIES = _corpus_stats()
+
 with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(), css=CSS, fill_height=True) as demo:
     gr.HTML(
-        """
+        f"""
         <div id="hero">
           <h1>🧭 WanderRAG</h1>
           <p>Grounded travel answers over US State Dept advisories, CDC health notices
-             and national tourism boards — 50 countries, 2,220 chunks.</p>
+             and national tourism boards — {_COUNTRIES} countries, {_POINTS} chunks.</p>
         </div>
         <div id="legend">
           <span>✅ Grounded — cites real sources</span>
