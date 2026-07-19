@@ -1,0 +1,397 @@
+[
+  {
+    "question": "Do I need a visa to visit Mexico as a US citizen?",
+    "country": "Mexico",
+    "question_type": "visa",
+    "corpus_tier": "rich",
+    "country_chunks": 104,
+    "R_relevant_in_corpus": 6,
+    "window": 8,
+    "max_achievable_precision": 0.75,
+    "actual_precision": 0.0,
+    "retrieval_efficiency": 0.0,
+    "n_relevant_retrieved_run1": 0,
+    "verdict": "(b) RETRIEVAL MISS -- relevant chunks exist that retrieval did not return",
+    "relevant_chunks": [
+      {
+        "source_type": "state_dept",
+        "chunk_index": 15,
+        "relevant": true,
+        "why": "Explains entry permit requirements for US citizens",
+        "excerpt": ", the Mexican immigration authorities will determine how long you are authorized to stay.  A date stamp will be placed in your passport. You may be directed thr"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 12,
+        "relevant": true,
+        "why": "Contains visa requirements and entry information",
+        "excerpt": ", populist politician. Under his leadership, Mexico has served as a moderator in wider Latin American politics, for example, in the Venezuelan and Bolivian cris"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 13,
+        "relevant": true,
+        "why": "Discusses FMM tourist card requirements for Mexico entry",
+        "excerpt": "dead link ). Permanent residents of the United States, Canada, Japan, United Kingdom, and Schengen area countries are also eligible for visas on arrival regardl"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 14,
+        "relevant": true,
+        "why": "Details tourist card fees and stay duration rules",
+        "excerpt": "is free.  There is also a fee of M$223 applied to flights leaving the country.  Some foreign nationals are no longer granted the full 180 days by default as is "
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 15,
+        "relevant": true,
+        "why": "Explains US citizen entry requirements for Mexico",
+        "excerpt": "when heading to the airport for your flight for Mexico.  If you do not intend to travel past the \"border zone\" and your stay does not exceed three days, U.S. an"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 55,
+        "relevant": true,
+        "why": "Discusses US passport requirements for Mexico entry",
+        "excerpt": "available from to Belmopan  To Guatemala  This route is not used by many and still has a touch of adventure: Over Tenosique, La Palma (near Tenosique), by boat "
+      }
+    ]
+  },
+  {
+    "question": "What should I visit in Singapore?",
+    "country": "Singapore",
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich",
+    "country_chunks": 123,
+    "R_relevant_in_corpus": 20,
+    "window": 8,
+    "max_achievable_precision": 1.0,
+    "actual_precision": 0.125,
+    "retrieval_efficiency": 0.125,
+    "n_relevant_retrieved_run1": 1,
+    "verdict": "(b) RETRIEVAL MISS -- relevant chunks exist that retrieval did not return",
+    "relevant_chunks": [
+      {
+        "source_type": "tourism",
+        "chunk_index": 0,
+        "relevant": true,
+        "why": "Introduces Singapore attractions and food culture",
+        "excerpt": "Singapore – Travel guide at Wikivoyage  Jump to content  1.29 103.82  From Wikivoyage  Asia > >  Singapore is a huge city with several district articles that co"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 1,
+        "relevant": true,
+        "why": "Lists specific tourist areas and attractions",
+        "excerpt": ") is in the south of the island.  1°17′30″N 103°51′1″E Map of Singapore City Centre. Static map  Riverside (Civic District)  Singapore's colonial core, with mus"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 2,
+        "relevant": true,
+        "why": "Describes tourist attractions including zoos",
+        "excerpt": "covers Geylang Serai, the true home of Singapore's Malays, and Pulau Ubin, the last remnant of a rustic Singapore.  North and West  The northern and western par"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 3,
+        "relevant": true,
+        "why": "Mentions Marina Bay Sands and heritage sites",
+        "excerpt": "The Singapore CBD skyline  Singapore is a microcosm of Asia, populated by Chinese, Malays, Indians and a large group of workers and expatriates from all around "
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 6,
+        "relevant": true,
+        "why": "Mentions Marina Bay Sands and Singapore Flyer attractions",
+        "excerpt": "descent. Other smaller communities include the Parsis, Hadhrami Arabs and Baghdadi Jews. The Marina Bay Sands and Singapore Flyer  Singapore has always been an "
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 10,
+        "relevant": true,
+        "why": "Mentions Gardens by Bay and Chinese Garden attractions",
+        "excerpt": "and watch plays and Chinese opera performances. Following soon afterwards, the Mid-Autumn Festival (中秋节) on the 15th day of the 8th lunar month (Sep/Oct) is als"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 11,
+        "relevant": true,
+        "why": "Mentions Geylang Serai and Orchard Road locations",
+        "excerpt": "– 12 February 2029 ( 1450 AH  If you're planning to travel to Singapore during Ramadan, consider reading Travelling during Ramadan  The Islamic fasting month of"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 28,
+        "relevant": true,
+        "why": "Mentions Pulau Ubin and southern islands attractions",
+        "excerpt": "not widely used or understood.  By boat  Bumboat  Tourist-oriented bumboats cruise the , offering point-to-point rides starting from $3 and cruises with nice vi"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 33,
+        "relevant": true,
+        "why": "Lists beaches, culture areas, and tourist attractions",
+        "excerpt": "Just don't get too close: they have viciously sharp teeth and are protective of their young. OtterWatch on Facebook is a good place to keep up to date on otter "
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 34,
+        "relevant": true,
+        "why": "Recommends religious sites and walking trails",
+        "excerpt": "Don't miss this aspect of Singapore, where Buddhism, Taoism, Hinduism, Sikhism, Christianity, Islam and Judaism all exist in sizeable numbers. Religious sites c"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 35,
+        "relevant": true,
+        "why": "Mentions arts festival and entertainment options",
+        "excerpt": "Singapore International Festival of Arts (formerly the Singapore Arts Festival ), featuring a programme of art exhibitions/performances and artist conversations"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 38,
+        "relevant": true,
+        "why": "Describes East Coast Park and Sentosa beaches",
+        "excerpt": ". The East Coast Park has a scenic coastline that stretches over 15  km. It's a popular getaway spot for Singaporeans to swim, cycle, barbeque and engage in var"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 54,
+        "relevant": true,
+        "why": "Mentions hawker centres as must-visit places",
+        "excerpt": ", but a visit to a hawker centre is a must when in Singapore, if you wish to experience authentic local food culture in the heartlands themselves. However, be l"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 55,
+        "relevant": true,
+        "why": "Lists specific hawker centres to visit",
+        "excerpt": "(thick wheat noodles) to (thin rice vermicelli). Point and choose from the glass cabinet.  \"Chilli?\" If you say yes, the often fiery paste will be mixed in, so "
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 59,
+        "relevant": true,
+        "why": "Mentions Boat Quay and Clarke Quay attractions",
+        "excerpt": "market price\", and if you ask they'll quote you the price per 100 g, but a big crab can easily top 2kg. The best-known seafood spots are clustered on the , but "
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 60,
+        "relevant": true,
+        "why": "Mentions National Gallery as dining location",
+        "excerpt": "Fine dining  Singapore has no fewer than 44 Michelin -starred restaurants, ranging from French degustations at 3-star Odette in the National Gallery to the epon"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 62,
+        "relevant": true,
+        "why": "Lists nightlife areas and specific venues",
+        "excerpt": "concentrated along the three quays  Boat, Clarke and Robertson of the Riverside , with the clubs of giving party animals even more reason to dance the night awa"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 64,
+        "relevant": true,
+        "why": "Mentions Raffles Hotel Long Bar attraction",
+        "excerpt": ", and the entry price for clubs usually includes several drink tickets. Almost all restaurants in Singapore allow bringing your own (BYO) wine and cheaper resta"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 69,
+        "relevant": true,
+        "why": "Mentions Fort Canning Park and cooking classes",
+        "excerpt": ".  DigiPen Institute of Technology  The Asian campus of the DigiPen Institute of Technology, Redmond Seattle Washington  ESSEC  International campus of the busi"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 94,
+        "relevant": true,
+        "why": "Parks, cycling, skating activities to visit",
+        "excerpt": "Anytime Fitness Fitness First Gold's Gym True Fitness . Facilities are better and locations more central, but the prices are also much higher as non-members hav"
+      }
+    ]
+  },
+  {
+    "question": "Do I need a visa to visit South Korea as a US citizen?",
+    "country": "South Korea",
+    "question_type": "visa",
+    "corpus_tier": "rich",
+    "country_chunks": 109,
+    "R_relevant_in_corpus": 4,
+    "window": 8,
+    "max_achievable_precision": 0.5,
+    "actual_precision": 0.125,
+    "retrieval_efficiency": 0.25,
+    "n_relevant_retrieved_run1": 1,
+    "verdict": "(b) RETRIEVAL MISS -- relevant chunks exist that retrieval did not return",
+    "relevant_chunks": [
+      {
+        "source_type": "state_dept",
+        "chunk_index": 1,
+        "relevant": true,
+        "why": "Directly states visa not required for stays",
+        "excerpt": "you travel. Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancellation coverage.  Scroll to review full adv"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 18,
+        "relevant": true,
+        "why": "Lists visa-free entry periods for various countries",
+        "excerpt": "only trace amounts of opioids, they will probably be confiscated under the same laws that ban the importation of illegal drugs.  Do not bring North Korean biogr"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 19,
+        "relevant": true,
+        "why": "Contains visa requirements and K-ETA information",
+        "excerpt": "unisia Tuvalu United Arab Emirates Vatican City can stay visa-free for up to 30 days.  (mainland) may visit South Korea for up to 15 days without a visa provide"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 63,
+        "relevant": true,
+        "why": "Mentions Employment Visa and Working Holiday Visa",
+        "excerpt": "definitely open up many more opportunities for you.  Foreigners must obtain an Employment Visa in order to legally work in South Korea, and will usually require"
+      }
+    ]
+  },
+  {
+    "question": "Do I need a visa to visit New Zealand as a US citizen?",
+    "country": "New Zealand",
+    "question_type": "visa",
+    "corpus_tier": "rich",
+    "country_chunks": 102,
+    "R_relevant_in_corpus": 6,
+    "window": 8,
+    "max_achievable_precision": 0.75,
+    "actual_precision": 0.125,
+    "retrieval_efficiency": 0.1667,
+    "n_relevant_retrieved_run1": 1,
+    "verdict": "(b) RETRIEVAL MISS -- relevant chunks exist that retrieval did not return",
+    "relevant_chunks": [
+      {
+        "source_type": "state_dept",
+        "chunk_index": 1,
+        "relevant": true,
+        "why": "States NZeTA or visa is required for tourists",
+        "excerpt": "has maritime borders with the Pacific Ocean and Tasman Sea. The Realm of New Zealand includes the Cook Islands and Niue, which are self-governing states in free"
+      },
+      {
+        "source_type": "state_dept",
+        "chunk_index": 2,
+        "relevant": true,
+        "why": "Mentions entry exit and visa requirements section",
+        "excerpt": "Review how STEP works  Travel guidance for New Zealand  Explore our travel guidance topics to prepare for your trip abroad.  Select a topic  Entry, exit, and vi"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 19,
+        "relevant": true,
+        "why": "Discusses passport validity requirements for entering New Zealand",
+        "excerpt": "and over and possess ePassports may make use of the automated border control gates (eGates). Being able to use an eGate does not exempt you from visa requiremen"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 20,
+        "relevant": true,
+        "why": "Explains NZeTA and IVL requirements for visitors",
+        "excerpt": ") or $23 (via website) depending on the application method. You do not need to pay the International Visitor Conservation and Tourism levy if you are merely tra"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 21,
+        "relevant": true,
+        "why": "Discusses visa requirements and exemptions by nationality",
+        "excerpt": "tax and social security benefits after a stand-down period.  Australian citizens do not need to apply for the NZeTA nor IVL, while Australian permanent resident"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 58,
+        "relevant": true,
+        "why": "Discusses student visa requirements for overseas students",
+        "excerpt": "ustralian overseas students need to have a student visa and a reasonable level of cash to spend in order to undertake a course of study at a New Zealand-based e"
+      }
+    ]
+  },
+  {
+    "question": "What should I visit in Greece?",
+    "country": "Greece",
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich",
+    "country_chunks": 78,
+    "R_relevant_in_corpus": 9,
+    "window": 8,
+    "max_achievable_precision": 1.0,
+    "actual_precision": 0.125,
+    "retrieval_efficiency": 0.125,
+    "n_relevant_retrieved_run1": 1,
+    "verdict": "(b) RETRIEVAL MISS -- relevant chunks exist that retrieval did not return",
+    "relevant_chunks": [
+      {
+        "source_type": "tourism",
+        "chunk_index": 0,
+        "relevant": true,
+        "why": "Describes Greece's attractions and travel appeal",
+        "excerpt": "Greece – Travel guide at Wikivoyage  Jump to content  38.5 23  From Wikivoyage  Europe > Eastern Mediterranean Europe >  : Ελλάς  Ellás Ελλάδα  Elláda ) is a co"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 1,
+        "relevant": true,
+        "why": "Lists major cities and tourist destinations",
+        "excerpt": "avdos, Chrysi) The largest Greek island and the fifth-largest island in the Mediterranean, with a rich history, culture, stunning beaches, and delicious food.  "
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 2,
+        "relevant": true,
+        "why": "Lists specific tourist sites and attractions",
+        "excerpt": "island with many attractions  38.4823 22.5013 3  Delphi (Δελφοί) — site of the famous oracle of Apollo, major archaeological site  39.714167 21.631111 4  Meteor"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 3,
+        "relevant": true,
+        "why": "Describes tourism regions and architectural attractions",
+        "excerpt": ". Peak season is between May and September when approximately 75% of all tourists arrive. Most of the tourists and tourism industry are concentrated in Western "
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 4,
+        "relevant": true,
+        "why": "Describes historical sites like Olympia",
+        "excerpt": "0 BC, and slowly invaded the entire country from the north all the way to , as well as the west coast of Asia Minor (now ), absorbing the native peoples. Their "
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 22,
+        "relevant": true,
+        "why": "Lists specific sites: Delphi, Olympia, Meteora, Rhodes",
+        "excerpt": "in the bustling capital and the splendid site of Delphi , where the mighty emperors sought the prophecies of the most prominent oracle in the ancient Greek worl"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 23,
+        "relevant": true,
+        "why": "Describes islands and attractions: Patmos, Samos, temples",
+        "excerpt": "of sightseeing and relaxing on one of the many fine beaches. Patmos is a lovely example, boasting the historic centre Chora Monastery of Saint John the Theologi"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 24,
+        "relevant": true,
+        "why": "Describes islands to visit: Santorini, Kefalonia, Zakynthos",
+        "excerpt": "the most romantic picks and offers some spectacular views. Its whitewashed capital of Fira is dramatically situated on the edge of a 400m high cliff, overlookin"
+      },
+      {
+        "source_type": "tourism",
+        "chunk_index": 25,
+        "relevant": true,
+        "why": "Lists specific sailing areas and islands to visit",
+        "excerpt": "coasts, which are still relatively inexpensive compared to France, Italy, or Croatia. While there are only a few marinas, there are small town harbors on the is"
+      }
+    ]
+  }
+]

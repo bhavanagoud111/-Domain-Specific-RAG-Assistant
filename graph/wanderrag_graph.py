@@ -288,6 +288,35 @@ def rewrite_node(state: GraphState) -> dict[str, Any]:
     if not subs:
         subs = [original]  # fail safe: never leave retrieve with nothing
 
+    # ------------------------------------------------------------------ #
+    # WEEK 6 FIX -- always retrieve with the user's ACTUAL question too.
+    #
+    # The rewriter emits SOURCE-ORIENTED sub-queries ("Singapore travel advisories",
+    # "CDC health notices Mexico"). Those match source PAGE FURNITURE rather than
+    # content: the header "Singapore Travel Advisory | Travel.State.gov" scores 0.761
+    # against its own sub-query, above EVERY genuine Singapore tourism chunk
+    # (0.576-0.681), and retrieve_node's score-sorted merge then crowds real content
+    # out. Measured on the 5 worst-precision eval questions, against the same judge
+    # relevance sets:
+    #
+    #     graph rewrite+merge   mean precision 0.100
+    #     raw question alone    mean precision 0.625     (6.2x better)
+    #
+    # e.g. "What should I visit in Singapore?" returned 6 State Dept boilerplate
+    # chunks from a country holding 99 tourism chunks.
+    #
+    # Appending the unmodified question guarantees the merge always contains one
+    # candidate set built from the real information need. Deliberately ADDITIVE:
+    # the rewriter's sub-queries are kept, so this can only widen the pool, never
+    # narrow it. TOP_K, the country filter, chunking, the gate and MAX_RETRIES are
+    # all unchanged.
+    #
+    # Kept on retries too: a retry means the previous attempt resolved 0 citations,
+    # which is exactly when the literal question is most worth re-trying.
+    # ------------------------------------------------------------------ #
+    if original not in subs:
+        subs = subs + [original]
+
     return {
         "sub_queries": subs,
         "current_query": " | ".join(subs),
