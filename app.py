@@ -48,7 +48,7 @@ _gcu._json_schema_to_python_type = _wr_safe_schema
 
 from config import settings
 from config.countries import COUNTRIES
-from graph.wanderrag_graph import run_query, session_cost
+from graph.wanderrag_graph import run_query
 from storage.qdrant_setup import get_client
 
 ASSETS = Path(__file__).resolve().parent / "assets" / "countries"
@@ -90,13 +90,6 @@ def _country_counts() -> dict[str, int]:
         return {}
 
 
-def _corpus_total() -> str:
-    try:
-        return f"{get_client().count(collection_name=settings.QDRANT_COLLECTION, exact=True).count:,}"
-    except Exception:
-        return "—"
-
-
 def _photo_uri(slug: str) -> str:
     p = ASSETS / f"{slug}.jpg"
     if not p.exists():
@@ -105,7 +98,6 @@ def _photo_uri(slug: str) -> str:
 
 
 _COUNTS = _country_counts()
-_TOTAL = _corpus_total()
 _PHOTO_URI = {c.slug: _photo_uri(c.slug) for c in COUNTRIES}
 
 
@@ -376,7 +368,7 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
               <h1>🧭 WanderRAG</h1>
               <p>Grounded travel answers over US State Dept advisories, CDC health notices
                  and national tourism boards. Pick a country to start.</p>
-              <div class="wr-stat">🌍 50 countries · 📄 {_TOTAL} grounded chunks</div>
+              <div class="wr-stat">🌍 50 countries</div>
             </div>
             """
         )
@@ -419,10 +411,6 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
             ex_visa = gr.Button("🛂 Visa", size="sm")
             ex_safety = gr.Button("🛡️ Safety", size="sm")
             ex_vacc = gr.Button("💉 Vaccinations", size="sm")
-        with gr.Accordion("Session cost (real OpenRouter usage)", open=False):
-            cost_md = gr.Markdown("_click refresh_")
-            gr.Button("Refresh", size="sm").click(
-                lambda: f"```\n{session_cost()}\n```", outputs=cost_md)
 
     # ---------------- wiring ----------------
     region_radio.change(refresh_grid, [region_radio, search_box], [gallery, visible_names])
