@@ -4,6 +4,29 @@ Compiled 2026-07-19 against the **frozen** corpus (`points_count = 2,319`).
 Read-only: no re-scrape, no re-embed, no graph changes. Sources are the machine-written
 logs in `logs/`, the Qdrant payloads, and git.
 
+> ### ⚠️ Correction note — 2026-07-23
+>
+> Three items below were true when compiled on 2026-07-19 but have since been fixed. The
+> original text is left intact for history; this note supersedes it.
+>
+> 1. **§C11 "scrape date display: UI DOES NOT SHOW IT" — FIXED.** `generate_node` now
+>    carries `scrape_date` into each citation dict and `app.py` `_render_sources` renders
+>    it on every source line (commit `8256883`). The proposal Risk-3 commitment is met.
+> 2. **Appendix items 1–2 "fresh-clone verification did not run / Docker cannot execute" —
+>    DONE.** Docker Desktop starts normally (the earlier dangling `/usr/local/bin/docker`
+>    symlink resolves once Docker is running); Qdrant comes up on `:6333`. A full
+>    fresh-clone verification ran on 2026-07-23 — venv, `pip install`, `.env`, Qdrant
+>    health, and a real query returning a GROUNDED answer with citations — plus an
+>    ingestion-from-cache rebuild reproducing all 2,319 points. See
+>    [`logs/week8_prep.md`](week8_prep.md).
+> 3. **The frozen corpus is no longer "only inside one container."** The cleaned
+>    per-source JSON (`scraped_data/`, 4.9 MB) is now committed, and
+>    `run_pipeline.py --from-cache --all` rebuilds the exact 2,319-point corpus with no
+>    scraping — so the freeze survives a container loss.
+>
+> Still open from the Appendix: **nothing is pushed to the remote** (the GitHub repo is
+> empty — `git push` is still required), and the Week 6 judging costs remain unlogged.
+
 ---
 
 ## A. CROSS-WEEK PROJECT NUMBERS

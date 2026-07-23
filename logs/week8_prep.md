@@ -336,3 +336,36 @@ Dept advisories** and 7 missing tourism sources. The frozen 2,319-chunk corpus i
 corpus of record precisely because it captured travel.state.gov **before** the Cloudflare
 lockdown. README updated with the measured runtime/cost, the Chrome/Selenium requirement,
 a source-availability table, and a "what to do if a source fails" guide.
+
+---
+
+## PART 5 — Exact cache rebuild (no scraping) — 2026-07-23
+
+Since travel.state.gov is Cloudflare-blocked, a live re-scrape cannot rebuild the State
+Dept advisories. But `scraped_data/` already holds that text from the 2026-06-28 scrape.
+Goal: let a fresh clone reproduce the **exact** frozen corpus from committed JSON.
+
+**Repo changes (cleaning/chunking/embedding/graph all unchanged):**
+- `scraped_data/` (4.9 MB, 149 JSON: state_dept 49 / cdc 50 / tourism 50) **un-gitignored
+  and committed**. `raw_html/` (62 MB) stays ignored — the cleaned JSON is what chunking reads.
+- `run_pipeline.py`: cache-read logic extracted into `_load_cached()` (reused by `_scrape`);
+  new `--from-cache` flag skips the scrape stage and chunks+embeds the JSON directly.
+
+**End-to-end verification (fresh clone, isolated `QDRANT_COLLECTION=wanderrag_verify`):**
+
+| Check | Result |
+|---|---|
+| `run_pipeline.py --from-cache --all` | 149 cached records loaded, **0 network calls** |
+| Total points | **2,319** ✓ |
+| Per-source split | **state_dept 626 / cdc 514 / tourism 1179** ✓ (exact match) |
+| Scrape failures | 0 |
+| Embedding cost | **$0.1497** (1,151,685 tokens) |
+| Wall-clock | ~260 s (~4–5 min), embedding-bound |
+| Frozen `wanderrag_chunks` | **2,319 before and after** — untouched |
+| Temp collection | deleted; only `wanderrag_chunks` remains |
+
+**Result:** a fresh clone now reproduces the frozen corpus **exactly and offline** via
+`run_pipeline.py --from-cache --all` for ~$0.15. README updated: cache rebuild is Path A
+(recommended, exact), live re-scrape is Path B (optional refresh) with the
+source-availability warning. `logs/final_report_data.md` got a dated correction note (top)
+for the three now-fixed items (scrape_date UI, fresh-clone/Docker, corpus portability).

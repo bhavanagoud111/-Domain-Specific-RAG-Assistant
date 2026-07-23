@@ -39,10 +39,10 @@ one citation is surfaced as a **THIN** result rather than hidden.
   daemon is the most common first-run failure.
 - **macOS or Linux.** The commands below assume a POSIX shell. On Windows use WSL2, or
   replace `source .venv/bin/activate` with `.venv\Scripts\activate`.
-- **Google Chrome / Chromium** — only needed if you intend to _ingest_ the corpus
-  yourself (some tourism pages are JS-rendered and fall back to headless Chrome via
-  Selenium; `webdriver-manager` fetches the matching driver automatically). Not needed
-  to run the app against an already-populated store.
+- **Google Chrome / Chromium** — only needed for a **live re-scrape** (Path B below), where
+  some JS-rendered tourism pages fall back to headless Chrome via Selenium
+  (`webdriver-manager` fetches the matching driver automatically). **Not needed** for the
+  recommended cache rebuild (Path A) or to run the app against a populated store.
 
 ### 1. Clone and install
 
@@ -86,31 +86,53 @@ curl http://localhost:6333/collections/wanderrag_chunks
 
 ### 4. Populate the corpus
 
-The vector store starts **empty**. A fresh clone ships no scraped data (`scraped_data/`
-and `raw_html/` are gitignored), so you **must ingest before any query returns results**:
+The vector store starts **empty**, so you must ingest before any query returns results.
+There are two paths — **use the cache rebuild** unless you specifically want fresher data.
+
+#### Path A (recommended) — rebuild the exact frozen corpus from cache, no scraping
+
+A fresh clone **ships the cleaned per-source JSON** in `scraped_data/` (4.9 MB, from the
+2026-06-28 scrape). `--from-cache` chunks and embeds that directly — no network scraping —
+and reproduces the **exact 2,319-point corpus** every reported number was measured against:
+
+```bash
+python run_pipeline.py --from-cache --all
+```
+
+- **Exact & deterministic** — reproduces 2,319 points with the same per-source split
+  (state_dept 626 / cdc 514 / tourism 1179), verified on a fresh clone 2026-07-23.
+- **Cost ~$0.15** — measured **$0.1497** (1.15M tokens) in embeddings
+  (`text-embedding-3-large` at $0.13/1M tokens); the only cost is embedding, since nothing
+  is scraped. Spend is logged to `logs/embed_cost_log.json`.
+- **Runtime ~4–5 min** (measured ~260 s; embedding-bound — no HTTP, no Selenium).
+- **This is the only way to get the State Dept advisories today** — `travel.state.gov` is
+  now Cloudflare-blocked and cannot be re-scraped (see Path B).
+
+#### Path B (optional) — live re-scrape to refresh the data
+
+Only if you want newer source content than the 2026-06-28 snapshot. This **scrapes live**
+and, as of 2026-07-23, **does NOT reproduce the frozen corpus** — several sources are down.
 
 ```bash
 python run_pipeline.py --countries France Japan Mexico   # always test 3 first
 python run_pipeline.py --all                             # then all 50
 ```
 
-Ingestion **scrapes live** US State Dept, CDC and tourism-board pages, then embeds the
-chunks. Measured on a fresh clone on **2026-07-23** (3 countries — Greece, Italy, France):
+Measured on a fresh clone on **2026-07-23** (3 countries — Greece, Italy, France):
 
 - **Time** — 3 countries in **~25 s**; extrapolated **~10–20 min for all 50** (live HTTP
   plus headless-Chrome fallbacks on JS-heavy tourism boards). Chrome/Chromium must be
   installed for the Selenium fallback.
 - **Cost** — the 3-country run embedded 101 chunks / 50 k tokens for **~$0.007**. A full
-  50-country build is **~$0.11–0.15** in embeddings (`text-embedding-3-large` at
-  $0.13/1M tokens) — lower than an earlier $0.30 guess. Live spend is logged per batch to
-  `logs/embed_cost_log.json`.
+  50-country build is **~$0.11–0.15** in embeddings.
 - Per-source scrape failures are **counted and printed in the run summary** rather than
   aborting the pipeline, so a rebuild always completes with whatever it could reach.
 
-#### ⚠️ Source availability — a fresh rebuild does NOT reproduce the frozen corpus (as of 2026-07-23)
+##### ⚠️ Source availability — a live re-scrape does NOT reproduce the frozen corpus (as of 2026-07-23)
 
 The **2,319-chunk frozen corpus was scraped on 2026-06-28**, before several sources locked
-down. A rebuild today is **incomplete**. Verified by a fresh-clone ingestion test:
+down. A live rebuild today is **incomplete** (use Path A for an exact corpus). Verified by
+a fresh-clone ingestion test:
 
 | Source | Status today | Effect on a rebuild |
 |---|---|---|
