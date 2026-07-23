@@ -19,3 +19,7 @@ langgraph>=0.6          # StateGraph: rewrite -> retrieve -> generate -> self_ch
 gradio>=4.44,<5         # minimal conversational UI over the existing graph (app.py)
 huggingface_hub<1.0     # gradio 4.x imports HfFolder, removed in huggingface_hub 1.x
 #   ^ gradio 5.x needs Python >=3.10; this venv is 3.9, so we pin to the 4.x line.
+
+# --- Week 8: country gallery UI ---
+pillow>=10             # resize/convert country photos in scratchpad/fetch_country_images.py
+#   ^ already pulled in transitively by gradio; listed explicitly for the image script.

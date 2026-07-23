@@ -1,0 +1,449 @@
+[
+  {
+    "slug": "france",
+    "name": "France",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Sainte-Enimie-Gorges_du_Tarn-Frankreich.jpg: Tobi 87\nderivative work: Jjtkk",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Sainte-Enimie-Gorges du Tarn France banner.jpg"
+  },
+  {
+    "slug": "spain",
+    "name": "Spain",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Iglesia_de_Nuestra_Se\u00f1ora_de_La_Blanca,_Cardej\u00f3n,_Espa\u00f1a,_2012-09-01,_DD_02.JPG: Poco a poco\nderivative work: Jjtkk",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Cardej\u00f3n banner1.jpg"
+  },
+  {
+    "slug": "italy",
+    "name": "Italy",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Francisco Antunes",
+    "license": "CC BY 2.0",
+    "file": "File:Italy banner 3 Florence.jpg"
+  },
+  {
+    "slug": "united-kingdom",
+    "name": "United Kingdom",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "ExtraMilePhotoUK",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Stonehenge banner distant from the north east.jpg"
+  },
+  {
+    "slug": "germany",
+    "name": "Germany",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Taxiarchos228",
+    "license": "FAL",
+    "file": "File:\u00d6tlingen - Panoramaansicht klein banner.jpg"
+  },
+  {
+    "slug": "turkey",
+    "name": "Turkey",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "1. Sevtap On\n2. Bj\u00f8rn Christian T\u00f8rrissen\n3. Derrick Brutel\n\n4. Kerem Barut",
+    "license": "CC BY-SA 4.0",
+    "file": "File:Kekova (Turkey) banner.jpg"
+  },
+  {
+    "slug": "greece",
+    "name": "Greece",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "20100923_Kompsatos_Bridge_Polyanthos_Rhodope_Thrace_Greece_Panorama.jpg: User:Ggia\nderivative work: Jjtkk",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Kompsatos river bridge, Thrace.jpg"
+  },
+  {
+    "slug": "portugal",
+    "name": "Portugal",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Tsy1980",
+    "license": "CC BY-SA 4.0",
+    "file": "File:Capela Das Almas Oporto Banner.jpg"
+  },
+  {
+    "slug": "netherlands",
+    "name": "Netherlands",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Traveler100",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Leiden-NL-Banner-2.jpg"
+  },
+  {
+    "slug": "austria",
+    "name": "Austria",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "chensiyuan",
+    "license": "CC BY-SA 4.0",
+    "file": "File:Austria-banner1.jpg"
+  },
+  {
+    "slug": "switzerland",
+    "name": "Switzerland",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Waldemmental_Juli2007.jpg: Simon Koopmann\nderivative work: Jjtkk",
+    "license": "CC BY-SA 2.0 de",
+    "file": "File:S\u00f6renberg banner.jpg"
+  },
+  {
+    "slug": "croatia",
+    "name": "Croatia",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Wolfgang Steinkl\u00e4ubl",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Croatia Wikivoyage banner.jpg"
+  },
+  {
+    "slug": "czech-republic",
+    "name": "Czech Republic",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Myslivny_bozi_dar_lake.jpg: Rafael Brix\nderivative work: Danapit",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Myslivny bozi dar lake banner.jpg"
+  },
+  {
+    "slug": "poland",
+    "name": "Poland",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Ralf Lotys (Sicherlich), cropped by Jjtkk",
+    "license": "CC BY 3.0",
+    "file": "File:Kietlice banner.jpg"
+  },
+  {
+    "slug": "ireland",
+    "name": "Ireland",
+    "region": "Europe",
+    "source": "commons-search",
+    "file": "File:Cliffs Of Moher Clare Ireland Landscape Photography (219674231).jpeg",
+    "license": "CC BY 3.0"
+  },
+  {
+    "slug": "iceland",
+    "name": "Iceland",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Hansueli Krapf",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Iceland_Banner.jpg"
+  },
+  {
+    "slug": "sweden",
+    "name": "Sweden",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "User:Glottern",
+    "license": "CC BY-SA 4.0",
+    "file": "File:Marmorbruket Norrk\u00f6ping banner.jpg"
+  },
+  {
+    "slug": "norway",
+    "name": "Norway",
+    "region": "Europe",
+    "source": "banner",
+    "artist": "Ximonic, Simo R\u00e4s\u00e4nen",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Raftsundet (Lofoten) banner Panorama.jpg"
+  },
+  {
+    "slug": "china",
+    "name": "China",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "Seebeer\nEdited by Nicholasjf21 (talk)",
+    "license": "Public domain",
+    "file": "File:China Banner 2.jpg"
+  },
+  {
+    "slug": "japan",
+    "name": "Japan",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "JurriaanH",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Japanese lanterns banner.jpg"
+  },
+  {
+    "slug": "thailand",
+    "name": "Thailand",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "Mozhar",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Thailand banner 2.jpg"
+  },
+  {
+    "slug": "vietnam",
+    "name": "Vietnam",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "Slaza\u00a0: S\u00e1ndor Laza",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Ha Long bay (Vietnam) banner Islands in the bay.png"
+  },
+  {
+    "slug": "indonesia",
+    "name": "Indonesia",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "Dohduhdah",
+    "license": "CC0",
+    "file": "File:Bali banner Sunset.jpg"
+  },
+  {
+    "slug": "malaysia",
+    "name": "Malaysia",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "http://bjornfree.com/galleries.html Bj\u00f8rn Christian T\u00f8rrissen",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Cameron_Highlands_Tea_Plantation_banner.jpg"
+  },
+  {
+    "slug": "singapore",
+    "name": "Singapore",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "Khairul Nizam.",
+    "license": "CC BY 2.0",
+    "file": "File:Supertree Grove, Gardens by the Bay, Singapore - 20120704 (banner).jpg"
+  },
+  {
+    "slug": "south-korea",
+    "name": "South Korea",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "https://www.flickr.com/photos/traveloriented/",
+    "license": "CC BY-SA 2.0",
+    "file": "File:Korea Banner 2.jpg"
+  },
+  {
+    "slug": "india",
+    "name": "India",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "Panoramic View of TajMahal.jpg: Kumaravels\nderivative work: \u05d5\u05d9\u05e7\u05d9\u05d2'\u05d0\u05e0\u05e7\u05d9",
+    "license": "CC BY 2.5 in",
+    "file": "File:TajMahal Banner.jpg"
+  },
+  {
+    "slug": "philippines",
+    "name": "Philippines",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "Matthias Hiltner",
+    "license": "CC BY 2.0",
+    "file": "File:Banaue Wikivoyage banner.jpg"
+  },
+  {
+    "slug": "australia",
+    "name": "Australia",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "Dimageau",
+    "license": "CC BY-SA 4.0",
+    "file": "File:Australia alt banner.jpg"
+  },
+  {
+    "slug": "new-zealand",
+    "name": "New Zealand",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "080420-Kaikouras_from_Kaikoura.jpg: Karora\nderivative work: Inkey",
+    "license": "Public domain",
+    "file": "File:Seaward kaikoura mountain range banner.jpg"
+  },
+  {
+    "slug": "cambodia",
+    "name": "Cambodia",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "Chris https://www.flickr.com/photos/11581043@N00",
+    "license": "CC BY-SA 2.0",
+    "file": "File:Angkor_panorama_banner.jpg"
+  },
+  {
+    "slug": "sri-lanka",
+    "name": "Sri Lanka",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "Flickr - ronsaunders47 - BATHING TIME FOR THE ELEPHANTS. (1).jpg Ronald Saunders from Warrington, UK\nderivative work: \u05d5\u05d9\u05e7\u05d9\u05d2'\u05d0\u05e0\u05e7\u05d9",
+    "license": "CC BY-SA 2.0",
+    "file": "File:Sri Lanka WV banner.jpg"
+  },
+  {
+    "slug": "nepal",
+    "name": "Nepal",
+    "region": "Asia-Pacific",
+    "source": "banner",
+    "artist": "User:Asis59",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Boudha Stupa Kathmandu banner.jpg"
+  },
+  {
+    "slug": "united-states",
+    "name": "United States",
+    "region": "Americas",
+    "source": "banner",
+    "artist": "https://www.flickr.com/photos/buggolo/ Stefano Brivio",
+    "license": "CC BY 2.0",
+    "file": "File:Statue of Liberty light banner.jpg"
+  },
+  {
+    "slug": "mexico",
+    "name": "Mexico",
+    "region": "Americas",
+    "source": "banner",
+    "artist": "Johannes Kruse",
+    "license": "CC BY 2.0",
+    "file": "File:Teotihuacan Wikivoyage banner.jpg"
+  },
+  {
+    "slug": "canada",
+    "name": "Canada",
+    "region": "Americas",
+    "source": "banner",
+    "artist": "User:Florian Fuchs",
+    "license": "CC BY 3.0",
+    "file": "File:Alberta (Canada) banner Herbert lake shore.png"
+  },
+  {
+    "slug": "brazil",
+    "name": "Brazil",
+    "region": "Americas",
+    "source": "banner",
+    "artist": "GRES Acad\u00eamicos do Salgueiro Carnaval 2010 080 (5192038529).jpg Team at Carnaval.com Studios from The Inner Mission San Francisco\nderivative work: \u05d5\u05d9\u05e7\u05d9\u05d2'\u05d0\u05e0\u05e7\u05d9",
+    "license": "CC BY 2.0",
+    "file": "File:February-banner-02.jpg"
+  },
+  {
+    "slug": "argentina",
+    "name": "Argentina",
+    "region": "Americas",
+    "source": "banner",
+    "artist": "Almonroth",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Argentina_Banner_1.jpg"
+  },
+  {
+    "slug": "peru",
+    "name": "Peru",
+    "region": "Americas",
+    "source": "banner",
+    "artist": "Danielle Pereira  Miradas.com.br  https://www.flickr.com/photos/galeria_miradas/",
+    "license": "CC BY 2.0",
+    "file": "File:Machu_Picchu_view_banner.jpg"
+  },
+  {
+    "slug": "costa-rica",
+    "name": "Costa Rica",
+    "region": "Americas",
+    "source": "banner",
+    "artist": "Armigo",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Arenal Costa Rica banner.jpg"
+  },
+  {
+    "slug": "colombia",
+    "name": "Colombia",
+    "region": "Americas",
+    "source": "banner",
+    "artist": "Julien H",
+    "license": "CC BY-SA 2.0",
+    "file": "File:El Desierto de Tatacoah (Colombia) banner.jpg"
+  },
+  {
+    "slug": "dominican-republic",
+    "name": "Dominican Republic",
+    "region": "Americas",
+    "source": "summary",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/e/e3/SantoDomingoedit.JPG?utm_source=en.wikivoyage.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "slug": "chile",
+    "name": "Chile",
+    "region": "Americas",
+    "source": "banner",
+    "artist": "Alexandre Buisse (http://commons.wikimedia.org/wiki/User:Nattfodd)",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Lascar_summit_banner.jpg"
+  },
+  {
+    "slug": "united-arab-emirates",
+    "name": "United Arab Emirates",
+    "region": "Middle East & Africa",
+    "source": "banner",
+    "artist": "junie_alaan",
+    "license": "CC BY 2.0",
+    "file": "File:Dubai_WV_banner.jpg"
+  },
+  {
+    "slug": "egypt",
+    "name": "Egypt",
+    "region": "Middle East & Africa",
+    "source": "banner",
+    "artist": "Rudolph.A.furtado",
+    "license": "CC0",
+    "file": "File:Egypt banner Camels and pyramids.jpg"
+  },
+  {
+    "slug": "morocco",
+    "name": "Morocco",
+    "region": "Middle East & Africa",
+    "source": "banner",
+    "artist": "Vall\u00e9e_des_Gorges_du_Dad\u00e8s.jpg: Christophe Guilloux\nderivative work: Inkey",
+    "license": "CC BY-SA 3.0",
+    "file": "File:A\u00eft Arbi (Maroc) banner Vall\u00e9e des Gorges du Dad\u00e8s.jpg"
+  },
+  {
+    "slug": "south-africa",
+    "name": "South Africa",
+    "region": "Middle East & Africa",
+    "source": "banner",
+    "artist": "Damien du Toit https://www.flickr.com/photos/coda/",
+    "license": "CC BY 2.0",
+    "file": "File:Table_Mountain_panorama.jpg"
+  },
+  {
+    "slug": "saudi-arabia",
+    "name": "Saudi Arabia",
+    "region": "Middle East & Africa",
+    "source": "banner",
+    "artist": "Omar Chatriwala of Al Jazeera English",
+    "license": "CC BY 2.5",
+    "file": "File:Saudi Arabia page banner.jpg"
+  },
+  {
+    "slug": "jordan",
+    "name": "Jordan",
+    "region": "Middle East & Africa",
+    "source": "banner",
+    "artist": "Teogomez Teo Gomez",
+    "license": "CC0",
+    "file": "File:Petra (Jordan) banner.jpg"
+  },
+  {
+    "slug": "israel",
+    "name": "Israel",
+    "region": "Middle East & Africa",
+    "source": "banner",
+    "artist": "Panor\u00e1mica_de_Jerusal\u00e9n_desde_el_Monte_de_los_Olivos.jpg: Bienchido\nderivative work: Pbsouthwood",
+    "license": "CC BY-SA 3.0",
+    "file": "File:Jerusalem banner Panorama.jpg"
+  }
+]

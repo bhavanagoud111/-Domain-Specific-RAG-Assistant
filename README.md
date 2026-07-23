@@ -166,9 +166,17 @@ as the corpus of record; a from-scratch rebuild is a partial, best-effort refres
 
 **Chat UI** — `python app.py` → http://127.0.0.1:7860
 
-Shows the answer, every citation as a source link, the resolved-citation count, and the
-GROUNDED / THIN / LOW-CONFIDENCE banner. Expect ~5–20s per turn (the full graph runs per
-question, including up to 2 retry loops).
+Opens on a **country gallery** — all 50 countries as a scrolling slider (with region
+filter chips, search, and ‹ › arrows), each card a Wikivoyage/Wikimedia photo plus its
+live source count. Click a country to open a chat **scoped to it**: the country name is
+injected into the query so retrieval locks to that country (no graph change). Each turn
+shows the answer, every citation as a source link with its scrape date and score, the
+resolved-citation count, and the GROUNDED / THIN / LOW-CONFIDENCE banner. Expect ~5–20s
+per turn (the full graph runs per question, including up to 2 retry loops).
+
+Country photos live in `assets/countries/` and are committed; rebuild them any time with
+`python scratchpad/fetch_country_images.py` (pulls Wikivoyage page-banners via the
+Wikimedia API). Photo credits + licences are in `assets/countries/manifest.json`.
 
 **CLI**
 
