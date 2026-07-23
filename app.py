@@ -100,6 +100,10 @@ def _photo_uri(slug: str) -> str:
 _COUNTS = _country_counts()
 _PHOTO_URI = {c.slug: _photo_uri(c.slug) for c in COUNTRIES}
 
+_hero_path = ASSETS.parent / "hero.jpg"
+_HERO_BG = (f"data:image/jpeg;base64,{base64.b64encode(_hero_path.read_bytes()).decode('ascii')}"
+            if _hero_path.exists() else "")
+
 
 # --------------------------------------------------------------------------- #
 # Gallery data (reliable gr.Gallery.select mechanism)
@@ -274,17 +278,43 @@ CSS = """
 .gradio-container{ max-width:1180px !important; margin:0 auto !important; }
 footer{ display:none !important; }
 
-#wr-home-hero{ text-align:center; padding:16px 0 4px; }
-#wr-home-hero h1{ font-size:2.8rem; margin:0; letter-spacing:-.03em; font-weight:800;
-  background:linear-gradient(95deg,#4f46e5,#db2777 55%,#f59e0b);
+/* ---------- landing hero band (background image) ---------- */
+#wr-hero{ position:relative; border-radius:24px; overflow:hidden; margin:6px 0 2px;
+  min-height:346px; background-size:cover; background-position:center right;
+  display:flex; align-items:center; box-shadow:0 22px 55px rgba(2,6,23,.40);
+  border:1px solid rgba(148,163,184,.16); }
+.wr-hero-body{ padding:44px 48px; max-width:600px; color:#f8fafc; }
+.wr-kicker{ display:inline-block; font-size:.7rem; text-transform:uppercase; letter-spacing:.14em;
+  font-weight:700; color:#c7d2fe; background:rgba(79,70,229,.24);
+  border:1px solid rgba(129,140,248,.45); padding:5px 12px; border-radius:999px; }
+#wr-hero h1{ font-size:3.2rem; margin:16px 0 8px; font-weight:800; letter-spacing:-.03em;
+  background:linear-gradient(95deg,#c7d2fe,#f5d0fe 52%,#fed7aa);
   -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-#wr-home-hero p{ margin:8px auto 0; opacity:.72; font-size:1.02rem; max-width:640px; }
-#wr-home-hero .wr-stat{ display:inline-block; margin-top:12px; font-size:.85rem;
-  padding:5px 14px; border-radius:999px; background:rgba(79,70,229,.10);
-  border:1px solid rgba(79,70,229,.28); color:var(--wr-accent); font-weight:600; }
+#wr-hero p{ font-size:1.04rem; line-height:1.55; opacity:.92; margin:0 0 22px; max-width:500px; }
+.wr-steps{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.wr-step{ display:inline-flex; align-items:center; gap:8px; font-size:.85rem; font-weight:600;
+  background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18);
+  padding:7px 14px; border-radius:999px; }
+.wr-step b{ display:inline-flex; width:20px; height:20px; border-radius:50%;
+  background:var(--wr-accent); color:#fff; align-items:center; justify-content:center; font-size:.72rem; }
+.wr-sep{ opacity:.45; font-weight:700; }
+@media (max-width:720px){ #wr-hero h1{ font-size:2.3rem; } .wr-hero-body{ padding:30px 26px; } }
+
+/* ---------- explore section heading ---------- */
+#wr-explore{ display:flex; align-items:flex-end; justify-content:space-between;
+  gap:12px; flex-wrap:wrap; margin:22px 4px 8px; }
+#wr-explore h2{ font-size:1.42rem; font-weight:800; margin:0; letter-spacing:-.02em; }
+#wr-explore p{ margin:3px 0 0; opacity:.62; font-size:.92rem; }
+#wr-explore .wr-pill{ font-size:.82rem; font-weight:600; color:var(--wr-accent);
+  background:rgba(79,70,229,.10); border:1px solid rgba(79,70,229,.28);
+  padding:5px 13px; border-radius:999px; white-space:nowrap; }
+
+/* ---------- structured panel around filters + slider ---------- */
+.wr-panel{ background:rgba(148,163,184,.055) !important; border:1px solid rgba(148,163,184,.16) !important;
+  border-radius:20px !important; padding:10px 14px 4px !important; }
 
 /* filter bar */
-#wr-filterbar{ gap:12px; align-items:center; margin:12px 2px 2px; }
+#wr-filterbar{ gap:12px; align-items:center; margin:4px 2px 2px; }
 #wr-regions .wrap{ gap:8px !important; }
 #wr-regions input[type=radio]{ position:absolute !important; opacity:0 !important; width:0 !important; }
 #wr-regions label{ border-radius:999px !important; border:1px solid var(--border-color-primary,#e2e8f0) !important;
@@ -361,29 +391,47 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
     visible_names = gr.State([c.name for c in COUNTRIES])
 
     # ---------------- HOME ----------------
-    with gr.Column(visible=True) as home_view:
+    with gr.Column(visible=True, elem_id="wr-home") as home_view:
         gr.HTML(
             f"""
-            <div id="wr-home-hero">
-              <h1>🧭 WanderRAG</h1>
-              <p>Grounded travel answers over US State Dept advisories, CDC health notices
-                 and national tourism boards. Pick a country to start.</p>
-              <div class="wr-stat">🌍 50 countries</div>
+            <div id="wr-hero" style="background-image:linear-gradient(105deg,
+                 rgba(9,13,28,.94) 0%, rgba(9,13,28,.72) 42%, rgba(9,13,28,.30) 100%),
+                 url('{_HERO_BG}');">
+              <div class="wr-hero-body">
+                <span class="wr-kicker">Retrieval-augmented · grounded &amp; cited</span>
+                <h1>🧭 WanderRAG</h1>
+                <p>Grounded travel answers over US State Dept advisories, CDC health
+                   notices and national tourism boards — every answer cites the exact
+                   source it came from.</p>
+                <div class="wr-steps">
+                  <span class="wr-step"><b>1</b> Pick a country</span>
+                  <span class="wr-sep">→</span>
+                  <span class="wr-step"><b>2</b> Ask anything</span>
+                  <span class="wr-sep">→</span>
+                  <span class="wr-step"><b>3</b> Get cited answers</span>
+                </div>
+              </div>
             </div>
             """
         )
-        with gr.Row(elem_id="wr-filterbar"):
-            region_radio = gr.Radio(choices=REGIONS, value="All 50", show_label=False,
-                                    elem_id="wr-regions", container=False, scale=3)
-            search_box = gr.Textbox(placeholder="🔎 Search a country…", show_label=False,
-                                    container=False, scale=1)
-        with gr.Column(elem_classes="wr-slider"):
-            gr.HTML('<button class="wr-arrow wr-arrow-l" onclick="wrScroll(-1)">‹</button>'
-                    '<button class="wr-arrow wr-arrow-r" onclick="wrScroll(1)">›</button>')
-            gallery = gr.Gallery(
-                value=_gallery_items(COUNTRIES), elem_id="wr-gallery", columns=8,
-                object_fit="cover", show_label=False, allow_preview=False,
-                show_share_button=False, show_download_button=False, container=False)
+        gr.HTML(
+            '<div id="wr-explore"><div><h2>Explore by country</h2>'
+            '<p>Choose a destination to open a chat grounded in its sources.</p></div>'
+            '<span class="wr-pill">🌍 50 countries</span></div>'
+        )
+        with gr.Column(elem_classes="wr-panel"):
+            with gr.Row(elem_id="wr-filterbar"):
+                region_radio = gr.Radio(choices=REGIONS, value="All 50", show_label=False,
+                                        elem_id="wr-regions", container=False, scale=3)
+                search_box = gr.Textbox(placeholder="🔎 Search a country…", show_label=False,
+                                        container=False, scale=1)
+            with gr.Column(elem_classes="wr-slider"):
+                gr.HTML('<button class="wr-arrow wr-arrow-l" onclick="wrScroll(-1)">‹</button>'
+                        '<button class="wr-arrow wr-arrow-r" onclick="wrScroll(1)">›</button>')
+                gallery = gr.Gallery(
+                    value=_gallery_items(COUNTRIES), elem_id="wr-gallery", columns=8,
+                    object_fit="cover", show_label=False, allow_preview=False,
+                    show_share_button=False, show_download_button=False, container=False)
         gr.HTML('<p id="wr-credit">Photos: Wikivoyage / Wikimedia Commons · '
                 'Answers cite US State Dept · CDC · tourism boards.</p>')
 
