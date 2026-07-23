@@ -63,6 +63,11 @@ def _scrape(country_names: list[str], force: bool) -> list[dict[str, Any]]:
 
 
 def main() -> None:
+    """CLI entry point: scrape -> chunk -> embed -> load for the selected countries.
+
+    Country selection is ``--all`` (50), an explicit ``--countries`` list, or the default
+    3-country test (France/Japan/Mexico). Prints a per-country chunk/failure/cost summary.
+    """
     parser = argparse.ArgumentParser(description="Run the WanderRAG ingestion pipeline.")
     parser.add_argument("--countries", nargs="*", default=None, help="Country names (default: 3-country test).")
     parser.add_argument("--all", action="store_true", help="Run all 50 countries.")

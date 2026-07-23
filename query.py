@@ -19,6 +19,11 @@ from storage.qdrant_setup import get_client
 
 
 def search(query: str, *, k: int = 5, country: str | None = None, source: str | None = None):
+    """Embed ``query`` and return the top ``k`` Qdrant chunks, optionally filtered.
+
+    ``country`` and ``source`` add exact-match payload filters (e.g. ``Mexico`` /
+    ``cdc``). Retrieval only — no generation, so the sole cost is one embedding call.
+    """
     client = get_client()
     vector = embed_batch([query])[0]
 
@@ -39,6 +44,7 @@ def search(query: str, *, k: int = 5, country: str | None = None, source: str | 
 
 
 def main() -> None:
+    """CLI entry point: parse args and print the top retrieval hits for one query."""
     parser = argparse.ArgumentParser(description="Search the WanderRAG collection.")
     parser.add_argument("query", help="Natural-language query.")
     parser.add_argument("--k", type=int, default=5, help="Number of results.")

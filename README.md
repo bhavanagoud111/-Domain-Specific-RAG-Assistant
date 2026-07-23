@@ -30,33 +30,79 @@ one citation is surfaced as a **THIN** result rather than hidden.
 
 ## Setup
 
-Requires **Python 3.9+** and **Docker**.
+### Prerequisites
+
+- **Python 3.9+** — developed and tested on 3.9.6; 3.11+ recommended. The `gradio`
+  pin in `requirements.txt` is what keeps 3.9 working (see the note there).
+- **Docker Desktop** (or Docker Engine + Compose v2). **Start it and confirm
+  `docker info` succeeds _before_ running `docker compose` below** — a stopped Docker
+  daemon is the most common first-run failure.
+- **macOS or Linux.** The commands below assume a POSIX shell. On Windows use WSL2, or
+  replace `source .venv/bin/activate` with `.venv\Scripts\activate`.
+- **Google Chrome / Chromium** — only needed if you intend to _ingest_ the corpus
+  yourself (some tourism pages are JS-rendered and fall back to headless Chrome via
+  Selenium; `webdriver-manager` fetches the matching driver automatically). Not needed
+  to run the app against an already-populated store.
+
+### 1. Clone and install
 
 ```bash
-git clone <repo> && cd wanderrag
+git clone https://github.com/bhavanagoud111/-Domain-Specific-RAG-Assistant.git wanderrag
+cd wanderrag
 
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+```
 
+### 2. Get an OpenRouter API key
+
+WanderRAG calls **OpenRouter** for _both_ embeddings and generation (this project uses
+only `openai/*` models — embeddings via `text-embedding-3-large`, answers via `gpt-4o` /
+`gpt-4o-mini`). You need a key with credit:
+
+1. Sign up at <https://openrouter.ai>, then create a key at <https://openrouter.ai/keys>
+   (it looks like `sk-or-...`).
+2. Add a few dollars of credit under Billing — this is a paid API. A from-scratch corpus
+   build plus normal querying costs well under $1, but a $0 balance returns HTTP 402.
+
+```bash
 cp .env.example .env          # then edit: OPENROUTER_API_KEY=sk-or-...
 ```
 
-Only `OPENROUTER_API_KEY` is required; everything else has working defaults.
+Only `OPENROUTER_API_KEY` is required; everything else in `.env` has working defaults.
+
+### 3. Start Qdrant
 
 ```bash
-docker compose up -d               # Qdrant on :6333 (dashboard /dashboard)
-python -m storage.qdrant_setup     # create collection + payload indexes
+docker compose up -d               # Qdrant on :6333 (dashboard at /dashboard)
+python -m storage.qdrant_setup     # create collection + payload indexes (idempotent)
 ```
 
-The vector store starts **empty**. To populate it:
+Confirm it is healthy — open <http://localhost:6333/dashboard>, or:
+
+```bash
+curl http://localhost:6333/collections/wanderrag_chunks
+```
+
+### 4. Populate the corpus
+
+The vector store starts **empty**. A fresh clone ships no scraped data (`scraped_data/`
+and `raw_html/` are gitignored), so you **must ingest before any query returns results**:
 
 ```bash
 python run_pipeline.py --countries France Japan Mexico   # always test 3 first
 python run_pipeline.py --all                             # then all 50
 ```
 
-Populating all 50 costs roughly **$0.30** in embeddings (`text-embedding-3-large` at
-$0.13/1M tokens); live spend is logged per batch to `logs/embed_cost_log.json`.
+Ingestion **scrapes live** US State Dept, CDC and tourism-board pages, then embeds the
+chunks. Budget for it:
+
+- **Time** — a few minutes for 3 countries; roughly 30–60 min for all 50 (live HTTP plus
+  the occasional headless-Chrome fallback).
+- **Cost** — all 50 is roughly **$0.30** in embeddings (`text-embedding-3-large` at
+  $0.13/1M tokens); live spend is logged per batch to `logs/embed_cost_log.json`.
+- Per-source scrape failures are counted and printed in the run summary rather than
+  aborting the pipeline.
 
 ## Running it
 

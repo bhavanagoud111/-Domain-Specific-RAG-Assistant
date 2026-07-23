@@ -256,6 +256,12 @@ class GraphState(TypedDict, total=False):
 # Nodes
 # --------------------------------------------------------------------------- #
 def rewrite_node(state: GraphState) -> dict[str, Any]:
+    """Produce the retrieval candidate queries and detect the target country.
+
+    Under CONFIG C1 (Week 7) the sole candidate is the raw user question; the
+    decomposition prompts below are built but not called (see the C1 comment). Country
+    detection runs on the first pass only and is carried through retries.
+    """
     original = state["original_query"]
     # A retry is any rewrite that runs after a failed self_check.
     is_retry = bool(state.get("retrieved_chunks")) and state.get("self_check_passed") is False
@@ -367,6 +373,12 @@ def rewrite_node(state: GraphState) -> dict[str, Any]:
 
 
 def retrieve_node(state: GraphState) -> dict[str, Any]:
+    """Embed each candidate query and fetch its top chunks from Qdrant.
+
+    Applies the country payload filter when a country was detected, merges hits across
+    candidates by best cosine score, and returns the top ``TOP_K + 3`` chunks as the
+    generation window.
+    """
     subs = state.get("sub_queries") or [state["original_query"]]
     country = state.get("country")
     qfilter = (
@@ -603,6 +615,11 @@ GRAPH = build_graph()
 
 
 def run_query(query: str, run_id: Optional[str] = None) -> GraphState:
+    """Run one question through the compiled graph and return the final state.
+
+    ``run_id`` groups this invocation's OpenRouter calls in the cost log; it defaults to
+    a prefix of the query. This is the single public entry point used by the UI and eval.
+    """
     _RUN["id"] = run_id or query[:40]
     init: GraphState = {"original_query": query, "retry_count": 0, "trace": []}
     return GRAPH.invoke(init, config={"recursion_limit": 25})
