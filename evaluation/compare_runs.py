@@ -1,26 +1,29 @@
-"""Before/after comparison for the Week 6 rewriter fix.
+"""Before/after comparison of two eval runs.
 
 Compares two eval_results.json files produced from the SAME eval set, the SAME frozen
-corpus (2,319) and the SAME blinded judge, differing only in whether rewrite_node appends
-the unmodified user question as an extra sub-query.
+corpus (2,319) and the SAME blinded judge, differing only in the retrieval change under
+test. Written for the Week 6 rewriter fix; parameterised in Week 7 so the same comparator
+serves the RRF change without editing the Week 6 defaults out of existence.
 
 Reports precision / faithfulness / gate correctness / correct-country overall, by tier and
 by question type, plus the flip count and the unanswerable-refusal check.
 
-Run:  PYTHONPATH=. python evaluation/compare_runs.py
+Run:  PYTHONPATH=. python evaluation/compare_runs.py [BEFORE.json] [AFTER.json]
+      (defaults reproduce the Week 6 rewriter-fix comparison)
 """
 
 from __future__ import annotations
 
 import json
 import statistics
+import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
 HERE = Path(__file__).resolve().parent
-BEFORE = HERE / "eval_results_BEFORE_rewriter_fix.json"
-AFTER = HERE / "eval_results.json"
+BEFORE = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "eval_results_BEFORE_rewriter_fix.json"
+AFTER = Path(sys.argv[2]) if len(sys.argv) > 2 else HERE / "eval_results.json"
 
 TIERS = ["rich", "mid", "thin", "n/a"]
 TYPES = ["visa", "health", "safety", "what_to_visit", "unanswerable"]

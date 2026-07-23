@@ -281,12 +281,48 @@ def rewrite_node(state: GraphState) -> dict[str, Any]:
             f"Question: {original!r}\n"
             "Respond as JSON: {\"sub_queries\": [...]}"
         )
-    raw = _chat("rewrite", FAST_MODEL,
-                [{"role": "user", "content": prompt}], max_tokens=300, json_mode=True)
-    parsed = _parse_json(raw)
-    subs = [s.strip() for s in parsed.get("sub_queries", []) if isinstance(s, str) and s.strip()]
-    if not subs:
-        subs = [original]  # fail safe: never leave retrieve with nothing
+    # ------------------------------------------------------------------ #
+    # CONFIG C1 (Week 7) -- THE RAW QUESTION IS THE SOLE CANDIDATE GENERATOR.
+    #
+    # The decomposition prompts above are retained but NOT called. They are left in place
+    # because this is an experiment under measurement, not a deletion: if C1 fails
+    # end-to-end, reverting is a one-line change rather than an archaeology exercise.
+    #
+    # WHY. The Week 7 depth diagnostic measured, over all 91 questions against the frozen
+    # corpus and the Step 1 relevant-chunk sets, retrieval precision at the same 8 slots:
+    #
+    #       sub-queries    44.6%   (rich 44.2%)
+    #       raw question   70.9%   (rich 76.9%)      better on 69/86, worse on 2
+    #
+    # On "what should I visit in X" the sub-query path retrieved ZERO relevant chunks for
+    # Turkey, Israel, Greece, Mexico and Japan, where the raw question retrieved 7 of 8.
+    # The rewriter emits SOURCE-ORIENTED queries ("Turkey travel advisories") that match
+    # page furniture rather than content; the raw question does not.
+    #
+    # NOT the same change as Week 6. Week 6 APPENDED the raw question to the sub-queries
+    # and measured 44.2% -> 44.2%, because the cosine merge kept ranking sub-query page
+    # furniture above it. This REPLACES them, so there is no page furniture in the pool to
+    # outrank anything. Week 6's null was evidence about the merge, not about the raw
+    # question's retrieval quality.
+    #
+    # RETRIES -- C1, chosen deliberately over C2. The raw question is used on EVERY pass,
+    # including retries, which is exactly the configuration that was measured. The
+    # consequence is stated plainly rather than hidden: retrieval on a retry is now
+    # IDENTICAL to the pass before it, so the retry loop no longer re-retrieves, it only
+    # re-rolls generation at temperature=0.3. C1 was chosen because this run's job is to
+    # confirm a specific measured configuration end-to-end; C2 (raw first pass,
+    # feedback-driven rewrite on retries) would put the sub-query generator back into ~32%
+    # of runs and confound any gate movement between the candidate generator and the retry
+    # path. If C1 degrades the gate, C2 is the follow-up -- but it must be measured
+    # separately, not blended in here.
+    #
+    # self_check still authors its `missing` feedback string, which nothing now consumes.
+    # Left in place: it is behaviourally inert (no node reads it under C1) and removing it
+    # would be a second change to this experiment for the sake of a few cents.
+    #
+    # UNCHANGED: TOP_K, the +3 window, the country filter, chunking, the gate, MAX_RETRIES.
+    # ------------------------------------------------------------------ #
+    subs = [original]
 
     # ------------------------------------------------------------------ #
     # TRIED AND REVERTED (Week 6 fixes, 2026-07-19): appending the unmodified user
@@ -337,12 +373,29 @@ def retrieve_node(state: GraphState) -> dict[str, Any]:
         Filter(must=[FieldCondition(key="country", match=MatchValue(value=country))])
         if country else None
     )
+    # ------------------------------------------------------------------ #
+    # FETCH DEPTH (Week 7, C1) -- required by construction, not a tuning choice.
+    #
+    # This call fetched `limit=TOP_K` (5) PER SUB-QUERY. With the rewriter's 3 sub-queries
+    # that produced a ~15-candidate pool, from which the `[: TOP_K + 3]` slice below took
+    # the 8-chunk window. With C1 there is exactly ONE generator, so a limit of 5 would
+    # yield a 5-candidate pool and the window would silently shrink from 8 chunks to 5 --
+    # a different experiment from the one measured (the diagnostic measured raw@8, the top
+    # 8 of a single raw-question query), and one whose precision denominator would change
+    # underneath the comparison.
+    #
+    # Fetching TOP_K + 3 keeps the pool able to fill the window with any number of
+    # generators. TOP_K itself, the +3 window size, the country filter, chunking, the gate
+    # and MAX_RETRIES are all unchanged; with the 3-sub-query rewriter this would only
+    # widen the candidate pool, never narrow it.
+    # ------------------------------------------------------------------ #
+    fetch = TOP_K + 3
     merged: dict[str, dict] = {}
     for sub in subs:
         vec = _embed("retrieve", sub)
         hits = _QDRANT.query_points(
             collection_name=settings.QDRANT_COLLECTION,
-            query=vec, query_filter=qfilter, limit=TOP_K, with_payload=True,
+            query=vec, query_filter=qfilter, limit=fetch, with_payload=True,
         ).points
         for h in hits:
             pid = str(h.id)
