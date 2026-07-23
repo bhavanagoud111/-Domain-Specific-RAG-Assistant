@@ -274,44 +274,113 @@ def go_home():
 # CSS + JS
 # --------------------------------------------------------------------------- #
 CSS = """
-:root{ --wr-accent:#4f46e5; }
-.gradio-container{ max-width:1180px !important; margin:0 auto !important; }
+:root{ --wr-accent:#6366f1; --wr-ink:#f8fafc; --wr-mut:#94a3b8;
+  --wr-card:linear-gradient(180deg,rgba(148,163,184,.09),rgba(148,163,184,.025));
+  --wr-bd:rgba(148,163,184,.16); }
+.gradio-container{ max-width:1200px !important; margin:0 auto !important; position:relative; z-index:1; }
 footer{ display:none !important; }
+#wr-home{ font-family:'Inter',system-ui,-apple-system,sans-serif; }
+.wr-title, .wr-section-title h2, .wr-stat-num, .wr-hiw-card h3, #wr-explore h2{
+  font-family:'Sora','Inter',system-ui,sans-serif; }
 
-/* ---------- landing hero band (background image) ---------- */
-#wr-hero{ position:relative; border-radius:24px; overflow:hidden; margin:6px 0 2px;
-  min-height:346px; background-size:cover; background-position:center right;
-  display:flex; align-items:center; box-shadow:0 22px 55px rgba(2,6,23,.40);
-  border:1px solid rgba(148,163,184,.16); }
-.wr-hero-body{ padding:44px 48px; max-width:600px; color:#f8fafc; }
-.wr-kicker{ display:inline-block; font-size:.7rem; text-transform:uppercase; letter-spacing:.14em;
-  font-weight:700; color:#c7d2fe; background:rgba(79,70,229,.24);
-  border:1px solid rgba(129,140,248,.45); padding:5px 12px; border-radius:999px; }
-#wr-hero h1{ font-size:3.2rem; margin:16px 0 8px; font-weight:800; letter-spacing:-.03em;
-  background:linear-gradient(95deg,#c7d2fe,#f5d0fe 52%,#fed7aa);
-  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-#wr-hero p{ font-size:1.04rem; line-height:1.55; opacity:.92; margin:0 0 22px; max-width:500px; }
+@keyframes wrFloat{ 0%,100%{transform:translate(0,0)} 50%{transform:translate(24px,-28px)} }
+@keyframes wrFadeUp{ from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+@keyframes wrShimmer{ to{background-position:200% center} }
+@keyframes wrPulse{ 0%,100%{opacity:.55} 50%{opacity:1} }
+.wr-reveal{ animation:wrFadeUp .7s cubic-bezier(.2,.7,.2,1) both; }
+
+/* ---------- ambient background glows ---------- */
+.wr-orbs{ position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+.wr-orb{ position:absolute; border-radius:50%; filter:blur(90px); }
+.wr-orb-1{ width:440px;height:440px; background:#4f46e5; opacity:.30; top:-140px; left:-90px;
+  animation:wrFloat 20s ease-in-out infinite; }
+.wr-orb-2{ width:380px;height:380px; background:#db2777; opacity:.24; top:38%; right:-120px;
+  animation:wrFloat 26s ease-in-out infinite reverse; }
+.wr-orb-3{ width:320px;height:320px; background:#f59e0b; opacity:.16; bottom:-140px; left:34%;
+  animation:wrFloat 30s ease-in-out infinite; }
+
+/* ---------- cinematic hero ---------- */
+#wr-hero{ position:relative; border-radius:28px; overflow:hidden; margin:8px 0 4px; min-height:466px;
+  background-size:cover; background-position:center right; display:flex; align-items:center;
+  box-shadow:0 30px 70px rgba(2,6,23,.55); border:1px solid rgba(148,163,184,.14);
+  animation:wrFadeUp .6s ease both; }
+.wr-hero-body{ padding:56px 58px; max-width:660px; color:var(--wr-ink); }
+.wr-kicker{ display:inline-flex; align-items:center; gap:8px; font-size:.7rem; text-transform:uppercase;
+  letter-spacing:.15em; font-weight:700; color:#c7d2fe; background:rgba(99,102,241,.20);
+  border:1px solid rgba(129,140,248,.45); padding:6px 14px; border-radius:999px; }
+.wr-kicker .wr-dot{ width:7px;height:7px;border-radius:50%;background:#818cf8; animation:wrPulse 2s infinite; }
+.wr-title{ font-size:3.6rem; line-height:1.05; margin:20px 0 14px; font-weight:800; letter-spacing:-.035em;
+  color:var(--wr-ink); }
+.wr-grad{ background:linear-gradient(95deg,#818cf8,#e879f9 45%,#fbbf24); background-size:200% auto;
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  animation:wrShimmer 7s linear infinite; }
+.wr-sub{ font-size:1.08rem; line-height:1.6; color:#cbd5e1; max-width:548px; margin:0 0 26px; }
 .wr-steps{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-.wr-step{ display:inline-flex; align-items:center; gap:8px; font-size:.85rem; font-weight:600;
-  background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18);
-  padding:7px 14px; border-radius:999px; }
-.wr-step b{ display:inline-flex; width:20px; height:20px; border-radius:50%;
-  background:var(--wr-accent); color:#fff; align-items:center; justify-content:center; font-size:.72rem; }
-.wr-sep{ opacity:.45; font-weight:700; }
-@media (max-width:720px){ #wr-hero h1{ font-size:2.3rem; } .wr-hero-body{ padding:30px 26px; } }
+.wr-step{ display:inline-flex; align-items:center; gap:8px; font-size:.85rem; font-weight:600; color:#e2e8f0;
+  background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.18); padding:8px 15px; border-radius:999px;
+  backdrop-filter:blur(6px); }
+.wr-step b{ display:inline-flex; width:20px; height:20px; border-radius:50%; background:var(--wr-accent);
+  color:#fff; align-items:center; justify-content:center; font-size:.72rem; }
+.wr-sep{ opacity:.4; font-weight:700; color:#e2e8f0; }
+.wr-scrollcue{ margin-top:24px; font-size:.8rem; color:#94a3b8; animation:wrPulse 2.6s ease-in-out infinite; }
+@media (max-width:720px){ #wr-hero{ min-height:400px; } .wr-title{ font-size:2.4rem; } .wr-hero-body{ padding:34px 28px; } }
+
+/* ---------- stat band ---------- */
+.wr-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:20px 0 6px;
+  animation:wrFadeUp .7s ease .05s both; }
+.wr-stat-tile{ background:var(--wr-card); border:1px solid var(--wr-bd); border-radius:18px;
+  padding:22px 18px; text-align:center; transition:transform .2s, border-color .2s; }
+.wr-stat-tile:hover{ transform:translateY(-4px); border-color:rgba(129,140,248,.5); }
+.wr-stat-num{ font-size:2.3rem; font-weight:800; line-height:1;
+  background:linear-gradient(95deg,#a5b4fc,#f0abfc); -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; }
+.wr-stat-lbl{ margin-top:8px; font-size:.8rem; color:var(--wr-mut); line-height:1.35; }
+@media (max-width:720px){ .wr-stats{ grid-template-columns:repeat(2,1fr); } }
+
+/* ---------- section titles + card grids ---------- */
+.wr-section-title{ text-align:center; margin:38px 0 18px; }
+.wr-section-title h2{ font-size:1.9rem; font-weight:800; letter-spacing:-.025em; margin:0; }
+.wr-section-title p{ margin:7px 0 0; color:var(--wr-mut); font-size:.98rem; }
+.wr-grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.wr-hiw-card{ background:var(--wr-card); border:1px solid var(--wr-bd); border-radius:20px; padding:26px 24px;
+  transition:transform .22s, border-color .22s, box-shadow .22s; }
+.wr-hiw-card:hover{ transform:translateY(-6px); border-color:rgba(129,140,248,.45);
+  box-shadow:0 18px 42px rgba(2,6,23,.38); }
+.wr-hiw-ic{ width:50px; height:50px; border-radius:15px; display:flex; align-items:center; justify-content:center;
+  font-size:1.55rem; background:rgba(99,102,241,.16); border:1px solid rgba(129,140,248,.3); margin-bottom:15px; }
+.wr-hiw-card h3{ font-size:1.06rem; font-weight:700; margin:0 0 7px; }
+.wr-hiw-card p{ font-size:.92rem; color:var(--wr-mut); margin:0; line-height:1.5; }
+@media (max-width:720px){ .wr-grid3{ grid-template-columns:1fr; } }
+
+/* ---------- example-answer showcase ---------- */
+.wr-showcase{ background:linear-gradient(180deg,rgba(15,23,42,.66),rgba(15,23,42,.42));
+  border:1px solid var(--wr-bd); border-radius:22px; padding:24px 26px; max-width:820px; margin:0 auto;
+  box-shadow:0 20px 50px rgba(2,6,23,.4); backdrop-filter:blur(8px); }
+.wr-ans-head{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+.wr-badge-ok{ font-size:.76rem; font-weight:700; color:#bbf7d0; background:rgba(34,197,94,.16);
+  border:1px solid rgba(34,197,94,.4); padding:5px 12px; border-radius:999px; }
+.wr-ans-q{ font-style:italic; color:#cbd5e1; font-size:.94rem; }
+.wr-ans-body{ font-size:1rem; line-height:1.65; color:#e2e8f0; margin:0 0 16px; }
+.wr-cite{ color:#a5b4fc; font-weight:700; background:rgba(99,102,241,.16); border-radius:5px; padding:0 5px; }
+.wr-ans-src{ font-size:.82rem; color:var(--wr-mut); border-top:1px solid var(--wr-bd); padding-top:12px; }
 
 /* ---------- explore section heading ---------- */
 #wr-explore{ display:flex; align-items:flex-end; justify-content:space-between;
-  gap:12px; flex-wrap:wrap; margin:22px 4px 8px; }
-#wr-explore h2{ font-size:1.42rem; font-weight:800; margin:0; letter-spacing:-.02em; }
-#wr-explore p{ margin:3px 0 0; opacity:.62; font-size:.92rem; }
-#wr-explore .wr-pill{ font-size:.82rem; font-weight:600; color:var(--wr-accent);
-  background:rgba(79,70,229,.10); border:1px solid rgba(79,70,229,.28);
-  padding:5px 13px; border-radius:999px; white-space:nowrap; }
+  gap:12px; flex-wrap:wrap; margin:38px 4px 10px; }
+#wr-explore h2{ font-size:1.9rem; font-weight:800; margin:0; letter-spacing:-.025em; }
+#wr-explore p{ margin:4px 0 0; color:var(--wr-mut); font-size:.95rem; }
+#wr-explore .wr-pill{ font-size:.82rem; font-weight:600; color:#c7d2fe;
+  background:rgba(99,102,241,.14); border:1px solid rgba(129,140,248,.35);
+  padding:6px 14px; border-radius:999px; white-space:nowrap; }
 
 /* ---------- structured panel around filters + slider ---------- */
-.wr-panel{ background:rgba(148,163,184,.055) !important; border:1px solid rgba(148,163,184,.16) !important;
-  border-radius:20px !important; padding:10px 14px 4px !important; }
+.wr-panel{ background:rgba(148,163,184,.05) !important; border:1px solid var(--wr-bd) !important;
+  border-radius:22px !important; padding:12px 16px 6px !important; }
+
+/* ---------- footer ---------- */
+#wr-footer{ text-align:center; margin:44px 0 12px; padding-top:24px;
+  border-top:1px solid rgba(148,163,184,.12); color:var(--wr-mut); font-size:.86rem; }
+#wr-footer .wr-foot-sub{ margin-top:6px; font-size:.76rem; opacity:.72; }
 
 /* filter bar */
 #wr-filterbar{ gap:12px; align-items:center; margin:4px 2px 2px; }
@@ -375,6 +444,10 @@ footer{ display:none !important; }
 # breaks the frontend event dispatch (clicks stop reaching the backend). `head` is inert
 # w.r.t. the event system.
 HEAD = (
+    '<link rel="preconnect" href="https://fonts.googleapis.com">'
+    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+    '<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&'
+    'family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">'
     "<script>window.wrScroll=function(dir){"
     "var t=document.querySelector('#wr-gallery .grid-container');"
     "if(t)t.scrollBy({left:dir*Math.min(t.clientWidth*0.85,760),behavior:'smooth'});"
@@ -392,17 +465,21 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
 
     # ---------------- HOME ----------------
     with gr.Column(visible=True, elem_id="wr-home") as home_view:
+        gr.HTML('<div class="wr-orbs"><span class="wr-orb wr-orb-1"></span>'
+                '<span class="wr-orb wr-orb-2"></span><span class="wr-orb wr-orb-3"></span></div>')
+
+        # ---- cinematic hero ----
         gr.HTML(
             f"""
-            <div id="wr-hero" style="background-image:linear-gradient(105deg,
-                 rgba(9,13,28,.94) 0%, rgba(9,13,28,.72) 42%, rgba(9,13,28,.30) 100%),
+            <section id="wr-hero" style="background-image:linear-gradient(105deg,
+                 rgba(7,10,22,.95) 0%, rgba(7,10,22,.80) 40%, rgba(7,10,22,.32) 100%),
                  url('{_HERO_BG}');">
               <div class="wr-hero-body">
-                <span class="wr-kicker">Retrieval-augmented · grounded &amp; cited</span>
-                <h1>🧭 WanderRAG</h1>
-                <p>Grounded travel answers over US State Dept advisories, CDC health
-                   notices and national tourism boards — every answer cites the exact
-                   source it came from.</p>
+                <span class="wr-kicker"><span class="wr-dot"></span> Retrieval-augmented · grounded &amp; cited</span>
+                <h1 class="wr-title">Travel answers you<br>can <span class="wr-grad">actually trust.</span></h1>
+                <p class="wr-sub">Ask about visas, health, safety or what to see across 50 countries.
+                   Every answer is pulled from real US State Dept, CDC and tourism sources and cites
+                   the exact chunk it came from — and when the corpus can't answer, it says so.</p>
                 <div class="wr-steps">
                   <span class="wr-step"><b>1</b> Pick a country</span>
                   <span class="wr-sep">→</span>
@@ -410,14 +487,61 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
                   <span class="wr-sep">→</span>
                   <span class="wr-step"><b>3</b> Get cited answers</span>
                 </div>
+                <div class="wr-scrollcue">↓ &nbsp; Explore 50 countries below</div>
               </div>
-            </div>
+            </section>
             """
         )
+
+        # ---- stat band ----
         gr.HTML(
-            '<div id="wr-explore"><div><h2>Explore by country</h2>'
+            '<div class="wr-stats wr-reveal">'
+            '<div class="wr-stat-tile"><div class="wr-stat-num">50</div>'
+            '<div class="wr-stat-lbl">Countries covered</div></div>'
+            '<div class="wr-stat-tile"><div class="wr-stat-num">3</div>'
+            '<div class="wr-stat-lbl">Official source types</div></div>'
+            '<div class="wr-stat-tile"><div class="wr-stat-num">100%</div>'
+            '<div class="wr-stat-lbl">Answers carry citations</div></div>'
+            '<div class="wr-stat-tile"><div class="wr-stat-num">0</div>'
+            '<div class="wr-stat-lbl">Invented sources — it refuses instead</div></div>'
+            '</div>'
+        )
+
+        # ---- how it works ----
+        gr.HTML(
+            '<div class="wr-section-title wr-reveal"><h2>How it works</h2>'
+            '<p>A grounded answer in three steps.</p></div>'
+            '<div class="wr-grid3 wr-reveal">'
+            '<div class="wr-hiw-card"><div class="wr-hiw-ic">🧭</div><h3>1 · Pick a country</h3>'
+            '<p>Browse 50 destinations and open a chat scoped to the one you choose.</p></div>'
+            '<div class="wr-hiw-card"><div class="wr-hiw-ic">💬</div><h3>2 · Ask anything</h3>'
+            '<p>Visas, vaccinations, safety, what to see — in plain language.</p></div>'
+            '<div class="wr-hiw-card"><div class="wr-hiw-ic">📎</div><h3>3 · Get cited answers</h3>'
+            '<p>Every claim links back to the exact source chunk, with its scrape date.</p></div>'
+            '</div>'
+        )
+
+        # ---- example-answer showcase ----
+        gr.HTML(
+            '<div class="wr-section-title wr-reveal"><h2>What a grounded answer looks like</h2>'
+            '<p>Real output — every citation resolves to a real retrieved chunk.</p></div>'
+            '<div class="wr-showcase wr-reveal">'
+            '<div class="wr-ans-head"><span class="wr-badge-ok">✅ GROUNDED · 3 citations</span>'
+            '<span class="wr-ans-q">"What should I visit in Italy?"</span></div>'
+            '<p class="wr-ans-body">Rome rewards visitors with its rich artistic heritage and '
+            'historical sites <span class="wr-cite">[1]</span>. The Aosta Valley offers winter '
+            'sports and high-altitude walks amid fairy-tale castles <span class="wr-cite">[2]</span>, '
+            'while South Tyrol pairs alpine landscapes with relaxing spa towns '
+            '<span class="wr-cite">[3]</span>.</p>'
+            '<div class="wr-ans-src">📎 [1] Tourism board · Italy · italia.it &nbsp;·&nbsp; '
+            'scraped 2026-06-28 &nbsp;·&nbsp; score 0.61</div></div>'
+        )
+
+        # ---- explore by country (functional) ----
+        gr.HTML(
+            '<div id="wr-explore" class="wr-reveal"><div><h2>Explore by country</h2>'
             '<p>Choose a destination to open a chat grounded in its sources.</p></div>'
-            '<span class="wr-pill">🌍 50 countries</span></div>'
+            '<span class="wr-pill">🌍 50 countries · 4 regions</span></div>'
         )
         with gr.Column(elem_classes="wr-panel"):
             with gr.Row(elem_id="wr-filterbar"):
@@ -432,8 +556,31 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
                     value=_gallery_items(COUNTRIES), elem_id="wr-gallery", columns=8,
                     object_fit="cover", show_label=False, allow_preview=False,
                     show_share_button=False, show_download_button=False, container=False)
-        gr.HTML('<p id="wr-credit">Photos: Wikivoyage / Wikimedia Commons · '
-                'Answers cite US State Dept · CDC · tourism boards.</p>')
+
+        # ---- trust section ----
+        gr.HTML(
+            '<div class="wr-section-title wr-reveal"><h2>Built to be honest</h2>'
+            '<p>Grounding you can verify — not vibes.</p></div>'
+            '<div class="wr-grid3 wr-reveal">'
+            '<div class="wr-hiw-card"><div class="wr-hiw-ic">✅</div><h3>Every claim cited</h3>'
+            '<p>A deterministic gate passes an answer only when its citations resolve to real '
+            'retrieved chunks — no hallucinated references.</p></div>'
+            '<div class="wr-hiw-card"><div class="wr-hiw-ic">⚠️</div><h3>Refuses when unsure</h3>'
+            '<p>If nothing relevant is retrieved, it returns a plain "low confidence" instead '
+            'of guessing.</p></div>'
+            '<div class="wr-hiw-card"><div class="wr-hiw-ic">🕓</div><h3>Point-in-time</h3>'
+            '<p>Every source shows the date it was scraped, so you always know how fresh the '
+            'answer is.</p></div>'
+            '</div>'
+        )
+
+        # ---- footer ----
+        gr.HTML(
+            '<footer id="wr-footer">'
+            '<div>Sources: US State Dept · CDC · national tourism boards &amp; Wikivoyage</div>'
+            '<div class="wr-foot-sub">Local research prototype · Photos: Wikivoyage / '
+            'Wikimedia Commons · Not for real travel decisions.</div></footer>'
+        )
 
     # ---------------- CHAT ----------------
     with gr.Column(visible=False) as chat_view:
