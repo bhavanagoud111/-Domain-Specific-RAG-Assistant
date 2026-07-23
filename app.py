@@ -287,7 +287,15 @@ footer{ display:none !important; }
 @keyframes wrFadeUp{ from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
 @keyframes wrShimmer{ to{background-position:200% center} }
 @keyframes wrPulse{ 0%,100%{opacity:.55} 50%{opacity:1} }
-.wr-reveal{ animation:wrFadeUp .7s cubic-bezier(.2,.7,.2,1) both; }
+/* scroll-reveal: hidden until IntersectionObserver adds .wr-in */
+.wr-reveal{ opacity:0; transform:translateY(26px); }
+.wr-reveal.wr-in{ opacity:1; transform:none;
+  transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.wr-stats .wr-stat-tile:nth-child(2){ transition-delay:.06s; }
+.wr-stats .wr-stat-tile:nth-child(3){ transition-delay:.12s; }
+.wr-stats .wr-stat-tile:nth-child(4){ transition-delay:.18s; }
+.wr-grid3 .wr-hiw-card:nth-child(2){ transition-delay:.10s; }
+.wr-grid3 .wr-hiw-card:nth-child(3){ transition-delay:.20s; }
 
 /* ---------- ambient background glows ---------- */
 .wr-orbs{ position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
@@ -329,11 +337,18 @@ footer{ display:none !important; }
 .wr-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:20px 0 6px;
   animation:wrFadeUp .7s ease .05s both; }
 .wr-stat-tile{ background:var(--wr-card); border:1px solid var(--wr-bd); border-radius:18px;
-  padding:22px 18px; text-align:center; transition:transform .2s, border-color .2s; }
-.wr-stat-tile:hover{ transform:translateY(-4px); border-color:rgba(129,140,248,.5); }
-.wr-stat-num{ font-size:2.3rem; font-weight:800; line-height:1;
+  padding:22px 18px; text-align:center; transition:transform .2s, border-color .2s, box-shadow .2s, background .2s; }
+.wr-stat-tile:hover{ transform:translateY(-5px); border-color:rgba(129,140,248,.55);
+  box-shadow:0 16px 36px rgba(2,6,23,.4); background:linear-gradient(180deg,rgba(129,140,248,.12),rgba(148,163,184,.03)); }
+.wr-stat-num{ font-size:2.3rem; font-weight:800; line-height:1; transition:filter .2s, transform .2s;
   background:linear-gradient(95deg,#a5b4fc,#f0abfc); -webkit-background-clip:text; background-clip:text;
   -webkit-text-fill-color:transparent; }
+.wr-stat-tile:hover .wr-stat-num{ filter:brightness(1.18); transform:scale(1.06); }
+.wr-step{ transition:background .18s, border-color .18s, transform .18s; }
+.wr-step:hover{ background:rgba(255,255,255,.17); border-color:rgba(129,140,248,.5); transform:translateY(-1px); }
+.wr-showcase{ transition:transform .25s, box-shadow .25s, border-color .25s; }
+.wr-showcase:hover{ transform:translateY(-3px); box-shadow:0 28px 64px rgba(2,6,23,.52);
+  border-color:rgba(129,140,248,.4); }
 .wr-stat-lbl{ margin-top:8px; font-size:.8rem; color:var(--wr-mut); line-height:1.35; }
 @media (max-width:720px){ .wr-stats{ grid-template-columns:repeat(2,1fr); } }
 
@@ -344,10 +359,13 @@ footer{ display:none !important; }
 .wr-grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .wr-hiw-card{ background:var(--wr-card); border:1px solid var(--wr-bd); border-radius:20px; padding:26px 24px;
   transition:transform .22s, border-color .22s, box-shadow .22s; }
-.wr-hiw-card:hover{ transform:translateY(-6px); border-color:rgba(129,140,248,.45);
-  box-shadow:0 18px 42px rgba(2,6,23,.38); }
+.wr-hiw-card:hover{ transform:translateY(-8px); border-color:rgba(129,140,248,.55);
+  box-shadow:0 22px 48px rgba(2,6,23,.45); background:linear-gradient(180deg,rgba(129,140,248,.10),rgba(148,163,184,.03)); }
 .wr-hiw-ic{ width:50px; height:50px; border-radius:15px; display:flex; align-items:center; justify-content:center;
-  font-size:1.55rem; background:rgba(99,102,241,.16); border:1px solid rgba(129,140,248,.3); margin-bottom:15px; }
+  font-size:1.55rem; background:rgba(99,102,241,.16); border:1px solid rgba(129,140,248,.3); margin-bottom:15px;
+  transition:transform .22s, background .22s, border-color .22s, box-shadow .22s; }
+.wr-hiw-card:hover .wr-hiw-ic{ transform:translateY(-2px) scale(1.08); background:rgba(99,102,241,.30);
+  border-color:rgba(129,140,248,.7); box-shadow:0 8px 22px rgba(79,70,229,.4); }
 .wr-hiw-card h3{ font-size:1.06rem; font-weight:700; margin:0 0 7px; }
 .wr-hiw-card p{ font-size:.92rem; color:var(--wr-mut); margin:0; line-height:1.5; }
 @media (max-width:720px){ .wr-grid3{ grid-template-columns:1fr; } }
@@ -372,6 +390,7 @@ footer{ display:none !important; }
 #wr-explore .wr-pill{ font-size:.82rem; font-weight:600; color:#c7d2fe;
   background:rgba(99,102,241,.14); border:1px solid rgba(129,140,248,.35);
   padding:6px 14px; border-radius:999px; white-space:nowrap; }
+.wr-explore-right{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
 
 /* ---------- structured panel around filters + slider ---------- */
 .wr-panel{ background:rgba(148,163,184,.05) !important; border:1px solid var(--wr-bd) !important;
@@ -394,6 +413,8 @@ footer{ display:none !important; }
 /* gallery -> horizontal slider */
 .wr-slider{ position:relative; }
 #wr-gallery{ border:none !important; background:transparent !important; }
+#wr-gallery .thumbnail-item img{ transition:transform .5s ease !important; }
+#wr-gallery .thumbnail-item:hover img{ transform:scale(1.07) !important; }
 #wr-gallery .grid-wrap{ overflow:visible !important; }
 #wr-gallery .grid-container{
   display:grid !important; grid-auto-flow:column !important; grid-template-columns:none !important;
@@ -415,13 +436,15 @@ footer{ display:none !important; }
   background:linear-gradient(180deg,rgba(2,6,23,0),rgba(2,6,23,.88)) !important;
   text-shadow:0 2px 8px rgba(0,0,0,.6); backdrop-filter:none !important; opacity:1 !important; }
 
-.wr-arrow{ position:absolute; top:46%; transform:translateY(-50%); z-index:20;
-  width:46px; height:46px; border-radius:50%; border:1px solid var(--border-color-primary,#e2e8f0);
-  background:var(--background-fill-primary,#fff); color:#0f172a; font-size:1.7rem; line-height:1;
-  cursor:pointer; box-shadow:0 6px 18px rgba(2,6,23,.22); }
-.wr-arrow:hover{ background:var(--wr-accent); color:#fff; border-color:var(--wr-accent); }
-.wr-arrow-l{ left:-8px; } .wr-arrow-r{ right:-8px; }
-#wr-credit{ text-align:center; font-size:.72rem; opacity:.5; margin-top:6px; }
+/* paired slider nav buttons (aligned in the section heading) */
+.wr-navbtns{ display:inline-flex; gap:8px; }
+.wr-arrow{ width:42px; height:42px; border-radius:50%; border:1px solid var(--wr-bd);
+  background:rgba(148,163,184,.10); color:#e2e8f0; font-size:1.45rem; line-height:1; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  transition:background .18s, transform .18s, box-shadow .18s, border-color .18s; }
+.wr-arrow:hover{ background:var(--wr-accent); color:#fff; border-color:var(--wr-accent);
+  transform:translateY(-2px); box-shadow:0 8px 20px rgba(79,70,229,.45); }
+.wr-arrow:active{ transform:scale(.92); }
 
 /* chat view */
 .wr-hero-country{ position:relative; border-radius:22px; overflow:hidden; min-height:172px;
@@ -452,6 +475,16 @@ HEAD = (
     "var t=document.querySelector('#wr-gallery .grid-container');"
     "if(t)t.scrollBy({left:dir*Math.min(t.clientWidth*0.85,760),behavior:'smooth'});"
     "};</script>"
+    # Scroll-reveal: fade cards/sections in as they enter the viewport. Re-scans on an
+    # interval because Gradio renders the DOM asynchronously after load.
+    "<script>(function(){function s(){var els=document.querySelectorAll("
+    "'.wr-reveal:not([data-wro])');if(!('IntersectionObserver' in window)){"
+    "els.forEach(function(e){e.classList.add('wr-in')});return;}"
+    "var io=window.__wro||(window.__wro=new IntersectionObserver(function(en){"
+    "en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('wr-in');"
+    "window.__wro.unobserve(x.target);}});},{threshold:0.12,rootMargin:'0px 0px -6% 0px'}));"
+    "els.forEach(function(e){e.setAttribute('data-wro','1');io.observe(e);});}"
+    "document.addEventListener('DOMContentLoaded',s);setInterval(s,500);})();</script>"
 )
 
 
@@ -495,14 +528,14 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
 
         # ---- stat band ----
         gr.HTML(
-            '<div class="wr-stats wr-reveal">'
-            '<div class="wr-stat-tile"><div class="wr-stat-num">50</div>'
+            '<div class="wr-stats">'
+            '<div class="wr-stat-tile wr-reveal"><div class="wr-stat-num">50</div>'
             '<div class="wr-stat-lbl">Countries covered</div></div>'
-            '<div class="wr-stat-tile"><div class="wr-stat-num">3</div>'
+            '<div class="wr-stat-tile wr-reveal"><div class="wr-stat-num">3</div>'
             '<div class="wr-stat-lbl">Official source types</div></div>'
-            '<div class="wr-stat-tile"><div class="wr-stat-num">100%</div>'
+            '<div class="wr-stat-tile wr-reveal"><div class="wr-stat-num">100%</div>'
             '<div class="wr-stat-lbl">Answers carry citations</div></div>'
-            '<div class="wr-stat-tile"><div class="wr-stat-num">0</div>'
+            '<div class="wr-stat-tile wr-reveal"><div class="wr-stat-num">0</div>'
             '<div class="wr-stat-lbl">Invented sources — it refuses instead</div></div>'
             '</div>'
         )
@@ -511,12 +544,12 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
         gr.HTML(
             '<div class="wr-section-title wr-reveal"><h2>How it works</h2>'
             '<p>A grounded answer in three steps.</p></div>'
-            '<div class="wr-grid3 wr-reveal">'
-            '<div class="wr-hiw-card"><div class="wr-hiw-ic">🧭</div><h3>1 · Pick a country</h3>'
+            '<div class="wr-grid3">'
+            '<div class="wr-hiw-card wr-reveal"><div class="wr-hiw-ic">🧭</div><h3>1 · Pick a country</h3>'
             '<p>Browse 50 destinations and open a chat scoped to the one you choose.</p></div>'
-            '<div class="wr-hiw-card"><div class="wr-hiw-ic">💬</div><h3>2 · Ask anything</h3>'
+            '<div class="wr-hiw-card wr-reveal"><div class="wr-hiw-ic">💬</div><h3>2 · Ask anything</h3>'
             '<p>Visas, vaccinations, safety, what to see — in plain language.</p></div>'
-            '<div class="wr-hiw-card"><div class="wr-hiw-ic">📎</div><h3>3 · Get cited answers</h3>'
+            '<div class="wr-hiw-card wr-reveal"><div class="wr-hiw-ic">📎</div><h3>3 · Get cited answers</h3>'
             '<p>Every claim links back to the exact source chunk, with its scrape date.</p></div>'
             '</div>'
         )
@@ -541,7 +574,11 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
         gr.HTML(
             '<div id="wr-explore" class="wr-reveal"><div><h2>Explore by country</h2>'
             '<p>Choose a destination to open a chat grounded in its sources.</p></div>'
-            '<span class="wr-pill">🌍 50 countries · 4 regions</span></div>'
+            '<div class="wr-explore-right"><span class="wr-pill">🌍 50 countries · 4 regions</span>'
+            '<div class="wr-navbtns">'
+            '<button class="wr-arrow" onclick="wrScroll(-1)" aria-label="previous">‹</button>'
+            '<button class="wr-arrow" onclick="wrScroll(1)" aria-label="next">›</button>'
+            '</div></div></div>'
         )
         with gr.Column(elem_classes="wr-panel"):
             with gr.Row(elem_id="wr-filterbar"):
@@ -550,8 +587,6 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
                 search_box = gr.Textbox(placeholder="🔎 Search a country…", show_label=False,
                                         container=False, scale=1)
             with gr.Column(elem_classes="wr-slider"):
-                gr.HTML('<button class="wr-arrow wr-arrow-l" onclick="wrScroll(-1)">‹</button>'
-                        '<button class="wr-arrow wr-arrow-r" onclick="wrScroll(1)">›</button>')
                 gallery = gr.Gallery(
                     value=_gallery_items(COUNTRIES), elem_id="wr-gallery", columns=8,
                     object_fit="cover", show_label=False, allow_preview=False,
@@ -561,14 +596,14 @@ with gr.Blocks(title="WanderRAG", theme=gr.themes.Soft(primary_hue="indigo"),
         gr.HTML(
             '<div class="wr-section-title wr-reveal"><h2>Built to be honest</h2>'
             '<p>Grounding you can verify — not vibes.</p></div>'
-            '<div class="wr-grid3 wr-reveal">'
-            '<div class="wr-hiw-card"><div class="wr-hiw-ic">✅</div><h3>Every claim cited</h3>'
+            '<div class="wr-grid3">'
+            '<div class="wr-hiw-card wr-reveal"><div class="wr-hiw-ic">✅</div><h3>Every claim cited</h3>'
             '<p>A deterministic gate passes an answer only when its citations resolve to real '
             'retrieved chunks — no hallucinated references.</p></div>'
-            '<div class="wr-hiw-card"><div class="wr-hiw-ic">⚠️</div><h3>Refuses when unsure</h3>'
+            '<div class="wr-hiw-card wr-reveal"><div class="wr-hiw-ic">⚠️</div><h3>Refuses when unsure</h3>'
             '<p>If nothing relevant is retrieved, it returns a plain "low confidence" instead '
             'of guessing.</p></div>'
-            '<div class="wr-hiw-card"><div class="wr-hiw-ic">🕓</div><h3>Point-in-time</h3>'
+            '<div class="wr-hiw-card wr-reveal"><div class="wr-hiw-ic">🕓</div><h3>Point-in-time</h3>'
             '<p>Every source shows the date it was scraped, so you always know how fresh the '
             'answer is.</p></div>'
             '</div>'
