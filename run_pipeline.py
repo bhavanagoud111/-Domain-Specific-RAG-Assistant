@@ -5,6 +5,9 @@ Run the 3-country test before scaling to all 50:
     python run_pipeline.py --all
     python run_pipeline.py --countries France --no-embed   # scrape+chunk only (no cost)
 
+Rebuild the EXACT frozen corpus from committed JSON, no scraping (primary path):
+    python run_pipeline.py --from-cache --all              # chunk+embed scraped_data/
+
 Prints a summary: chunks per country, scrape failures, and total embedding cost.
 """
 
@@ -50,15 +53,30 @@ def _scrape(country_names: list[str], force: bool) -> list[dict[str, Any]]:
             failures.append(f"tourism:{res.get('country', '?')}")
 
     # Reload everything we just wrote so chunking reads the canonical JSON.
+    records = _load_cached(country_names)
+
+    _scrape.failures = failures  # type: ignore[attr-defined]
+    return records
+
+
+def _load_cached(country_names: list[str]) -> list[dict[str, Any]]:
+    """Read previously-scraped per-source JSON from scraped_data/ WITHOUT re-scraping.
+
+    Returns the same canonical records that ``_scrape`` writes and reloads, so chunking
+    and embedding downstream are identical to a live run — only the network calls are
+    skipped. This is what ``--from-cache`` uses to rebuild the frozen corpus even when a
+    source (e.g. travel.state.gov) is now blocked.
+    """
     import json
+    records: list[dict[str, Any]] = []
     for folder in (settings.STATE_DEPT_DIR, settings.CDC_DIR, settings.TOURISM_DIR):
+        if not folder.exists():
+            continue
         for path in sorted(folder.glob("*.json")):
             rec = json.loads(path.read_text(encoding="utf-8"))
             if country_names and rec.get("country") not in country_names:
                 continue
             records.append(rec)
-
-    _scrape.failures = failures  # type: ignore[attr-defined]
     return records
 
 
@@ -73,6 +91,9 @@ def main() -> None:
     parser.add_argument("--all", action="store_true", help="Run all 50 countries.")
     parser.add_argument("--force", action="store_true", help="Bypass HTML cache and refetch.")
     parser.add_argument("--no-embed", action="store_true", help="Scrape + chunk only; skip embedding/cost.")
+    parser.add_argument("--from-cache", action="store_true",
+                        help="Skip scraping; chunk+embed the JSON already in scraped_data/ "
+                             "(exact frozen rebuild, no network).")
     args = parser.parse_args()
 
     if args.all:
@@ -83,10 +104,17 @@ def main() -> None:
         names = ["France", "Japan", "Mexico"]  # default test set
 
     label = "all 50" if not names else ", ".join(names)
-    print(f"=== WanderRAG pipeline: {label} ===")
+    mode = "from-cache (no scraping)" if args.from_cache else "live scrape"
+    print(f"=== WanderRAG pipeline: {label} [{mode}] ===")
 
-    records = _scrape(names, force=args.force)
-    failures = getattr(_scrape, "failures", [])
+    if args.from_cache:
+        records = _load_cached(names)
+        failures = []
+        print(f"[--from-cache] Loaded {len(records)} cached records from scraped_data/ "
+              "(no network calls).")
+    else:
+        records = _scrape(names, force=args.force)
+        failures = getattr(_scrape, "failures", [])
 
     # Chunk
     per_country: dict[str, int] = defaultdict(int)
