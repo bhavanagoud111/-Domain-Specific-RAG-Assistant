@@ -1,0 +1,527 @@
+{
+  "runs_per_config": 3,
+  "window8": {
+    "What should I visit in Japan?": [
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 5,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      }
+    ],
+    "What should I visit in Canada?": [
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 2
+      },
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 2
+      },
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 2
+      }
+    ],
+    "Do I need a visa to visit Japan as a US citizen?": [
+      {
+        "citations": 1,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": true,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 1,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": true,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 1,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": true,
+        "n_retrieved": 8,
+        "retries": 0
+      }
+    ],
+    "asdkjasd current safety xyz nonsense country": [
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 2
+      },
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 2
+      },
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 2
+      }
+    ],
+    "How safe is it to travel in Italy right now?": [
+      {
+        "citations": 6,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 5,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 5,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      }
+    ],
+    "What vaccinations or health precautions do I need for Thailand?": [
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 5,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      }
+    ],
+    "What should I visit in Singapore?": [
+      {
+        "citations": 3,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      }
+    ],
+    "How safe is it to travel in Norway right now?": [
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      }
+    ],
+    "What should I visit in Greece?": [
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 3,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 5,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 0
+      }
+    ],
+    "What should I visit in United Arab Emirates?": [
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 8,
+        "retries": 1
+      },
+      {
+        "citations": 1,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": true,
+        "n_retrieved": 8,
+        "retries": 0
+      },
+      {
+        "citations": 1,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": true,
+        "n_retrieved": 8,
+        "retries": 2
+      }
+    ]
+  },
+  "window5": {
+    "What should I visit in Japan?": [
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      }
+    ],
+    "What should I visit in Canada?": [
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 2
+      },
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 2
+      },
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 2
+      }
+    ],
+    "Do I need a visa to visit Japan as a US citizen?": [
+      {
+        "citations": 1,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": true,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 1,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": true,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 1,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": true,
+        "n_retrieved": 5,
+        "retries": 0
+      }
+    ],
+    "asdkjasd current safety xyz nonsense country": [
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 2
+      },
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 2
+      },
+      {
+        "citations": 0,
+        "gate_passed": false,
+        "low_confidence": true,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 2
+      }
+    ],
+    "How safe is it to travel in Italy right now?": [
+      {
+        "citations": 5,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      }
+    ],
+    "What vaccinations or health precautions do I need for Thailand?": [
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      }
+    ],
+    "What should I visit in Singapore?": [
+      {
+        "citations": 3,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 3,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      }
+    ],
+    "How safe is it to travel in Norway right now?": [
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      }
+    ],
+    "What should I visit in Greece?": [
+      {
+        "citations": 3,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 3,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 4,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      }
+    ],
+    "What should I visit in United Arab Emirates?": [
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 1
+      },
+      {
+        "citations": 2,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": false,
+        "n_retrieved": 5,
+        "retries": 0
+      },
+      {
+        "citations": 1,
+        "gate_passed": true,
+        "low_confidence": false,
+        "thin_pass": true,
+        "n_retrieved": 5,
+        "retries": 0
+      }
+    ]
+  }
+}

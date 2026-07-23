@@ -1,0 +1,2025 @@
+[
+  {
+    "question": "Do I need a visa to visit Japan as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 3
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "cdc": 3,
+      "tourism": 1
+    },
+    "question_type": "visa",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Japan?",
+    "n_subqueries": 3,
+    "pool_size": 10,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 2,
+      "cdc": 4,
+      "tourism": 2
+    },
+    "new_sources": {
+      "cdc": 5,
+      "state_dept": 2,
+      "tourism": 1
+    },
+    "question_type": "health",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "How safe is it to travel in Japan right now?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 2,
+      "tourism": 2
+    },
+    "new_sources": {
+      "state_dept": 2,
+      "cdc": 4,
+      "tourism": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What should I visit in Japan?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 4
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "cdc": 4,
+      "tourism": 1
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "Do I need a visa to visit Mexico as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "question_type": "visa",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Mexico?",
+    "n_subqueries": 3,
+    "pool_size": 9,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 4,
+      "tourism": 1,
+      "state_dept": 3
+    },
+    "new_sources": {
+      "cdc": 4,
+      "state_dept": 3,
+      "tourism": 1
+    },
+    "question_type": "health",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "How safe is it to travel in Mexico right now?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "cdc": 2,
+      "tourism": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What should I visit in Mexico?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 1,
+      "tourism": 2
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "tourism": 1,
+      "cdc": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "Do I need a visa to visit Singapore as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 3,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "cdc": 3,
+      "tourism": 2
+    },
+    "question_type": "visa",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Singapore?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 3
+    },
+    "new_sources": {
+      "cdc": 4,
+      "tourism": 1,
+      "state_dept": 3
+    },
+    "question_type": "health",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "How safe is it to travel in Singapore right now?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 3,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 2,
+      "tourism": 2,
+      "cdc": 4
+    },
+    "question_type": "safety",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What should I visit in Singapore?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 3
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "cdc": 3,
+      "tourism": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "Do I need a visa to visit South Korea as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 3,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "cdc": 3,
+      "tourism": 1
+    },
+    "question_type": "visa",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for South Korea?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 6,
+      "state_dept": 2
+    },
+    "new_sources": {
+      "cdc": 6,
+      "state_dept": 2
+    },
+    "question_type": "health",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "How safe is it to travel in South Korea right now?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 3,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "cdc": 3,
+      "tourism": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What should I visit in South Korea?",
+    "n_subqueries": 3,
+    "pool_size": 15,
+    "pool_capped": false,
+    "max_sublist_hits": 1,
+    "n_chunks_in_multiple_sublists": 0,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "tourism": 4
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "tourism": 3,
+      "cdc": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "Do I need a visa to visit New Zealand as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "question_type": "visa",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for New Zealand?",
+    "n_subqueries": 3,
+    "pool_size": 7,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 3,
+      "tourism": 2,
+      "state_dept": 2
+    },
+    "new_sources": {
+      "cdc": 3,
+      "state_dept": 2,
+      "tourism": 2
+    },
+    "question_type": "health",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "How safe is it to travel in New Zealand right now?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 1,
+      "tourism": 2
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "tourism": 1,
+      "cdc": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What should I visit in New Zealand?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 1,
+      "tourism": 2
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "cdc": 2,
+      "tourism": 3
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "Do I need a visa to visit Egypt as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 15,
+    "pool_capped": false,
+    "max_sublist_hits": 1,
+    "n_chunks_in_multiple_sublists": 0,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 2,
+      "state_dept": 6
+    },
+    "new_sources": {
+      "cdc": 1,
+      "state_dept": 5,
+      "tourism": 2
+    },
+    "question_type": "visa",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Egypt?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "tourism": 2,
+      "cdc": 1
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "question_type": "health",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "How safe is it to travel in Egypt right now?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "tourism": 1,
+      "cdc": 2
+    },
+    "new_sources": {
+      "tourism": 1,
+      "state_dept": 4,
+      "cdc": 3
+    },
+    "question_type": "safety",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What should I visit in Egypt?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "tourism": 1,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "tourism": 2,
+      "cdc": 3
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "Do I need a visa to visit Greece as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 9,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "question_type": "visa",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Greece?",
+    "n_subqueries": 3,
+    "pool_size": 9,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 3,
+      "state_dept": 5
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "cdc": 3
+    },
+    "question_type": "health",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "How safe is it to travel in Greece right now?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "cdc": 2,
+      "tourism": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What should I visit in Greece?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "cdc": 2,
+      "tourism": 3
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "Do I need a visa to visit Israel as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "tourism": 3,
+      "cdc": 1,
+      "state_dept": 4
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "tourism": 3,
+      "cdc": 1
+    },
+    "question_type": "visa",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Israel?",
+    "n_subqueries": 3,
+    "pool_size": 9,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "tourism": 2,
+      "cdc": 6
+    },
+    "new_sources": {
+      "cdc": 6,
+      "tourism": 2
+    },
+    "question_type": "health",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "How safe is it to travel in Israel right now?",
+    "n_subqueries": 3,
+    "pool_size": 15,
+    "pool_capped": false,
+    "max_sublist_hits": 1,
+    "n_chunks_in_multiple_sublists": 0,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "tourism": 4,
+      "state_dept": 3,
+      "cdc": 1
+    },
+    "new_sources": {
+      "tourism": 4,
+      "cdc": 2,
+      "state_dept": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What should I visit in Israel?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "tourism": 3,
+      "cdc": 1
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "tourism": 2,
+      "cdc": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "Do I need a visa to visit Peru as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 10,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 3,
+      "cdc": 5
+    },
+    "new_sources": {
+      "cdc": 4,
+      "state_dept": 3,
+      "tourism": 1
+    },
+    "question_type": "visa",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Peru?",
+    "n_subqueries": 3,
+    "pool_size": 9,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 6,
+      "state_dept": 1,
+      "tourism": 1
+    },
+    "new_sources": {
+      "cdc": 6,
+      "tourism": 1,
+      "state_dept": 1
+    },
+    "question_type": "health",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "How safe is it to travel in Peru right now?",
+    "n_subqueries": 3,
+    "pool_size": 10,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 3,
+      "cdc": 4,
+      "tourism": 1
+    },
+    "new_sources": {
+      "cdc": 4,
+      "state_dept": 3,
+      "tourism": 1
+    },
+    "question_type": "safety",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What should I visit in Peru?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 3,
+      "cdc": 3,
+      "tourism": 2
+    },
+    "new_sources": {
+      "cdc": 3,
+      "state_dept": 3,
+      "tourism": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Morocco?",
+    "n_subqueries": 3,
+    "pool_size": 9,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 4,
+      "tourism": 3,
+      "state_dept": 1
+    },
+    "new_sources": {
+      "cdc": 4,
+      "tourism": 3,
+      "state_dept": 1
+    },
+    "question_type": "health",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "How safe is it to travel in Morocco right now?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 2,
+      "cdc": 4,
+      "tourism": 2
+    },
+    "new_sources": {
+      "state_dept": 2,
+      "tourism": 2,
+      "cdc": 4
+    },
+    "question_type": "safety",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What should I visit in Morocco?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 2,
+      "cdc": 3,
+      "tourism": 3
+    },
+    "new_sources": {
+      "state_dept": 2,
+      "cdc": 3,
+      "tourism": 3
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "rich"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Italy?",
+    "n_subqueries": 3,
+    "pool_size": 7,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 3
+    },
+    "new_sources": {
+      "cdc": 3,
+      "state_dept": 4
+    },
+    "question_type": "health",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "How safe is it to travel in Italy right now?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 8
+    },
+    "new_sources": {
+      "state_dept": 7,
+      "cdc": 1
+    },
+    "question_type": "safety",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What should I visit in Italy?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 3,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 7,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 6,
+      "cdc": 1,
+      "tourism": 1
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "Do I need a visa to visit India as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "question_type": "visa",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for India?",
+    "n_subqueries": 3,
+    "pool_size": 10,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 3
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "cdc": 4
+    },
+    "question_type": "health",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "How safe is it to travel in India right now?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 6,
+      "cdc": 1,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 6,
+      "cdc": 1,
+      "tourism": 1
+    },
+    "question_type": "safety",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What should I visit in India?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 6,
+      "tourism": 1,
+      "cdc": 1
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "tourism": 2,
+      "cdc": 1
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "Do I need a visa to visit Turkey as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 3
+    },
+    "new_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "question_type": "visa",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Turkey?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 4
+    },
+    "new_sources": {
+      "cdc": 4,
+      "state_dept": 4
+    },
+    "question_type": "health",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "How safe is it to travel in Turkey right now?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 4
+    },
+    "new_sources": {
+      "cdc": 4,
+      "state_dept": 2,
+      "tourism": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What should I visit in Turkey?",
+    "n_subqueries": 3,
+    "pool_size": 15,
+    "pool_capped": false,
+    "max_sublist_hits": 1,
+    "n_chunks_in_multiple_sublists": 0,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 3
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "cdc": 3,
+      "tourism": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "Do I need a visa to visit Vietnam as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 9,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 2,
+      "cdc": 5,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 2,
+      "cdc": 5,
+      "tourism": 1
+    },
+    "question_type": "visa",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Vietnam?",
+    "n_subqueries": 3,
+    "pool_size": 8,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 7,
+      "state_dept": 1
+    },
+    "new_sources": {
+      "cdc": 7,
+      "state_dept": 1
+    },
+    "question_type": "health",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "How safe is it to travel in Vietnam right now?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 4,
+      "state_dept": 1,
+      "tourism": 3
+    },
+    "new_sources": {
+      "cdc": 4,
+      "tourism": 3,
+      "state_dept": 1
+    },
+    "question_type": "safety",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What should I visit in Vietnam?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 1,
+      "tourism": 5,
+      "cdc": 2
+    },
+    "new_sources": {
+      "cdc": 4,
+      "tourism": 3,
+      "state_dept": 1
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "Do I need a visa to visit China as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "tourism": 1,
+      "cdc": 2
+    },
+    "new_sources": {
+      "cdc": 3,
+      "state_dept": 3,
+      "tourism": 2
+    },
+    "question_type": "visa",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for China?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 4
+    },
+    "new_sources": {
+      "cdc": 4,
+      "state_dept": 4
+    },
+    "question_type": "health",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "How safe is it to travel in China right now?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "tourism": 1,
+      "cdc": 3
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "tourism": 2,
+      "cdc": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What should I visit in China?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "tourism": 1,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "tourism": 1,
+      "cdc": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "Do I need a visa to visit Switzerland as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 10,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "question_type": "visa",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Switzerland?",
+    "n_subqueries": 3,
+    "pool_size": 8,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 3,
+      "state_dept": 5
+    },
+    "new_sources": {
+      "cdc": 3,
+      "state_dept": 5
+    },
+    "question_type": "health",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "How safe is it to travel in Switzerland right now?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "cdc": 2,
+      "tourism": 2
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "cdc": 2,
+      "tourism": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What should I visit in Switzerland?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "tourism": 2,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "tourism": 3,
+      "cdc": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "Do I need a visa to visit Jordan as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 8
+    },
+    "new_sources": {
+      "state_dept": 8
+    },
+    "question_type": "visa",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Jordan?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 3
+    },
+    "new_sources": {
+      "cdc": 3,
+      "state_dept": 5
+    },
+    "question_type": "health",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "How safe is it to travel in Jordan right now?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "cdc": 2,
+      "tourism": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "What should I visit in Jordan?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "tourism": 2,
+      "cdc": 1
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "tourism": 2,
+      "cdc": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "mid"
+  },
+  {
+    "question": "Do I need a visa to visit Canada as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 7,
+      "cdc": 1
+    },
+    "question_type": "visa",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Canada?",
+    "n_subqueries": 3,
+    "pool_size": 9,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 3
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "cdc": 3
+    },
+    "question_type": "health",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "How safe is it to travel in Canada right now?",
+    "n_subqueries": 3,
+    "pool_size": 10,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "question_type": "safety",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Thailand?",
+    "n_subqueries": 3,
+    "pool_size": 9,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 2,
+      "cdc": 6
+    },
+    "new_sources": {
+      "cdc": 6,
+      "state_dept": 2
+    },
+    "question_type": "health",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "How safe is it to travel in Thailand right now?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 2,
+      "cdc": 6
+    },
+    "new_sources": {
+      "state_dept": 2,
+      "cdc": 5,
+      "tourism": 1
+    },
+    "question_type": "safety",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What should I visit in Thailand?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 2,
+      "cdc": 5,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 2,
+      "cdc": 5,
+      "tourism": 1
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for United Arab Emirates?",
+    "n_subqueries": 3,
+    "pool_size": 8,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 2,
+      "cdc": 6
+    },
+    "new_sources": {
+      "cdc": 6,
+      "state_dept": 2
+    },
+    "question_type": "health",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "How safe is it to travel in United Arab Emirates right now?",
+    "n_subqueries": 3,
+    "pool_size": 8,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 2,
+      "cdc": 4,
+      "tourism": 2
+    },
+    "new_sources": {
+      "state_dept": 2,
+      "cdc": 4,
+      "tourism": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What should I visit in United Arab Emirates?",
+    "n_subqueries": 3,
+    "pool_size": 9,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 2,
+      "cdc": 4,
+      "tourism": 2
+    },
+    "new_sources": {
+      "state_dept": 2,
+      "cdc": 4,
+      "tourism": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Norway?",
+    "n_subqueries": 3,
+    "pool_size": 7,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 5,
+      "state_dept": 1,
+      "tourism": 1
+    },
+    "new_sources": {
+      "cdc": 5,
+      "state_dept": 1,
+      "tourism": 1
+    },
+    "question_type": "health",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "How safe is it to travel in Norway right now?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 5,
+      "state_dept": 1,
+      "tourism": 2
+    },
+    "new_sources": {
+      "cdc": 4,
+      "state_dept": 1,
+      "tourism": 3
+    },
+    "question_type": "safety",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What should I visit in Norway?",
+    "n_subqueries": 3,
+    "pool_size": 10,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "tourism": 5,
+      "cdc": 2,
+      "state_dept": 1
+    },
+    "new_sources": {
+      "cdc": 3,
+      "tourism": 4,
+      "state_dept": 1
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for Brazil?",
+    "n_subqueries": 3,
+    "pool_size": 8,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 5,
+      "state_dept": 3
+    },
+    "new_sources": {
+      "cdc": 5,
+      "state_dept": 3
+    },
+    "question_type": "health",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "How safe is it to travel in Brazil right now?",
+    "n_subqueries": 3,
+    "pool_size": 10,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 3,
+      "cdc": 5
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "cdc": 5
+    },
+    "question_type": "safety",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What should I visit in Brazil?",
+    "n_subqueries": 3,
+    "pool_size": 11,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 3,
+      "cdc": 5
+    },
+    "new_sources": {
+      "cdc": 5,
+      "state_dept": 3
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "Do I need a visa to visit France as a US citizen?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 2,
+      "state_dept": 6
+    },
+    "new_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "question_type": "visa",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What vaccinations or health precautions do I need for France?",
+    "n_subqueries": 3,
+    "pool_size": 10,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 3,
+    "set_changed": true,
+    "n_swapped": 1,
+    "order_changed": true,
+    "old_sources": {
+      "cdc": 6,
+      "state_dept": 2
+    },
+    "new_sources": {
+      "cdc": 6,
+      "state_dept": 2
+    },
+    "question_type": "health",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "How safe is it to travel in France right now?",
+    "n_subqueries": 3,
+    "pool_size": 12,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 2,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 6,
+      "cdc": 2
+    },
+    "question_type": "safety",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What should I visit in France?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 5,
+      "cdc": 2,
+      "tourism": 1
+    },
+    "new_sources": {
+      "state_dept": 4,
+      "cdc": 2,
+      "tourism": 2
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What should I visit in United States?",
+    "n_subqueries": 3,
+    "pool_size": 4,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 4,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": false,
+    "old_sources": {
+      "cdc": 1,
+      "tourism": 3
+    },
+    "new_sources": {
+      "cdc": 1,
+      "tourism": 3
+    },
+    "question_type": "what_to_visit",
+    "corpus_tier": "thin"
+  },
+  {
+    "question": "What is the current price of a 7-day rail pass in Japan?",
+    "n_subqueries": 3,
+    "pool_size": 14,
+    "pool_capped": false,
+    "max_sublist_hits": 2,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 2,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 4,
+      "tourism": 1,
+      "cdc": 3
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "tourism": 3,
+      "cdc": 2
+    },
+    "question_type": "unanswerable",
+    "corpus_tier": "n/a"
+  },
+  {
+    "question": "What was the average rainfall in Norway in March 2019?",
+    "n_subqueries": 3,
+    "pool_size": 6,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 5,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "tourism": 4,
+      "cdc": 1,
+      "state_dept": 1
+    },
+    "new_sources": {
+      "tourism": 4,
+      "cdc": 1,
+      "state_dept": 1
+    },
+    "question_type": "unanswerable",
+    "corpus_tier": "n/a"
+  },
+  {
+    "question": "How much does a tourist visa to Brazil cost in US dollars?",
+    "n_subqueries": 3,
+    "pool_size": 7,
+    "pool_capped": true,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 6,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 3,
+      "tourism": 2,
+      "cdc": 2
+    },
+    "new_sources": {
+      "state_dept": 3,
+      "tourism": 2,
+      "cdc": 2
+    },
+    "question_type": "unanswerable",
+    "corpus_tier": "n/a"
+  },
+  {
+    "question": "What time does the Louvre close on Tuesdays?",
+    "n_subqueries": 1,
+    "pool_size": 5,
+    "pool_capped": true,
+    "max_sublist_hits": 1,
+    "n_chunks_in_multiple_sublists": 0,
+    "set_changed": false,
+    "n_swapped": 0,
+    "order_changed": false,
+    "old_sources": {
+      "tourism": 2,
+      "state_dept": 3
+    },
+    "new_sources": {
+      "tourism": 2,
+      "state_dept": 3
+    },
+    "question_type": "unanswerable",
+    "corpus_tier": "n/a"
+  },
+  {
+    "question": "Which airlines fly direct from Chicago to Singapore?",
+    "n_subqueries": 3,
+    "pool_size": 13,
+    "pool_capped": false,
+    "max_sublist_hits": 3,
+    "n_chunks_in_multiple_sublists": 1,
+    "set_changed": true,
+    "n_swapped": 3,
+    "order_changed": true,
+    "old_sources": {
+      "state_dept": 3,
+      "tourism": 4,
+      "cdc": 1
+    },
+    "new_sources": {
+      "state_dept": 2,
+      "tourism": 5,
+      "cdc": 1
+    },
+    "question_type": "unanswerable",
+    "corpus_tier": "n/a"
+  }
+]

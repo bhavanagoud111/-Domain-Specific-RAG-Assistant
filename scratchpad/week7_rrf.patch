@@ -1,0 +1,93 @@
+diff --git a/graph/wanderrag_graph.py b/graph/wanderrag_graph.py
+index e681c35..ad02ad3 100644
+--- a/graph/wanderrag_graph.py
++++ b/graph/wanderrag_graph.py
+@@ -69,6 +69,7 @@ GEN_MODEL = "openai/gpt-4o"          # generate (stronger)
+ EMBED_MODEL = settings.EMBEDDING_MODEL  # openai/text-embedding-3-large
+ TOP_K = 5
+ MAX_RETRIES = 2  # self_check may bounce back to rewrite at most twice
++RRF_K = 60  # Reciprocal Rank Fusion damping constant (Cormack et al. 2009 default)
+ 
+ COST_LOG = settings.LOGS_DIR / "week3_cost_log.json"
+ 
+@@ -337,15 +338,54 @@ def retrieve_node(state: GraphState) -> dict[str, Any]:
+         Filter(must=[FieldCondition(key="country", match=MatchValue(value=country))])
+         if country else None
+     )
++    # ------------------------------------------------------------------ #
++    # MERGE = RECIPROCAL RANK FUSION  (Week 7)
++    #
++    # WHY. Until Week 7 this merge sorted the union of the per-sub-query hit lists by RAW
++    # COSINE SCORE. Week 6 established that as the binding constraint on precision: cosine
++    # scores are NOT comparable across sub-queries, because each sub-query induces its own
++    # score scale. The rewriter emits source-oriented sub-queries ("Singapore travel
++    # advisories"), and a page-furniture chunk -- the header "Singapore Travel Advisory |
++    # Travel.State.gov" -- scores 0.761 against its OWN sub-query, above EVERY genuine
++    # Singapore tourism chunk (0.576-0.681) against theirs. Score-sorting therefore hands
++    # the whole retrieval window to whichever sub-query happens to run hottest, which is
++    # reliably the one matching boilerplate. Week 6 confirmed the diagnosis the hard way:
++    # ADDING the raw question as a 4th sub-query moved precision 44.2% -> 44.2%, because
++    # widening the candidate pool cannot fix a ranking that mis-orders it.
++    #
++    # RRF replaces the incomparable absolute score with each chunk's RANK WITHIN ITS OWN
++    # sublist, which is scale-free by construction:
++    #
++    #       rrf(chunk) = sum over sublists of  1 / (RRF_K + rank_in_that_sublist)
++    #
++    # A chunk that only one sub-query likes, however hot its cosine, contributes a single
++    # term; a chunk several sub-queries independently rank highly accumulates several. So
++    # cross-sub-query AGREEMENT, not raw score, decides the window.
++    #
++    # ON TIES AND THE TIE-BREAK. With TOP_K=5 and 1-3 sub-queries the fused pool holds at
++    # most 15 chunks and the RRF lattice is coarse -- every chunk found once at rank r
++    # scores exactly 1/(60+r), so ties are the COMMON case, not the edge case. Cosine is
++    # the tie-break, which means this change does not discard the cosine signal: it
++    # demotes it to a within-rank ordering and lets rank agreement decide across ranks.
++    # Stated plainly so the effect size is not over-attributed to RRF itself.
++    #
++    # UNCHANGED, deliberately: TOP_K, the +3 window, the country filter, chunking, the
++    # gate, MAX_RETRIES. "score" still carries the max cosine, because the UI renders it
++    # on citations and the eval reads it -- fusion changes the ORDER, not that field.
++    # ------------------------------------------------------------------ #
+     merged: dict[str, dict] = {}
++    rrf: dict[str, float] = {}
++    n_hit: dict[str, int] = {}   # how many sublists ranked this chunk (diagnostic only)
+     for sub in subs:
+         vec = _embed("retrieve", sub)
+         hits = _QDRANT.query_points(
+             collection_name=settings.QDRANT_COLLECTION,
+             query=vec, query_filter=qfilter, limit=TOP_K, with_payload=True,
+         ).points
+-        for h in hits:
++        for rank, h in enumerate(hits, start=1):
+             pid = str(h.id)
++            rrf[pid] = rrf.get(pid, 0.0) + 1.0 / (RRF_K + rank)
++            n_hit[pid] = n_hit.get(pid, 0) + 1
+             if pid not in merged or h.score > merged[pid]["score"]:
+                 p = h.payload or {}
+                 merged[pid] = {
+@@ -356,14 +396,22 @@ def retrieve_node(state: GraphState) -> dict[str, Any]:
+                     # for the UI. Nothing in retrieval, ranking or the gate reads it.
+                     "scrape_date": p.get("scrape_date"),
+                 }
+-    chunks = sorted(merged.values(), key=lambda c: c["score"], reverse=True)[: TOP_K + 3]
++    for pid, c in merged.items():
++        c["rrf_score"] = rrf[pid]
++        c["n_subqueries_hit"] = n_hit[pid]
++    chunks = sorted(
++        merged.values(),
++        key=lambda c: (c["rrf_score"], c["score"]),  # cosine breaks the frequent RRF ties
++        reverse=True,
++    )[: TOP_K + 3]
+ 
+     return {
+         "retrieved_chunks": chunks,
+         "trace": [{
+             "node": "retrieve", "country_filter": country, "n_subqueries": len(subs),
+-            "n_chunks": len(chunks),
++            "n_chunks": len(chunks), "merge": "rrf", "rrf_k": RRF_K,
+             "top_scores": [round(c["score"], 3) for c in chunks[:5]],
++            "top_rrf": [round(c["rrf_score"], 5) for c in chunks[:5]],
+             "sources": sorted({f"{c['country']}/{c['source_type']}" for c in chunks}),
+         }],
+     }
