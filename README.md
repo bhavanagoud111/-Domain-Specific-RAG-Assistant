@@ -95,14 +95,50 @@ python run_pipeline.py --all                             # then all 50
 ```
 
 Ingestion **scrapes live** US State Dept, CDC and tourism-board pages, then embeds the
-chunks. Budget for it:
+chunks. Measured on a fresh clone on **2026-07-23** (3 countries — Greece, Italy, France):
 
-- **Time** — a few minutes for 3 countries; roughly 30–60 min for all 50 (live HTTP plus
-  the occasional headless-Chrome fallback).
-- **Cost** — all 50 is roughly **$0.30** in embeddings (`text-embedding-3-large` at
-  $0.13/1M tokens); live spend is logged per batch to `logs/embed_cost_log.json`.
-- Per-source scrape failures are counted and printed in the run summary rather than
-  aborting the pipeline.
+- **Time** — 3 countries in **~25 s**; extrapolated **~10–20 min for all 50** (live HTTP
+  plus headless-Chrome fallbacks on JS-heavy tourism boards). Chrome/Chromium must be
+  installed for the Selenium fallback.
+- **Cost** — the 3-country run embedded 101 chunks / 50 k tokens for **~$0.007**. A full
+  50-country build is **~$0.11–0.15** in embeddings (`text-embedding-3-large` at
+  $0.13/1M tokens) — lower than an earlier $0.30 guess. Live spend is logged per batch to
+  `logs/embed_cost_log.json`.
+- Per-source scrape failures are **counted and printed in the run summary** rather than
+  aborting the pipeline, so a rebuild always completes with whatever it could reach.
+
+#### ⚠️ Source availability — a fresh rebuild does NOT reproduce the frozen corpus (as of 2026-07-23)
+
+The **2,319-chunk frozen corpus was scraped on 2026-06-28**, before several sources locked
+down. A rebuild today is **incomplete**. Verified by a fresh-clone ingestion test:
+
+| Source | Status today | Effect on a rebuild |
+|---|---|---|
+| **US State Dept** (`travel.state.gov`) | **BROKEN** — the whole domain is now behind a Cloudflare "Just a moment…" bot challenge; plain requests get **HTTP 403** and even headless Chrome only captures the challenge page. | **0 advisory chunks for all 50 countries** — the entire visa/entry/safety backbone (**626 of 2,319 chunks, ~27%**) is missing. |
+| **CDC** (`wwwnc.cdc.gov`) | **Healthy** — reproduced the frozen per-country counts exactly. | Full. |
+| **Tourism — Wikivoyage** (17 countries) | **Healthy** — 17/17 return 200; Greece reproduced its 53 chunks exactly. | Full. |
+| **Tourism — official boards** (33 countries) | **Mostly OK** — 26/33 return 200; **7 fail** (403/406): Norway, Thailand, Malaysia, United States, Brazil, UAE, Switzerland. | Those 7 countries get **0 tourism chunks**. |
+
+**Bottom line:** cloning and rebuilding gives you a working system for **CDC + Wikivoyage +
+26 official-board tourism sources**, but with **no State Dept advisories** and 7 missing
+tourism sources. The committed evaluation numbers were all measured against the **frozen**
+corpus, which captured the State Dept content before the lockdown. Treat the frozen corpus
+as the corpus of record; a from-scratch rebuild is a partial, best-effort refresh.
+
+#### What to do if a source fails
+
+- **A 403 / "Just a moment…" page (State Dept, and the 7 tourism boards above):** the host
+  is blocking automated access. There is no clean fix from this repo — options are a
+  Cloudflare-aware fetcher (e.g. `cloudscraper`, `undetected-chromedriver`) or a manual
+  save of the page HTML into `raw_html/`. The pipeline will simply record the failure and
+  continue.
+- **A thin / JS-only page (200 but little text):** the scraper already retries via headless
+  Chrome (needs Chrome/Chromium installed). Confirm Chrome is present if tourism boards
+  come back nearly empty.
+- **A timeout:** raise `REQUEST_TIMEOUT` in `.env` and re-run just that country with
+  `--countries <Name> --force`.
+- **Check what actually landed:** the run summary lists every failure by
+  `source:country`, and `logs/scrape_log.json` records per-source detail.
 
 ## Running it
 

@@ -264,3 +264,75 @@ Private helpers `_chat`, `_embed`, `_detect_country`, `_route_after_check`, `_pr
 `main` (graph test harness), and `build_graph` in `graph/wanderrag_graph.py`. These are not
 the "main entry points" the task named, and adding docstrings to them would widen the diff
 without touching a rubric-visible surface. Reported here for completeness.
+
+---
+
+## PART 4 — Ingestion-from-scratch test (2026-07-23)
+
+The Part 2 fresh-clone test connected to the **existing** populated Qdrant volume, so
+ingestion-from-scratch was unverified. This part tests the path a real stranger hits: an
+**empty** collection that must be built by `run_pipeline.py`.
+
+**Isolation (frozen corpus protected):** fresh clone with `.env` set to
+`QDRANT_COLLECTION=wanderrag_temp_ingest_test`. Every scrape/embed/upsert keyed off that
+temp name; `wanderrag_chunks` was never written. Verified **2,319 before and after**, and
+the temp collection was **deleted** afterwards (only `wanderrag_chunks` remains).
+
+**Countries (one per criterion, spanning all three tiers):** Greece (Wikivoyage, rich),
+Italy (official board, mid), France (official board, thin).
+
+### Measured result — 3 countries
+
+| Metric | Value |
+|---|---|
+| Wall-clock (`/usr/bin/time -p`) | **23.4 s** |
+| Chunks ingested | **101** (state_dept **0**, cdc 27, tourism 74) |
+| Embedding tokens / cost | 50,301 tok / **$0.0065** |
+| Scrape failures | **3** — `state_dept:Greece`, `state_dept:Italy`, `state_dept:France` |
+
+CDC (27) and tourism (74) **reproduced the frozen per-country counts exactly** (Greece
+tourism 53, Italy 19, France 2; cdc 9 each). The only shortfall vs frozen (149 → 101) is
+the 48 missing State Dept chunks.
+
+### Root cause of the State Dept failure — source rot since June 28
+
+- Plain `requests` → **HTTP 403** for every travel.state.gov URL, **including the domain
+  root** (a 5,471-byte WAF page). Not URL/slug rot — the whole domain is gated.
+- A browser User-Agent still gets **403** (not a UA block).
+- Headless Chrome (the Selenium fallback) returns a **27.5 KB page titled "Just a
+  moment…"** — a **Cloudflare bot challenge** ("Performing security verification… protect
+  against malicious bots"). The advisory text never loads before capture.
+- The scraper's Selenium fallback is gated on a *successful-but-empty* fetch
+  (`state_dept_scraper.py:79`); a 403 returns `html=None` at line 74, so Selenium is never
+  even attempted — and would hit the same challenge if it were.
+
+**Conclusion:** travel.state.gov was locked behind Cloudflare sometime after the
+2026-06-28 scrape. State Dept ingestion is **dead** for a fresh rebuild with the current
+scraper.
+
+### Source-availability sweep (all 50 tourism URLs + State Dept, browser UA, follow redirects)
+
+| Source group | Healthy today | Failing today |
+|---|---|---|
+| State Dept (all 50) | 0 | **50 — domain-wide 403 / Cloudflare** |
+| CDC (all 50) | 50 | 0 |
+| Tourism — Wikivoyage (17) | **17 / 17** (200) | 0 |
+| Tourism — official boards (33) | 26 (200) | **7** — Norway, Thailand, Malaysia, United States, Brazil, UAE (403); Switzerland (406) |
+
+### Honest extrapolation to all 50
+
+- **Time:** ~10–20 min (linear ≈ 7 min from the 3-country run, plus headless-Chrome
+  fallbacks on JS-heavy boards; my 3-country run happened to trigger none).
+- **Cost:** **~$0.11 today** (State-Dept-less, ~1,660 chunks) or **~$0.15** for a
+  hypothetical full 2,319-chunk corpus — both **below** the README's old $0.30 guess.
+- **Sources at risk:** **State Dept = 100% down** (27% of the corpus, the visa/safety
+  backbone). **7 of 33 official tourism boards down** (~21%). Wikivoyage and CDC solid.
+
+### Answer to "does clone-and-rebuild actually work?"
+
+**No, not fully — and you should not claim it does.** A rebuild today yields a working
+system over CDC + Wikivoyage + 26 official-board tourism sources, but with **zero State
+Dept advisories** and 7 missing tourism sources. The frozen 2,319-chunk corpus is the
+corpus of record precisely because it captured travel.state.gov **before** the Cloudflare
+lockdown. README updated with the measured runtime/cost, the Chrome/Selenium requirement,
+a source-availability table, and a "what to do if a source fails" guide.
