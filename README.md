@@ -254,8 +254,8 @@ blinded by `anthropic/claude-sonnet-4.5`. Full write-up in [`logs/week6.md`](log
 | correct-country retrieved | **100%** |
 
 Retrieval precision is read against the corpus's own measured **79.9% ceiling** (the best
-any reranker could do at this window over these relevant-chunk sets; see
-[`logs/week7_feasibility.md`](logs/week7_feasibility.md)) — so 52.5% is ~66% of what is
+any retrieval could do at a window of 8, given how many relevant chunks exist per question;
+see [`logs/week7_feasibility.md`](logs/week7_feasibility.md)) — so 52.5% is ~66% of what is
 achievable, not of a hypothetical 100%.
 
 ## Known limitations
@@ -306,6 +306,10 @@ scratchpad/   one-off audit/probe/fix scripts (not part of the pipeline)
 app.py        Gradio chat UI          query.py  retrieval spot-check
 run_pipeline.py  end-to-end ingestion orchestrator
 logs/         weekly investigation write-ups (week4–week8) + machine cost/scrape logs
+docker-compose.yml   Qdrant service definition (named volume for persistence)
+requirements.txt     pinned deps (see the gradio / huggingface_hub notes inside)
+tourism_sources.csv  per-country tourism URL + source-type tags
+.env.example         template for the one required secret
 DATA_SOURCES.md  source URLs, slug quirks, and per-country source notes
 ```
 
@@ -318,3 +322,12 @@ it**; the repo's `.gitignore` keeps it *out* of the ignore list on purpose), `as
 
 See [`DATA_SOURCES.md`](DATA_SOURCES.md) for source URLs and slug quirks, and
 [`logs/week6.md`](logs/week6.md) for the corpus repair, the freeze, and the full evaluation.
+
+## Data and licensing
+
+US State Dept and CDC content is US Government work in the **public domain**; Wikivoyage
+content (17 countries) is **CC BY-SA** and attributed in
+[`DATA_SOURCES.md`](DATA_SOURCES.md); tourism-board content is **quoted from public pages
+for academic use** and is not redistributed as a standalone dataset; and the country photos
+are openly licensed with per-image credits and licences in
+[`assets/countries/manifest.json`](assets/countries/manifest.json).

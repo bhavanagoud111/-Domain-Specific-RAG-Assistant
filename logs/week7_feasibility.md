@@ -171,7 +171,8 @@ not *break* the gate; it does not establish that answer quality holds.
 * Every free or cheap config projects to **56–61%** calibrated.
 * The only config touching the band (66.3%) assumes a **perfect** reranker. Discounted by the
   factor this project has already measured on itself, it gives **57–59%**.
-* The corpus ceiling is **79.9%**, and C1 already captures **70.2%** of it. The remaining
+* The corpus ceiling is **79.9%**. Relative to it, C1 captures **65.7%** as the aggregate
+  ratio (52.5 / 79.9) and **70.2%** as the mean of per-question ratios. The remaining
   headroom is smaller than the target implies.
 
 ### Why D2's gain is not what it looks like
