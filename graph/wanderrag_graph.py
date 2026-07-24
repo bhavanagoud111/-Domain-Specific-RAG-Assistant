@@ -61,8 +61,10 @@ from config.countries import names as country_names
 from scraping.common import utc_now_iso
 
 # --------------------------------------------------------------------------- #
-# Models (constrained to what the dev OpenRouter key can actually reach:
-# only openai/* endpoints resolve on this account — gemini/claude 404).
+# Models. Generation and embeddings use openai/* models (below). A re-probe in
+# Week 6 confirmed anthropic/claude-sonnet-4.5 DOES resolve on this key; it is
+# used as the blinded evaluation judge in evaluation/, deliberately a different
+# model family from the generator it grades.
 # --------------------------------------------------------------------------- #
 FAST_MODEL = "openai/gpt-4o-mini"   # rewrite + self_check (cheap/fast)
 GEN_MODEL = "openai/gpt-4o"          # generate (stronger)

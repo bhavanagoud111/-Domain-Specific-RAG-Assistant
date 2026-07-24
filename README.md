@@ -56,9 +56,11 @@ pip install -r requirements.txt
 
 ### 2. Get an OpenRouter API key
 
-WanderRAG calls **OpenRouter** for _both_ embeddings and generation (this project uses
-only `openai/*` models — embeddings via `text-embedding-3-large`, answers via `gpt-4o` /
-`gpt-4o-mini`). You need a key with credit:
+WanderRAG calls **OpenRouter** for embeddings and generation, both on `openai/*` models —
+embeddings via `text-embedding-3-large`, answers via `gpt-4o` / `gpt-4o-mini`. The
+**evaluation harness** deliberately judges with a *different* model family,
+`anthropic/claude-sonnet-4.5` (blinded), so the grader is never scoring its own generator's
+output. You need a key with credit:
 
 1. Sign up at <https://openrouter.ai>, then create a key at <https://openrouter.ai/keys>
    (it looks like `sk-or-...`).
@@ -222,6 +224,40 @@ aggregate number:
 Range: Japan 138 chunks → United States 4. Per-country table in
 [`logs/week6_corpus_frozen.md`](logs/week6_corpus_frozen.md).
 
+## Advanced capability
+
+Beyond a baseline "embed → retrieve → generate" RAG, WanderRAG adds a measured
+**abstention** capability and the harness to prove it works:
+
+- **Citation-resolution gate + abstention** — the named optional extension of Track 1.
+  `generate` emits inline `[n]` markers that are bounds-checked against the retrieved
+  chunks; `self_check_node` ([`graph/wanderrag_graph.py`](graph/wanderrag_graph.py))
+  then passes on ≥1 resolved citation and *refuses* (LOW CONFIDENCE) on 0, rather than
+  guessing. Measured **98.9% gate correctness** (see [Results](#results)).
+- **Country gallery UI** — [`app.py`](app.py) opens on a scrolling gallery of all 50
+  countries (region chips, search, photos, live source counts); picking one scopes the
+  chat to that country and surfaces every citation with its source, scrape date and score.
+- **Evaluation harness** — [`evaluation/`](evaluation/) builds a Q/A set from the corpus
+  and scores retrieval precision, faithfulness, and the gate with a blinded
+  cross-family judge (`anthropic/claude-sonnet-4.5`).
+
+## Results
+
+Measured over the frozen 2,319-point corpus — **91 questions / 141 graph runs**, judged
+blinded by `anthropic/claude-sonnet-4.5`. Full write-up in [`logs/week6.md`](logs/week6.md).
+
+| metric | value |
+|---|---|
+| retrieval precision | **52.5%** (baseline 44.2%) |
+| faithfulness | **86.6%** |
+| gate correctness | **98.9%** |
+| correct-country retrieved | **100%** |
+
+Retrieval precision is read against the corpus's own measured **79.9% ceiling** (the best
+any reranker could do at this window over these relevant-chunk sets; see
+[`logs/week7_feasibility.md`](logs/week7_feasibility.md)) — so 52.5% is ~66% of what is
+achievable, not of a hypothetical 100%.
+
 ## Known limitations
 
 - **Thin countries answer poorly, by design of the data rather than the code.** 19 of 50
@@ -237,6 +273,14 @@ Range: Japan 138 chunks → United States 4. Per-country table in
   district names) flip between passing and refusing across runs at `temperature=0.3`. The
   UAE passed 3/3 in Week 5 and failed 3/4 in Week 6 with an **unchanged corpus and
   unchanged code**. Single-sample scores for such countries carry real variance.
+- **The cleaner deletes standalone place names.** `processing/cleaner.py`'s
+  repeated-short-line rule drops any short line that recurs ≥3×, which strips genuine
+  navigation chrome — but on tourism pages every destination is a link, so bare place
+  names get deleted document-wide. Measured across the cached tourism sources: **37 of 45
+  affected, 643 distinct content-like tokens removed**; Nepal loses *Everest, Lumbini and
+  Annapurna* to **0** occurrences. This is not fixed because rechunking would change the
+  corpus and break the freeze every reported number is measured against. Full analysis in
+  [`logs/week6.md`](logs/week6.md).
 - **Point-in-time snapshot.** Every chunk was scraped on a fixed date and is never
   refreshed. Travel advisories, entry rules and health notices change frequently; treat
   answers as "what these sources said when scraped", not current guidance. Chunks carry a
@@ -256,12 +300,21 @@ embedding/    embed_and_load.py (batch embed + cost log + upsert)
 storage/      qdrant_setup.py (collection + payload indexes)
 graph/        wanderrag_graph.py (the LangGraph pipeline + citation gate)
 evaluation/   build_eval_set.py · run_eval.py · verify_judge.py · eval_set.json
+scraped_data/ cleaned per-source JSON (state_dept · cdc · tourism) — the frozen corpus
+assets/       hero.jpg · countries/ (50 photos + manifest.json with credits/licences)
+scratchpad/   one-off audit/probe/fix scripts (not part of the pipeline)
 app.py        Gradio chat UI          query.py  retrieval spot-check
 run_pipeline.py  end-to-end ingestion orchestrator
-logs/         weekly investigation write-ups (week3–week6) + machine cost/scrape logs
+logs/         weekly investigation write-ups (week4–week8) + machine cost/scrape logs
+DATA_SOURCES.md  source URLs, slug quirks, and per-country source notes
 ```
 
-Gitignored working dirs, created on demand: `raw_html/`, `scraped_data/`, `logs/*.json`.
+**Committed** (present in a fresh clone): `scraped_data/` (4.9 MB — **Path A depends on
+it**; the repo's `.gitignore` keeps it *out* of the ignore list on purpose), `assets/`,
+`scratchpad/`, `evaluation/*.json`, all `logs/*.md`, and `DATA_SOURCES.md`.
+
+**Created on demand** (gitignored): `raw_html/` (cached HTML, ~62 MB), `logs/*.json`
+(machine cost/scrape logs), and `scratchpad/corpus_dump.json`.
 
 See [`DATA_SOURCES.md`](DATA_SOURCES.md) for source URLs and slug quirks, and
 [`logs/week6.md`](logs/week6.md) for the corpus repair, the freeze, and the full evaluation.
